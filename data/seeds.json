@@ -19,7 +19,8 @@
     "durationMinutes": 30,
     "address": "Бульвар Нуржол, 14",
     "openingHours": "Ежедневно 10:00–21:00 · по Visit Astana, уточните перед визитом",
-    "editorialSource": "https://visitastana.kz/en/map/"
+    "editorialSource": "https://visitastana.kz/en/map/",
+    "estimatedCostKzt": null
   },
   {
     "id": "nurzhol",
@@ -40,7 +41,11 @@
     "bank": "left",
     "durationMinutes": 25,
     "address": "Бульвар Нуржол",
-    "editorialSource": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/"
+    "editorialSource": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/",
+    "estimatedCostKzt": 0,
+    "budgetScope": "exterior-only",
+    "costEstimateBasis": "editorial-exterior",
+    "costSourceUrl": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/"
   },
   {
     "id": "khan-shatyr",
@@ -54,7 +59,8 @@
       "coffee",
       "photo",
       "тепло",
-      "шопинг"
+      "шопинг",
+      "food"
     ],
     "category": "Торговый центр",
     "indoor": true,
@@ -62,7 +68,8 @@
     "durationMinutes": 40,
     "address": "Проспект Туран, 37",
     "openingHours": "Ежедневно 10:00–22:00 · по Visit Astana, уточните перед визитом",
-    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/trts-khan-shatyr/"
+    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/trts-khan-shatyr/",
+    "estimatedCostKzt": null
   },
   {
     "id": "mega-silk-way",
@@ -76,7 +83,8 @@
       "coffee",
       "тепло",
       "кино",
-      "экспо"
+      "экспо",
+      "food"
     ],
     "category": "Торговый центр",
     "indoor": true,
@@ -84,7 +92,8 @@
     "durationMinutes": 40,
     "address": "Проспект Кабанбай батыра, 62",
     "openingHours": "Ежедневно 10:00–22:00 · по MEGA, уточните перед визитом",
-    "editorialSource": "https://mega.kz/Tenant/MEGA-Silk-Way"
+    "editorialSource": "https://mega.kz/Tenant/MEGA-Silk-Way",
+    "estimatedCostKzt": null
   },
   {
     "id": "nur-alem",
@@ -106,7 +115,8 @@
     "durationMinutes": 50,
     "address": "Проспект Мәңгілік Ел, 55/13",
     "editorialSource": "https://qazexpocongress.kz/ru/nur-alem/",
-    "openingHours": null
+    "openingHours": null,
+    "estimatedCostKzt": null
   },
   {
     "id": "national-museum",
@@ -128,7 +138,8 @@
     "durationMinutes": 60,
     "address": "Проспект Тәуелсіздік, 54",
     "openingHours": "Вт–Вс 10:00–18:00; Пн и последний Вт месяца — выходной · уточните перед визитом",
-    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/natsionalnyy-muzey-respubliki-kazakhstan/"
+    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/natsionalnyy-muzey-respubliki-kazakhstan/",
+    "estimatedCostKzt": null
   },
   {
     "id": "botanical-garden",
@@ -150,7 +161,8 @@
     "bank": "left",
     "durationMinutes": 40,
     "address": "Улица Орынбор, 14Д",
-    "editorialSource": "https://visitastana.kz/en/map/"
+    "editorialSource": "https://visitastana.kz/en/map/",
+    "estimatedCostKzt": null
   },
   {
     "id": "astana-opera",
@@ -171,7 +183,8 @@
     "bank": "left",
     "durationMinutes": 45,
     "address": "Улица Дінмұхамед Қонаев, 1",
-    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/teatr-opery-i-baleta-astana-opera/"
+    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/teatr-opery-i-baleta-astana-opera/",
+    "estimatedCostKzt": null
   },
   {
     "id": "astana-ballet",
@@ -191,7 +204,8 @@
     "bank": "left",
     "durationMinutes": 45,
     "address": "Проспект Ұлы Дала, 9",
-    "editorialSource": "https://visitastana.kz/ru/map/"
+    "editorialSource": "https://visitastana.kz/ru/map/",
+    "estimatedCostKzt": null
   },
   {
     "id": "peace-palace",
@@ -211,7 +225,8 @@
     "bank": "left",
     "durationMinutes": 40,
     "address": "Проспект Тәуелсіздік, 57",
-    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/natsionalnyy-muzey-respubliki-kazakhstan/"
+    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/natsionalnyy-muzey-respubliki-kazakhstan/",
+    "estimatedCostKzt": null
   },
   {
     "id": "hazret-sultan",
@@ -231,7 +246,8 @@
     "bank": "left",
     "durationMinutes": 30,
     "address": "Проспект Тәуелсіздік, 48",
-    "editorialSource": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/"
+    "editorialSource": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/",
+    "estimatedCostKzt": null
   },
   {
     "id": "grand-mosque",
@@ -250,7 +266,8 @@
     "bank": "left",
     "durationMinutes": 35,
     "address": "Проспект Мәңгілік Ел, 65",
-    "editorialSource": "https://visitastana.kz/ru/map/"
+    "editorialSource": "https://visitastana.kz/ru/map/",
+    "estimatedCostKzt": null
   },
   {
     "id": "triumphal-arch",
@@ -270,7 +287,11 @@
     "bank": "left",
     "durationMinutes": 20,
     "address": "Проспект Мәңгілік Ел",
-    "editorialSource": "https://visitastana.kz/ru/map/"
+    "editorialSource": "https://visitastana.kz/ru/map/",
+    "estimatedCostKzt": 0,
+    "budgetScope": "exterior-only",
+    "costEstimateBasis": "editorial-exterior",
+    "costSourceUrl": "https://visitastana.kz/ru/map/"
   },
   {
     "id": "central-park",
@@ -284,14 +305,16 @@
       "family",
       "photo",
       "парк",
-      "набережная"
+      "набережная",
+      "food"
     ],
     "category": "Парк",
     "indoor": false,
     "bank": "right",
     "durationMinutes": 35,
     "address": "Центральный парк, район Есиль",
-    "editorialSource": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/"
+    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/tsentralnyy-park/",
+    "estimatedCostKzt": null
   },
   {
     "id": "embankment",
@@ -313,7 +336,11 @@
     "bank": "right",
     "durationMinutes": 30,
     "address": "Набережная реки Есиль, у памятника Кенесары",
-    "editorialSource": "https://visitastana.kz/ru/map/"
+    "editorialSource": "https://visitastana.kz/ru/map/",
+    "estimatedCostKzt": 0,
+    "budgetScope": "exterior-only",
+    "costEstimateBasis": "editorial-exterior",
+    "costSourceUrl": "https://visitastana.kz/ru/map/"
   },
   {
     "id": "gorky-theatre",
@@ -334,7 +361,8 @@
     "bank": "right",
     "durationMinutes": 40,
     "address": "Улица Желтоқсан, 13",
-    "editorialSource": "https://visitastana.kz/ru/map/"
+    "editorialSource": "https://visitastana.kz/ru/map/",
+    "estimatedCostKzt": null
   },
   {
     "id": "kenesary",
@@ -354,7 +382,11 @@
     "bank": "right",
     "durationMinutes": 15,
     "address": "Набережная Есиля",
-    "editorialSource": "https://visitastana.kz/ru/map/"
+    "editorialSource": "https://visitastana.kz/ru/map/",
+    "estimatedCostKzt": 0,
+    "budgetScope": "exterior-only",
+    "costEstimateBasis": "editorial-exterior",
+    "costSourceUrl": "https://visitastana.kz/ru/map/"
   },
   {
     "id": "kazakh-eli",
@@ -374,7 +406,11 @@
     "bank": "left",
     "durationMinutes": 20,
     "address": "Площадь Независимости",
-    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/natsionalnyy-muzey-respubliki-kazakhstan/"
+    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/natsionalnyy-muzey-respubliki-kazakhstan/",
+    "estimatedCostKzt": 0,
+    "budgetScope": "exterior-only",
+    "costEstimateBasis": "editorial-exterior",
+    "costSourceUrl": "https://visitastana.kz/ru/about-city/what-to-see/natsionalnyy-muzey-respubliki-kazakhstan/"
   },
   {
     "id": "keruen",
@@ -387,14 +423,16 @@
       "coffee",
       "family",
       "тепло",
-      "шопинг"
+      "шопинг",
+      "food"
     ],
     "category": "Торговый центр",
     "indoor": true,
     "bank": "left",
     "durationMinutes": 30,
     "address": "Улица Достық, 9",
-    "editorialSource": "https://visitastana.kz/ru/history-and-culture/hospitality/"
+    "editorialSource": "https://visitastana.kz/ru/history-and-culture/hospitality/",
+    "estimatedCostKzt": null
   },
   {
     "id": "kubrin-house",
@@ -415,7 +453,11 @@
     "bank": "right",
     "durationMinutes": 15,
     "address": "Исторический центр, улица Кенесары",
-    "editorialSource": "https://visitastana.kz/ru/map/"
+    "editorialSource": "https://visitastana.kz/ru/map/",
+    "estimatedCostKzt": 0,
+    "budgetScope": "exterior-only",
+    "costEstimateBasis": "editorial-exterior",
+    "costSourceUrl": "https://visitastana.kz/ru/map/"
   },
   {
     "id": "kulanshi",
@@ -435,7 +477,8 @@
     "bank": "left",
     "durationMinutes": 35,
     "address": "Улица Достық, 8/1",
-    "editorialSource": "https://visitastana.kz/en/map/"
+    "editorialSource": "https://visitastana.kz/en/map/",
+    "estimatedCostKzt": null
   },
   {
     "id": "ulytau-alley",
@@ -455,7 +498,11 @@
     "bank": "left",
     "durationMinutes": 20,
     "address": "Улица Түркістан",
-    "editorialSource": "https://visitastana.kz/en/map/"
+    "editorialSource": "https://visitastana.kz/en/map/",
+    "estimatedCostKzt": 0,
+    "budgetScope": "exterior-only",
+    "costEstimateBasis": "editorial-exterior",
+    "costSourceUrl": "https://visitastana.kz/en/map/"
   },
   {
     "id": "discovery-coffee",
@@ -467,14 +514,16 @@
     "tags": [
       "coffee",
       "уют",
-      "правый берег"
+      "правый берег",
+      "food"
     ],
     "category": "Кофейня",
     "indoor": true,
     "bank": "right",
     "durationMinutes": 25,
     "address": "Улица Кенесары, 63",
-    "editorialSource": "https://visitastana.kz/public/file/gastro-guide-en.pdf"
+    "editorialSource": "https://visitastana.kz/public/file/gastro-guide-en.pdf",
+    "estimatedCostKzt": null
   },
   {
     "id": "bon-bon",
@@ -486,13 +535,15 @@
     "tags": [
       "coffee",
       "уют",
-      "левый берег"
+      "левый берег",
+      "food"
     ],
     "category": "Кофейня",
     "indoor": true,
     "bank": "left",
     "durationMinutes": 25,
     "address": "Улица Дінмұхамед Қонаев, 14/1",
-    "editorialSource": "https://visitastana.kz/public/file/gastro-guide-en.pdf"
+    "editorialSource": "https://visitastana.kz/public/file/gastro-guide-en.pdf",
+    "estimatedCostKzt": null
   }
 ]

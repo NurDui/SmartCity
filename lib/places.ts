@@ -14,6 +14,7 @@ export const places: POI[] = seeds.map((seed) => {
     collectedAt: fact?.collectedAt ?? "2026-10-17T20:57:27.700Z",
     openingHours: seed.openingHours ?? null,
     rating: null,
+    estimatedCostKzt: seed.estimatedCostKzt ?? null,
     sourceName: `${publisher} · описание; ${fact ? "Wikimedia · координаты" : "координаты ≈"}`,
     sourceUrl: seed.editorialSource,
     coordinateSourceUrl: fact?.sourceUrl,
@@ -30,6 +31,9 @@ export const places: POI[] = seeds.map((seed) => {
 });
 // Successful OSM refreshes can discover additional places beyond the initial seed list.
 for (const fact of collected as POI[]) {
-  if (!places.some((poi) => poi.id === fact.id)) places.push(fact);
+  if (!places.some((poi) => poi.id === fact.id)) {
+    const exterior = ["wiki-31388841","wiki-62815244","wiki-63707654","wiki-68030640"].includes(fact.id);
+    places.push({...fact,estimatedCostKzt:exterior?0:null,...(exterior?{budgetScope:"exterior-only" as const,costEstimateBasis:"editorial-exterior" as const,costSourceUrl:fact.sourceUrl}:{})});
+  }
 }
 export const collection = collectionReport;

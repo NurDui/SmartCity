@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-18",
+  "timezone": "Asia/Qyzylorda",
+  "status": "live",
+  "source": "Astana.kz · публичная городская афиша",
+  "updatedAt": "2026-10-17T22:01:12.021Z",
+  "retrievedAt": "2026-10-17T22:01:12.021Z",
+  "sourceUpdatedAt": null,
+  "items": [
+    {
+      "id": "astana:75b788cf-d908-4b76-9f43-c5a35e14d5fa",
+      "title": "ФК Астана - ФК Каспий",
+      "description": "Матч чемпионата Казахстана по футболу между ФК «Астана» и ФК «Каспий».",
+      "imageUrl": "https://astana.kz/_media/event/Files/Download/1d37471a-1919-46bf-920d-cd8003d51759",
+      "startsAt": "2026-10-18T14:00:00.000Z",
+      "endsAt": "2026-10-18T16:00:00.000Z",
+      "venue": "Астана Арена",
+      "address": "Астана Арена, Астана",
+      "lat": 51.10806,
+      "lon": 71.40167,
+      "distanceMeters": 3020,
+      "priceKzt": 770,
+      "priceIsFrom": true,
+      "sourceUrl": "https://astana.kz/ru/events/e68bac9a-73d2-467c-a0bf-0e23d3690b1e",
+      "bookingUrl": "https://astana.kz/ru/events/e68bac9a-73d2-467c-a0bf-0e23d3690b1e",
+      "category": "Спорт",
+      "updatedAt": "2026-10-17T22:01:12.021Z",
+      "coordinateSourceUrl": "https://ru.wikipedia.org/wiki/%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0_%D0%90%D1%80%D0%B5%D0%BD%D0%B0"
+    }
+  ],
+  "message": "Публичные страницы получены сейчас. Время обновления издателем неизвестно. Цена указана от минимальной, наличие уточняйте у организатора. Координаты площадки из Википедии, не точка входа."
+}

@@ -1,4 +1,6 @@
 export type Mood = "any" | "culture" | "nature" | "coffee" | "family" | "photo";
+export type Language = "ru" | "kk" | "en";
+export type SpacePreference = "any" | "indoor" | "outdoor";
 export interface POI {
   id: string;
   name: string;
@@ -18,6 +20,10 @@ export interface POI {
   collectedAt: string;
   openingHours: string | null;
   rating: number | null;
+  estimatedCostKzt?: number | null;
+  costSourceUrl?: string;
+  budgetScope?: "exterior-only";
+  costEstimateBasis?: "published" | "editorial-exterior";
   address: string;
   links: { twoGis: string; ticketon?: string; kino?: string; sxodim?: string };
 }
@@ -28,6 +34,11 @@ export interface RecommendRequest {
   mood: Mood;
   weatherMode: "live" | "winter" | "summer";
   indoorOnly: boolean;
+  language?: Language;
+  groupSize?: number;
+  spacePreference?: SpacePreference;
+  budgetPerPerson?: number | null;
+  wantsFood?: boolean;
 }
 export interface WeatherContext {
   temperature: number;
@@ -45,6 +56,7 @@ export interface Recommendation {
   why: string;
   actions: string[];
   sourceLabel: string;
+  budgetNote?: string;
 }
 export interface RecommendResponse {
   recommendations: Recommendation[];
@@ -52,6 +64,6 @@ export interface RecommendResponse {
   warnings: string[];
   weather: WeatherContext;
   mode: "llm" | "template";
-  context: { durationMinutes: number; locationLabel: string; mood: Mood; indoorRequired: boolean; distanceMethod: string; generatedAt: string };
-  trace: { collection: string; totalPlaces: number; candidates: number; retrievedIds: string[]; method: string; llmUsed: boolean; sources: string[] };
+  context: { durationMinutes: number; locationLabel: string; mood: Mood; indoorRequired: boolean; distanceMethod: string; generatedAt: string; language: Language; groupSize: number; spacePreference: SpacePreference; budgetPerPerson: number|null; wantsFood: boolean };
+  trace: { collection: string; totalPlaces: number; candidates: number; retrievedIds: string[]; method: string; llmUsed: boolean; sources: string[]; filters?: { weather:number; space:number; time:number; food:number; budget:number; unknownPrice:number } };
 }
