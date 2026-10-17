@@ -1,0 +1,459 @@
+{
+  "endpoint": "https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord=51.13%7C71.43&gsradius=10000&gslimit=50&format=json",
+  "collectedAt": "2026-10-17T20:59:48.912Z",
+  "batchcomplete": "",
+  "query": {
+    "geosearch": [
+      {
+        "pageid": 7148733,
+        "ns": 0,
+        "title": "Baiterek (monument)",
+        "lat": 51.12833333333333,
+        "lon": 71.43055555555556,
+        "dist": 189.3,
+        "primary": ""
+      },
+      {
+        "pageid": 31388841,
+        "ns": 0,
+        "title": "National Academic Library of the Republic of Kazakhstan",
+        "lat": 51.1271,
+        "lon": 71.4272,
+        "dist": 377,
+        "primary": ""
+      },
+      {
+        "pageid": 56602,
+        "ns": 0,
+        "title": "Astana",
+        "lat": 51.13333333333333,
+        "lon": 71.43333333333334,
+        "dist": 437.6,
+        "primary": ""
+      },
+      {
+        "pageid": 19970804,
+        "ns": 0,
+        "title": "Emerald Towers",
+        "lat": 51.13055555555555,
+        "lon": 71.42286111111112,
+        "dist": 502,
+        "primary": ""
+      },
+      {
+        "pageid": 63833030,
+        "ns": 0,
+        "title": "Talan Towers",
+        "lat": 51.12466,
+        "lon": 71.43232,
+        "dist": 615.5,
+        "primary": ""
+      },
+      {
+        "pageid": 61068555,
+        "ns": 0,
+        "title": "Rixos President Astana",
+        "lat": 51.133805555555554,
+        "lon": 71.42127777777779,
+        "dist": 741.3,
+        "primary": ""
+      },
+      {
+        "pageid": 3226075,
+        "ns": 0,
+        "title": "Mäjılıs",
+        "lat": 51.128,
+        "lon": 71.4417,
+        "dist": 846.2,
+        "primary": ""
+      },
+      {
+        "pageid": 4503666,
+        "ns": 0,
+        "title": "Senate of Kazakhstan",
+        "lat": 51.1276,
+        "lon": 71.4419,
+        "dist": 872.2,
+        "primary": ""
+      },
+      {
+        "pageid": 65714153,
+        "ns": 0,
+        "title": "Jetisu Park",
+        "lat": 51.13583333333333,
+        "lon": 71.43861111111111,
+        "dist": 884.2,
+        "primary": ""
+      },
+      {
+        "pageid": 19970693,
+        "ns": 0,
+        "title": "Abu Dhabi Plaza",
+        "lat": 51.1221,
+        "lon": 71.4282,
+        "dist": 887.4,
+        "primary": ""
+      },
+      {
+        "pageid": 81745764,
+        "ns": 0,
+        "title": "Ministry of Science and Higher Education (Kazakhstan)",
+        "lat": 51.12388888888889,
+        "lon": 71.43916666666667,
+        "dist": 933.3,
+        "primary": ""
+      },
+      {
+        "pageid": 81744527,
+        "ns": 0,
+        "title": "Ministry of Education (Kazakhstan)",
+        "lat": 51.12388888888889,
+        "lon": 71.43916666666667,
+        "dist": 933.3,
+        "primary": ""
+      },
+      {
+        "pageid": 64828477,
+        "ns": 0,
+        "title": "Ministry of Transport (Kazakhstan)",
+        "lat": 51.13138888888889,
+        "lon": 71.41638888888889,
+        "dist": 962.3,
+        "primary": ""
+      },
+      {
+        "pageid": 81754557,
+        "ns": 0,
+        "title": "Ministry of Industry and Construction",
+        "lat": 51.13138888888889,
+        "lon": 71.41638888888889,
+        "dist": 962.3,
+        "primary": ""
+      },
+      {
+        "pageid": 62815244,
+        "ns": 0,
+        "title": "Döñgelek Square",
+        "lat": 51.1308,
+        "lon": 71.4145,
+        "dist": 1085.2,
+        "primary": ""
+      },
+      {
+        "pageid": 83259076,
+        "ns": 0,
+        "title": "Supreme Judicial Council of Kazakhstan",
+        "lat": 51.12166666666667,
+        "lon": 71.42166666666667,
+        "dist": 1094,
+        "primary": ""
+      },
+      {
+        "pageid": 24284325,
+        "ns": 0,
+        "title": "Nur-Astana Mosque",
+        "lat": 51.12,
+        "lon": 71.43,
+        "dist": 1112,
+        "primary": ""
+      },
+      {
+        "pageid": 27114059,
+        "ns": 0,
+        "title": "Kazakhstan Central Concert Hall",
+        "lat": 51.12277777777778,
+        "lon": 71.44166666666668,
+        "dist": 1143.6,
+        "primary": ""
+      },
+      {
+        "pageid": 30985901,
+        "ns": 0,
+        "title": "Aqorda Residence",
+        "lat": 51.12583333333333,
+        "lon": 71.44638888888889,
+        "dist": 1234,
+        "primary": ""
+      },
+      {
+        "pageid": 82021030,
+        "ns": 0,
+        "title": "Agency of the Republic of Kazakhstan for Atomic Energy",
+        "lat": 51.13111111111111,
+        "lon": 71.41222222222223,
+        "dist": 1246.7,
+        "primary": ""
+      },
+      {
+        "pageid": 62820991,
+        "ns": 0,
+        "title": "Lovers' Park (Astana)",
+        "lat": 51.1316,
+        "lon": 71.4095,
+        "dist": 1441.5,
+        "primary": ""
+      },
+      {
+        "pageid": 48438400,
+        "ns": 0,
+        "title": "Astana Opera",
+        "lat": 51.135555555555555,
+        "lon": 71.41091666666667,
+        "dist": 1467.9,
+        "primary": ""
+      },
+      {
+        "pageid": 65712361,
+        "ns": 0,
+        "title": "Astana Triathlon Park",
+        "lat": 51.13611111111111,
+        "lon": 71.44972222222222,
+        "dist": 1534.8,
+        "primary": ""
+      },
+      {
+        "pageid": 52863350,
+        "ns": 0,
+        "title": "List of ambassadors of China to Kazakhstan",
+        "lat": 51.121515,
+        "lon": 71.410911,
+        "dist": 1632.4,
+        "primary": ""
+      },
+      {
+        "pageid": 38362482,
+        "ns": 0,
+        "title": "Nazarbayev Center",
+        "lat": 51.11654,
+        "lon": 71.44283,
+        "dist": 1744.1,
+        "primary": ""
+      },
+      {
+        "pageid": 19970745,
+        "ns": 0,
+        "title": "Khan Shatyr Entertainment Center",
+        "lat": 51.132222222222225,
+        "lon": 71.4038888888889,
+        "dist": 1838.7,
+        "primary": ""
+      },
+      {
+        "pageid": 65703042,
+        "ns": 0,
+        "title": "Presidential Park",
+        "lat": 51.124,
+        "lon": 71.458,
+        "dist": 2064.8,
+        "primary": ""
+      },
+      {
+        "pageid": 51515559,
+        "ns": 0,
+        "title": "Qaraötkel Bridge",
+        "lat": 51.15185,
+        "lon": 71.428037,
+        "dist": 2433.5,
+        "primary": ""
+      },
+      {
+        "pageid": 45597144,
+        "ns": 0,
+        "title": "Daulet National Tennis Centre",
+        "lat": 51.15236470894906,
+        "lon": 71.42016110185239,
+        "dist": 2579.8,
+        "primary": ""
+      },
+      {
+        "pageid": 32037236,
+        "ns": 0,
+        "title": "Haileybury Astana",
+        "lat": 51.110945,
+        "lon": 71.453147,
+        "dist": 2664.5,
+        "primary": ""
+      },
+      {
+        "pageid": 75286538,
+        "ns": 0,
+        "title": "Embassy of the United States, Astana",
+        "lat": 51.12888888888889,
+        "lon": 71.46888888888888,
+        "dist": 2716.6,
+        "primary": ""
+      },
+      {
+        "pageid": 65715170,
+        "ns": 0,
+        "title": "Astana Botanical Garden",
+        "lat": 51.106,
+        "lon": 71.416,
+        "dist": 2842,
+        "primary": ""
+      },
+      {
+        "pageid": 80331903,
+        "ns": 0,
+        "title": "Mäñgılık El Triumphal Arch",
+        "lat": 51.104305555555555,
+        "lon": 71.43008333333334,
+        "dist": 2857.1,
+        "primary": ""
+      },
+      {
+        "pageid": 62054606,
+        "ns": 0,
+        "title": "National Military-Patriotic Center of the Armed Forces of Kazakhstan",
+        "lat": 51.15591666666666,
+        "lon": 71.43152777777779,
+        "dist": 2883.8,
+        "primary": ""
+      },
+      {
+        "pageid": 55200771,
+        "ns": 0,
+        "title": "Independence Square, Astana",
+        "lat": 51.122,
+        "lon": 71.47,
+        "dist": 2929.8,
+        "primary": ""
+      },
+      {
+        "pageid": 51137816,
+        "ns": 0,
+        "title": "Hazrat Sultan Mosque",
+        "lat": 51.125,
+        "lon": 71.4722,
+        "dist": 2996.9,
+        "primary": ""
+      },
+      {
+        "pageid": 50278008,
+        "ns": 0,
+        "title": "Our Mother of Perpetual Help Cathedral, Astana",
+        "lat": 51.15361111111111,
+        "lon": 71.45194444444445,
+        "dist": 3039.2,
+        "primary": ""
+      },
+      {
+        "pageid": 11952599,
+        "ns": 0,
+        "title": "Roman Catholic Archdiocese of Mary Most Holy in Astana",
+        "lat": 51.1538,
+        "lon": 71.4519,
+        "dist": 3055.8,
+        "primary": ""
+      },
+      {
+        "pageid": 55201211,
+        "ns": 0,
+        "title": "Palace of Independence (Astana)",
+        "lat": 51.1207,
+        "lon": 71.472,
+        "dist": 3108.2,
+        "primary": ""
+      },
+      {
+        "pageid": 63707654,
+        "ns": 0,
+        "title": "Otan Qorgaushylar Monument",
+        "lat": 51.15343,
+        "lon": 71.45785,
+        "dist": 3250,
+        "primary": ""
+      },
+      {
+        "pageid": 34796880,
+        "ns": 0,
+        "title": "Saryarka Velodrome",
+        "lat": 51.10472222222222,
+        "lon": 71.405,
+        "dist": 3308.4,
+        "primary": ""
+      },
+      {
+        "pageid": 39585074,
+        "ns": 0,
+        "title": "Alau Ice Palace",
+        "lat": 51.10472222222222,
+        "lon": 71.405,
+        "dist": 3308.4,
+        "primary": ""
+      },
+      {
+        "pageid": 43007209,
+        "ns": 0,
+        "title": "QSI International School of Astana",
+        "lat": 51.14597222222222,
+        "lon": 71.3878888888889,
+        "dist": 3433.1,
+        "primary": ""
+      },
+      {
+        "pageid": 19970911,
+        "ns": 0,
+        "title": "Grand Alatau",
+        "lat": 51.162083333333335,
+        "lon": 71.41975000000001,
+        "dist": 3638.5,
+        "primary": ""
+      },
+      {
+        "pageid": 73770741,
+        "ns": 0,
+        "title": "Beit Rachel Synagogue, Astana",
+        "lat": 51.1573088,
+        "lon": 71.4616569,
+        "dist": 3754.7,
+        "primary": ""
+      },
+      {
+        "pageid": 42194369,
+        "ns": 0,
+        "title": "Barys Arena",
+        "lat": 51.1557,
+        "lon": 71.4653,
+        "dist": 3772.4,
+        "primary": ""
+      },
+      {
+        "pageid": 39300442,
+        "ns": 0,
+        "title": "Kazakhstan Sports Palace",
+        "lat": 51.155725,
+        "lon": 71.46528055555555,
+        "dist": 3773.6,
+        "primary": ""
+      },
+      {
+        "pageid": 4787733,
+        "ns": 0,
+        "title": "Kazhymukan Munaitpasov Stadium (Astana)",
+        "lat": 51.1627392,
+        "lon": 71.4133121,
+        "dist": 3822,
+        "primary": ""
+      },
+      {
+        "pageid": 68030640,
+        "ns": 0,
+        "title": "Demalys Promenade",
+        "lat": 51.16547222222222,
+        "lon": 71.42311111111111,
+        "dist": 3973.5,
+        "primary": ""
+      },
+      {
+        "pageid": 17005132,
+        "ns": 0,
+        "title": "Tselinograd District",
+        "lat": 51.166666666666664,
+        "lon": 71.43333333333334,
+        "dist": 4083.8,
+        "primary": ""
+      }
+    ]
+  }
+}

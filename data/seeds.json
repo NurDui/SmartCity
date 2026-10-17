@@ -1,0 +1,498 @@
+[
+  {
+    "id": "baiterek",
+    "search": "Baiterek",
+    "name": "Бәйтерек",
+    "lat": 51.1282,
+    "lon": 71.4305,
+    "description": "Монумент со смотровой площадкой и панорамой столицы.",
+    "tags": [
+      "culture",
+      "photo",
+      "архитектура",
+      "панорама",
+      "левый берег"
+    ],
+    "category": "Архитектура",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 30,
+    "address": "Бульвар Нуржол, 14",
+    "openingHours": "Ежедневно 10:00–21:00 · по Visit Astana, уточните перед визитом",
+    "editorialSource": "https://visitastana.kz/en/map/"
+  },
+  {
+    "id": "nurzhol",
+    "search": "Nurzhol Boulevard",
+    "name": "Бульвар Нуржол",
+    "lat": 51.1284,
+    "lon": 71.4231,
+    "description": "Пешеходный бульвар среди современной архитектуры левого берега.",
+    "tags": [
+      "photo",
+      "nature",
+      "прогулка",
+      "футуризм",
+      "левый берег"
+    ],
+    "category": "Прогулка",
+    "indoor": false,
+    "bank": "left",
+    "durationMinutes": 25,
+    "address": "Бульвар Нуржол",
+    "editorialSource": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/"
+  },
+  {
+    "id": "khan-shatyr",
+    "search": "Khan Shatyr Entertainment Center",
+    "name": "Хан Шатыр",
+    "lat": 51.1326,
+    "lon": 71.4037,
+    "description": "Торгово-развлекательный центр под шатром: магазины, кафе и семейный отдых.",
+    "tags": [
+      "family",
+      "coffee",
+      "photo",
+      "тепло",
+      "шопинг"
+    ],
+    "category": "Торговый центр",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 40,
+    "address": "Проспект Туран, 37",
+    "openingHours": "Ежедневно 10:00–22:00 · по Visit Astana, уточните перед визитом",
+    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/trts-khan-shatyr/"
+  },
+  {
+    "id": "mega-silk-way",
+    "search": "MEGA Silk Way",
+    "name": "MEGA Silk Way",
+    "lat": 51.08909,
+    "lon": 71.40733,
+    "description": "Торговый центр рядом с EXPO с кафе, кинотеатром и семейными пространствами.",
+    "tags": [
+      "family",
+      "coffee",
+      "тепло",
+      "кино",
+      "экспо"
+    ],
+    "category": "Торговый центр",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 40,
+    "address": "Проспект Кабанбай батыра, 62",
+    "openingHours": "Ежедневно 10:00–22:00 · по MEGA, уточните перед визитом",
+    "editorialSource": "https://mega.kz/Tenant/MEGA-Silk-Way"
+  },
+  {
+    "id": "nur-alem",
+    "search": "Nur Alem",
+    "name": "alem.ai · Музей Сингулярности",
+    "lat": 51.089,
+    "lon": 71.416,
+    "description": "Музей Сингулярности на первом этаже alem.ai. Бывший Музей энергии будущего прекратил приём посетителей в декабре 2024 года. Актуальный доступ уточните у центра.",
+    "tags": [
+      "culture",
+      "family",
+      "photo",
+      "экспо",
+      "футуризм"
+    ],
+    "category": "Выставочный павильон",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 50,
+    "address": "Проспект Мәңгілік Ел, 55/13",
+    "editorialSource": "https://qazexpocongress.kz/ru/nur-alem/",
+    "openingHours": null
+  },
+  {
+    "id": "national-museum",
+    "search": "National Museum of the Republic of Kazakhstan",
+    "name": "Национальный музей РК",
+    "lat": 51.1184,
+    "lon": 71.4697,
+    "description": "Музей истории, культуры, этнографии и искусства Казахстана.",
+    "tags": [
+      "culture",
+      "family",
+      "история",
+      "музей",
+      "искусство"
+    ],
+    "category": "Музей",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 60,
+    "address": "Проспект Тәуелсіздік, 54",
+    "openingHours": "Вт–Вс 10:00–18:00; Пн и последний Вт месяца — выходной · уточните перед визитом",
+    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/natsionalnyy-muzey-respubliki-kazakhstan/"
+  },
+  {
+    "id": "botanical-garden",
+    "search": "Astana Botanical Garden",
+    "name": "Ботанический сад",
+    "lat": 51.106,
+    "lon": 71.416,
+    "description": "Зелёное пространство для спокойной прогулки. У оранжереи отдельный режим посещения.",
+    "tags": [
+      "nature",
+      "family",
+      "photo",
+      "парк",
+      "зелень",
+      "тихо"
+    ],
+    "category": "Парк",
+    "indoor": false,
+    "bank": "left",
+    "durationMinutes": 40,
+    "address": "Улица Орынбор, 14Д",
+    "editorialSource": "https://visitastana.kz/en/map/"
+  },
+  {
+    "id": "astana-opera",
+    "search": "Astana Opera",
+    "name": "Астана Опера",
+    "lat": 51.1367,
+    "lon": 71.4112,
+    "description": "Театр оперы и балета. Для посещения спектакля нужен отдельный билет по афише.",
+    "tags": [
+      "culture",
+      "photo",
+      "театр",
+      "искусство",
+      "музыка"
+    ],
+    "category": "Театр",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 45,
+    "address": "Улица Дінмұхамед Қонаев, 1",
+    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/teatr-opery-i-baleta-astana-opera/"
+  },
+  {
+    "id": "astana-ballet",
+    "search": "Astana Ballet",
+    "name": "Астана Балет",
+    "lat": 51.0962,
+    "lon": 71.4251,
+    "description": "Театральная площадка балета. Проверьте афишу и наличие билетов перед визитом.",
+    "tags": [
+      "culture",
+      "театр",
+      "искусство",
+      "балет"
+    ],
+    "category": "Театр",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 45,
+    "address": "Проспект Ұлы Дала, 9",
+    "editorialSource": "https://visitastana.kz/ru/map/"
+  },
+  {
+    "id": "peace-palace",
+    "search": "Palace of Peace and Reconciliation",
+    "name": "Дворец мира и согласия",
+    "lat": 51.123,
+    "lon": 71.4637,
+    "description": "Здание-пирамида — одна из архитектурных достопримечательностей столицы.",
+    "tags": [
+      "culture",
+      "photo",
+      "архитектура",
+      "футуризм"
+    ],
+    "category": "Архитектура",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 40,
+    "address": "Проспект Тәуелсіздік, 57",
+    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/natsionalnyy-muzey-respubliki-kazakhstan/"
+  },
+  {
+    "id": "hazret-sultan",
+    "search": "Hazrat Sultan Mosque",
+    "name": "Мечеть Хазрет Султан",
+    "lat": 51.1263,
+    "lon": 71.4729,
+    "description": "Мечеть у площади Независимости. Соблюдайте правила посещения и учитывайте время молитв.",
+    "tags": [
+      "culture",
+      "photo",
+      "архитектура",
+      "история"
+    ],
+    "category": "Архитектура",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 30,
+    "address": "Проспект Тәуелсіздік, 48",
+    "editorialSource": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/"
+  },
+  {
+    "id": "grand-mosque",
+    "search": "Astana Grand Mosque",
+    "name": "Главная мечеть Астаны",
+    "lat": 51.0602,
+    "lon": 71.4194,
+    "description": "Республиканская главная мечеть. Перед входом ознакомьтесь с правилами для посетителей.",
+    "tags": [
+      "culture",
+      "photo",
+      "архитектура"
+    ],
+    "category": "Архитектура",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 35,
+    "address": "Проспект Мәңгілік Ел, 65",
+    "editorialSource": "https://visitastana.kz/ru/map/"
+  },
+  {
+    "id": "triumphal-arch",
+    "search": "Mangilik El triumphal arch",
+    "name": "Триумфальная арка Мәңгілік Ел",
+    "lat": 51.1043055556,
+    "lon": 71.4300833333,
+    "description": "Архитектурный памятник на проспекте Мәңгілік Ел для короткой фотопрогулки.",
+    "tags": [
+      "photo",
+      "culture",
+      "архитектура",
+      "прогулка"
+    ],
+    "category": "Монумент",
+    "indoor": false,
+    "bank": "left",
+    "durationMinutes": 20,
+    "address": "Проспект Мәңгілік Ел",
+    "editorialSource": "https://visitastana.kz/ru/map/"
+  },
+  {
+    "id": "central-park",
+    "search": "Central Park Astana",
+    "name": "Центральный парк",
+    "lat": 51.1533,
+    "lon": 71.4168,
+    "description": "Городской парк для отдыха и прогулок рядом с рекой.",
+    "tags": [
+      "nature",
+      "family",
+      "photo",
+      "парк",
+      "набережная"
+    ],
+    "category": "Парк",
+    "indoor": false,
+    "bank": "right",
+    "durationMinutes": 35,
+    "address": "Центральный парк, район Есиль",
+    "editorialSource": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/"
+  },
+  {
+    "id": "embankment",
+    "search": "Ishim River embankment Astana",
+    "name": "Набережная Есиля",
+    "lat": 51.1602,
+    "lon": 71.4262,
+    "description": "Открытое пространство у реки для прогулки и фотографий старого города.",
+    "tags": [
+      "nature",
+      "photo",
+      "история",
+      "набережная",
+      "правый берег",
+      "уют"
+    ],
+    "category": "Прогулка",
+    "indoor": false,
+    "bank": "right",
+    "durationMinutes": 30,
+    "address": "Набережная реки Есиль, у памятника Кенесары",
+    "editorialSource": "https://visitastana.kz/ru/map/"
+  },
+  {
+    "id": "gorky-theatre",
+    "search": "Gorky Russian Drama Theatre Astana",
+    "name": "Русский драмтеатр имени Горького",
+    "lat": 51.1685,
+    "lon": 71.4197,
+    "description": "Театр в исторической части города. Посещение постановок — по расписанию и билетам.",
+    "tags": [
+      "culture",
+      "история",
+      "театр",
+      "правый берег",
+      "уют"
+    ],
+    "category": "Театр",
+    "indoor": true,
+    "bank": "right",
+    "durationMinutes": 40,
+    "address": "Улица Желтоқсан, 13",
+    "editorialSource": "https://visitastana.kz/ru/map/"
+  },
+  {
+    "id": "kenesary",
+    "search": "Kenesary monument Astana",
+    "name": "Памятник Кенесары хану",
+    "lat": 51.1599,
+    "lon": 71.4282,
+    "description": "Конный памятник на набережной; точка для знакомства с историческим центром.",
+    "tags": [
+      "culture",
+      "photo",
+      "история",
+      "правый берег"
+    ],
+    "category": "Монумент",
+    "indoor": false,
+    "bank": "right",
+    "durationMinutes": 15,
+    "address": "Набережная Есиля",
+    "editorialSource": "https://visitastana.kz/ru/map/"
+  },
+  {
+    "id": "kazakh-eli",
+    "search": "Kazakh Eli monument",
+    "name": "Монумент Қазақ елі",
+    "lat": 51.1252,
+    "lon": 71.4694,
+    "description": "Монумент на площади Независимости рядом с музеем и архитектурными объектами.",
+    "tags": [
+      "culture",
+      "photo",
+      "архитектура",
+      "история"
+    ],
+    "category": "Монумент",
+    "indoor": false,
+    "bank": "left",
+    "durationMinutes": 20,
+    "address": "Площадь Независимости",
+    "editorialSource": "https://visitastana.kz/ru/about-city/what-to-see/natsionalnyy-muzey-respubliki-kazakhstan/"
+  },
+  {
+    "id": "keruen",
+    "search": "Keruen Astana",
+    "name": "Керуен",
+    "lat": 51.1264,
+    "lon": 71.4236,
+    "description": "Торговый центр на бульваре Нуржол; вариант для короткой остановки в помещении.",
+    "tags": [
+      "coffee",
+      "family",
+      "тепло",
+      "шопинг"
+    ],
+    "category": "Торговый центр",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 30,
+    "address": "Улица Достық, 9",
+    "editorialSource": "https://visitastana.kz/ru/history-and-culture/hospitality/"
+  },
+  {
+    "id": "kubrin-house",
+    "search": "Kubrin house Astana",
+    "name": "Дом купца Кубрина",
+    "lat": 51.1688,
+    "lon": 71.4201,
+    "description": "Историческое здание старого города. Планируйте осмотр фасада с общественной улицы.",
+    "tags": [
+      "culture",
+      "photo",
+      "история",
+      "правый берег",
+      "уют"
+    ],
+    "category": "История",
+    "indoor": false,
+    "bank": "right",
+    "durationMinutes": 15,
+    "address": "Исторический центр, улица Кенесары",
+    "editorialSource": "https://visitastana.kz/ru/map/"
+  },
+  {
+    "id": "kulanshi",
+    "search": "Kulanshi Art Space Astana",
+    "name": "Forte Kulanshi Art Space",
+    "lat": 51.1277,
+    "lon": 71.4249,
+    "description": "Пространство современного искусства. Уточните текущую выставку и правила входа.",
+    "tags": [
+      "culture",
+      "искусство",
+      "галерея",
+      "тихо"
+    ],
+    "category": "Галерея",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 35,
+    "address": "Улица Достық, 8/1",
+    "editorialSource": "https://visitastana.kz/en/map/"
+  },
+  {
+    "id": "ulytau-alley",
+    "search": "Ulytau alley Astana",
+    "name": "Аллея Улытау",
+    "lat": 51.0916,
+    "lon": 71.4249,
+    "description": "Пешеходное общественное пространство для неспешной прогулки и фото.",
+    "tags": [
+      "nature",
+      "photo",
+      "family",
+      "прогулка"
+    ],
+    "category": "Прогулка",
+    "indoor": false,
+    "bank": "left",
+    "durationMinutes": 20,
+    "address": "Улица Түркістан",
+    "editorialSource": "https://visitastana.kz/en/map/"
+  },
+  {
+    "id": "discovery-coffee",
+    "search": "Discovery Coffee Astana Kenesary",
+    "name": "Discovery Coffee · Кенесары",
+    "lat": 51.1668,
+    "lon": 71.4381,
+    "description": "Кофейня из городского гастрогида. Адрес и меню проверьте перед посещением.",
+    "tags": [
+      "coffee",
+      "уют",
+      "правый берег"
+    ],
+    "category": "Кофейня",
+    "indoor": true,
+    "bank": "right",
+    "durationMinutes": 25,
+    "address": "Улица Кенесары, 63",
+    "editorialSource": "https://visitastana.kz/public/file/gastro-guide-en.pdf"
+  },
+  {
+    "id": "bon-bon",
+    "search": "Bon Bon Astana Kunayev",
+    "name": "Bon Bon · Қонаев",
+    "lat": 51.1305,
+    "lon": 71.4265,
+    "description": "Кофейня из городского гастрогида рядом с бульваром Нуржол.",
+    "tags": [
+      "coffee",
+      "уют",
+      "левый берег"
+    ],
+    "category": "Кофейня",
+    "indoor": true,
+    "bank": "left",
+    "durationMinutes": 25,
+    "address": "Улица Дінмұхамед Қонаев, 14/1",
+    "editorialSource": "https://visitastana.kz/public/file/gastro-guide-en.pdf"
+  }
+]
