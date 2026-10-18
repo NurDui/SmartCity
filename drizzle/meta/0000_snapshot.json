@@ -1,0 +1,81 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "6f6c56e0-52f0-44c2-bc89-a1ac031c47cf",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "yandex_quota_reservations": {
+      "name": "yandex_quota_reservations",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "scope": {
+          "name": "scope",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "service": {
+          "name": "service",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "identity_hash": {
+          "name": "identity_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "reserved_at_ms": {
+          "name": "reserved_at_ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "yandex_quota_scope_time_idx": {
+          "name": "yandex_quota_scope_time_idx",
+          "columns": [
+            "scope",
+            "reserved_at_ms"
+          ],
+          "isUnique": false
+        },
+        "yandex_quota_identity_time_idx": {
+          "name": "yandex_quota_identity_time_idx",
+          "columns": [
+            "scope",
+            "identity_hash",
+            "reserved_at_ms"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}
