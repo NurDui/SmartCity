@@ -40,3 +40,89 @@ export function localizePoi(poi:POI,language:Language):POI {
   if(openingHours){if(poi.id==="national-museum")openingHours=language==="en"?"Tue–Sun 10:00–18:00; closed Monday and the last Tuesday of the month. Confirm before visiting.":"Сс–Жс 10:00–18:00; дүйсенбі және айдың соңғы сейсенбісі — демалыс. Барар алдында нақтылаңыз.";else if(["baiterek","mega-silk-way","khan-shatyr"].includes(poi.id))openingHours=`${language==="en"?"Daily":"Күн сайын"} ${poi.id==="baiterek"?"10:00–21:00":"10:00–22:00"} · ${language==="en"?"confirm before visiting":"барар алдында нақтылаңыз"}`;else openingHours=`${language==="en"?"Schedule in source notation":"Дереккөздегі кесте"}: ${poi.openingHours}`;}
   return {...poi,description,category:categories[poi.category]?.[index]??poi.category,sourceName,openingHours};
 }
+
+Object.assign(categories, {"Арена":["Arena","Арена"],"Мост":["Bridge","Көпір"]});
+Object.assign(descriptions, {
+  "independence-palace": [
+    "View the Palace of Independence from public space near Kazakh Eli Square. Access inside depends on the programme.",
+    "Қазақ елі алаңы маңындағы Тәуелсіздік сарайын қоғамдық аумақтан тамашалаңыз. Ішке кіру бағдарламаға байланысты."
+  ],
+  "concert-hall": [
+    "A concert building with distinctive curved façades. View it from outside; check programmes and tickets separately.",
+    "Иілген қасбеттерімен ерекшеленетін концерт ғимараты. Сыртынан тамашалаңыз; концерт афишасы мен билеттерін бөлек тексеріңіз."
+  ],
+  "aqorda": [
+    "View the presidential residence from accessible public space. Entry to the secured grounds is not included.",
+    "Президент резиденциясын қолжетімді қоғамдық аумақтан тамашалаңыз. Күзетілетін аумаққа кіру жоспарланбайды."
+  ],
+  "emerald-towers": [
+    "Office towers on the left bank with distinctive sloping upper floors. A photo stop from the public street, without office access.",
+    "Жоғарғы қабаттары көлбеу салынған сол жағалаудағы іскерлік мұнаралар. Кеңселерге кірмей, көшеден суретке түсіруге арналған аялдама."
+  ],
+  "talan-towers": [
+    "A modern mixed-use complex on the left bank. Compare its façades with neighbouring buildings from the public pavement.",
+    "Сол жағалаудағы заманауи көпфункциялы кешен. Қоғамдық тротуардан қасбеттерін көршілес ғимараттармен салыстырыңыз."
+  ],
+  "abu-dhabi-plaza": [
+    "A high-rise complex in Astana’s skyline. An architectural photo stop from public space; no observation deck is promised.",
+    "Астана панорамасында көзге түсетін биік кешен. Қоғамдық көшеден сәулетін суретке түсіріңіз; шолу алаңы ұсынылмайды."
+  ],
+  "qaraotkel-bridge": [
+    "A city bridge across the Esil with river views. Use designated pedestrian paths and check the approaches before walking.",
+    "Есіл көрінісін тамашалауға болатын қалалық көпір. Рұқсат етілген жаяу жолдарды ғана пайдаланып, кіреберістерді тексеріңіз."
+  ],
+  "military-museum": [
+    "The National Military-Patriotic Centre building near the river. This stop covers the exterior; confirm exhibition access separately.",
+    "Жағалау маңындағы Ұлттық әскери-патриоттық орталық ғимараты. Бұл аялдама сыртқы көрініске арналған; экспозицияларға кіруді бөлек нақтылаңыз."
+  ],
+  "independence-square": [
+    "An open square near Kazakh Eli, the museum and palaces. An architectural walk with exposed wind and long distances to consider.",
+    "Қазақ елі монументі, музей мен сарайлар жанындағы ашық алаң. Сәулет серуенінде жел мен ұзақ арақашықтықты ескеріңіз."
+  ],
+  "catholic-cathedral": [
+    "A Catholic cathedral on the right bank. View its architecture quietly from the public street; ask the parish about visitor access.",
+    "Оң жағалаудағы католик соборы. Тыныштық сақтап, сәулетін қоғамдық көшеден тамашалаңыз; ішке кіруді приходтан нақтылаңыз."
+  ],
+  "saryarka-velodrome": [
+    "A sports complex with a distinctive velodrome form. View the exterior; check competitions and indoor access separately.",
+    "Ерекше пішінді велотрек кешені. Сыртынан тамашалаңыз; жарыстар мен ішке кіруді бөлек тексеріңіз."
+  ],
+  "alau": [
+    "An ice sports complex on the left bank. This stop covers the exterior; public skating, schedules and prices are unconfirmed.",
+    "Сол жағалаудағы мұз спорты кешені. Бұл аялдама сыртқы көрініске арналған; жаппай сырғанау, кесте мен бағалар расталмаған."
+  ],
+  "astana-arena": [
+    "A football stadium in the capital’s sports district. View it from public space; matches require a current listing and a ticket.",
+    "Елорданың спорт ауданындағы футбол стадионы. Қоғамдық аумақтан тамашалаңыз; матчқа өзекті афиша мен билет қажет."
+  ],
+  "barys-arena": [
+    "An ice hockey arena in the left-bank sports district. An exterior stop; plan match attendance using the current programme.",
+    "Сол жағалаудың спорт ауданындағы хоккей аренасы. Сыртқы көрініске арналған аялдама; матчқа баруды өзекті афиша бойынша жоспарлаңыз."
+  ],
+  "sports-palace": [
+    "A right-bank sports building, separate from Barys Arena. View the exterior and confirm access and events with the venue.",
+    "Барыс Аренадан бөлек, оң жағалаудағы спорт ғимараты. Сыртынан тамашалап, кіру мен іс-шараларды алаңнан нақтылаңыз."
+  ],
+  "beit-rachel": [
+    "A synagogue on the right bank. View its exterior from the public street, respect site rules and arrange any visit in advance.",
+    "Оң жағалаудағы синагога. Қоғамдық көшеден сыртқы сәулетін тамашалап, ережелерін сақтаңыз және келуді алдын ала келісіңіз."
+  ],
+  "astana-1": [
+    "A railway station in the northern city. An architectural stop from the station square; platform access is not included.",
+    "Қаланың солтүстік бөлігіндегі теміржол вокзалы. Вокзал алдындағы алаңнан сәулетін тамашалаңыз; платформаларға өту ұсынылмайды."
+  ],
+  "nurly-zhol-station": [
+    "A modern station building in the eastern city, far from central walking areas. View it from the station forecourt.",
+    "Қаланың шығысындағы заманауи вокзал, орталық серуен аймақтарынан алыс. Вокзал алдындағы аумақтан тамашалаңыз."
+  ],
+  "old-presidential-museum": [
+    "The former presidential residence in the old centre. View the façade; operation of the former museum is not confirmed.",
+    "Ескі орталықтағы бұрынғы президент резиденциясы. Қасбетін тамашалаңыз; бұрынғы музейдің жұмысы расталмаған."
+  ],
+  "grand-alatau": [
+    "A residential high-rise complex in the right-bank river skyline. View it from the public embankment; residential access is not included.",
+    "Оң жағалаудың өзен панорамасындағы биік тұрғын үй кешені. Қоғамдық жағалаудан тамашалаңыз; тұрғын үйлерге кіру ұсынылмайды."
+  ]
+});
+
+Object.assign(descriptions, {"nur-alem":["The Singularity Museum on the first floor of alem.ai in the Nur Alem sphere. The former Future Energy Museum is closed. Check admission and temporary closures with the organiser.","Нұр Әлем сферасындағы alem.ai орталығының бірінші қабатындағы Сингулярлық музейі. Бұрынғы Болашақ энергиясы музейі жабылған. Кіру мен уақытша жабылуды ұйымдастырушыдан тексеріңіз."]});

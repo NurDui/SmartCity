@@ -1,0 +1,56 @@
+{
+  "retrievedAt": "2026-10-18T12:03:29.210Z",
+  "source": "Wikimedia Commons imageinfo + extmetadata",
+  "status": "partial",
+  "targeted": 38,
+  "licensedPhotos": 37,
+  "totalPlaces": 53,
+  "missing": [
+    "hazret-sultan",
+    "triumphal-arch",
+    "central-park",
+    "gorky-theatre",
+    "kulanshi",
+    "ulytau-alley",
+    "discovery-coffee",
+    "bon-bon",
+    "abu-dhabi-plaza",
+    "military-museum",
+    "alau",
+    "old-presidential-museum",
+    "grand-alatau",
+    "wiki-62815244",
+    "wiki-63707654",
+    "wiki-68030640"
+  ],
+  "failures": [
+    {
+      "id": "wiki-62815244",
+      "file": "KazMunayGas 04.jpg",
+      "error": "Commons file not found"
+    }
+  ],
+  "excluded": [
+    {
+      "id": "hazret-sultan",
+      "reason": "Commons category explicitly warns about separate architecture rights / NoFoP. Use illustration unless an appropriately cleared photograph is obtained.",
+      "source": "https://commons.wikimedia.org/wiki/Category:Hazrat_Sultan_Mosque"
+    },
+    {
+      "id": "triumphal-arch",
+      "reason": "Commons category explicitly warns about separate architecture rights / NoFoP. Do not substitute a banknote or postage stamp for a venue photograph.",
+      "source": "https://commons.wikimedia.org/wiki/Category:Arch_of_Triumph_(Astana)"
+    },
+    {
+      "id": "abu-dhabi-plaza",
+      "reason": "Commons category explicitly warns about separate architecture rights / NoFoP; older P18 shows construction. Use illustration.",
+      "source": "https://commons.wikimedia.org/wiki/Category:Abu_Dhabi_Plaza"
+    },
+    {
+      "id": "grand-alatau",
+      "reason": "Candidate Astana, Kazakhstan (8239484922).jpg explicitly carries the Commons NoFoP-Kazakhstan category. Excluded from the published photo manifest.",
+      "source": "https://commons.wikimedia.org/wiki/File:Astana,_Kazakhstan_(8239484922).jpg"
+    }
+  ],
+  "notes": "Only explicitly selected matching files with CC0/CC BY/CC BY-SA metadata and an author field are retained. An unknown author is kept explicitly unknown, never invented. Sources/license links displayed in UI. Explicit Commons rights warnings are rejected; a photographer license alone does not guarantee all architectural or personality rights. No photo date asserted. Photos are archival views, not proof of current opening or appearance."
+}

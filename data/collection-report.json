@@ -1,11 +1,11 @@
 {
   "collectedAt": "2026-10-17T20:59:48.912Z",
-  "lastAttemptAt": "2026-10-17T20:59:48.912Z",
+  "lastAttemptAt": "2026-10-18T11:57:21.287Z",
   "status": "success",
   "source": "Wikidata + Wikimedia GeoSearch",
   "license": "Wikidata facts CC0; Wikipedia metadata attribution via source links — https://www.wikidata.org/wiki/Wikidata:Licensing",
   "query": "[out:json][timeout:25][bbox:51.02,71.30,51.22,71.58];(nwr[\"tourism\"~\"museum|attraction|gallery\"][name];nwr[\"leisure\"=\"park\"][name];nwr[\"shop\"=\"mall\"][name];nwr[\"amenity\"~\"cafe|theatre|cinema\"][name];);out center tags;",
-  "count": 20,
+  "count": 41,
   "freshRecords": 15,
   "attempts": [
     {
@@ -17,7 +17,22 @@
       "endpoint": "Wikipedia GeoSearch",
       "status": "success",
       "count": 15
+    },
+    {
+      "endpoint": "Wikidata landmark identities",
+      "status": "success",
+      "count": 20
     }
   ],
-  "notes": "Collected coordinates are sourced facts. Descriptions, tags, bank and visit durations are editorial enrichment; bank is approximate. Each record retains its original collectedAt; a failed refresh never changes it. Ratings unavailable. Missing hours remain null. Commercial platform links are outbound searches, not API integrations. Existing successful snapshot is retained on network failure."
+  "notes": "Collected coordinates are sourced facts. Descriptions, tags, bank and visit durations are editorial enrichment; bank is approximate. Each record retains its original collectedAt; a failed refresh never changes it. Ratings unavailable. Missing hours remain null. Commercial platform links are outbound searches, not API integrations. Existing successful snapshot is retained on network failure.",
+  "landmarkEnrichment": {
+    "retrievedAt": "2026-10-18T11:57:21.287Z",
+    "source": "Wikidata CC0 coordinates; original editorial descriptions",
+    "count": 20
+  },
+  "primarySourceVerification": {
+    "source": "https://alem.ai/ru/",
+    "retrievedAt": "2026-10-18T12:01:59.209Z",
+    "poi": "nur-alem"
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "source": "https://alem.ai/ru/",
+  "retrievedAt": "2026-10-18T12:01:59.209Z",
+  "observed": {
+    "museum": "Музей Сингулярности",
+    "hours": "ВТ-ВС 10:00-18:30; ПН технический день",
+    "admissionKzt": 2500,
+    "coordinates": [
+      51.0892,
+      71.4161
+    ]
+  },
+  "note": "Editorial verification against the primary site; temporary closures possible. Not the historic QazExpo energy museum schedule."
+}

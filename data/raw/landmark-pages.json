@@ -1,0 +1,806 @@
+{
+  "collectedAt": "2026-10-18T11:52:56.624Z",
+  "pages": [
+    {
+      "pageid": 16642,
+      "ns": 0,
+      "title": "Kazakhstan",
+      "pageprops": {
+        "page_image_free": "Flag_of_Kazakhstan.svg",
+        "wikibase-shortdesc": "Country in Eastern Europe and Central Asia",
+        "wikibase_item": "Q232"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kazakhstan.svg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 1000,
+        "height": 500
+      }
+    },
+    {
+      "pageid": 7148733,
+      "ns": 0,
+      "title": "Baiterek (monument)",
+      "pageprops": {
+        "page_image_free": "Central_Downtown_Astana_2.jpg",
+        "wikibase-shortdesc": "Landmark observation tower in Astana, Kazakhstan",
+        "wikibase_item": "Q804210"
+      },
+      "coordinates": [
+        {
+          "lat": 51.12833333,
+          "lon": 71.43055556,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/6/66/Central_Downtown_Astana_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 4288,
+        "height": 2848
+      }
+    },
+    {
+      "pageid": 7503496,
+      "ns": 0,
+      "title": "Palace of Peace and Reconciliation",
+      "pageprops": {
+        "page_image_free": "Дворец_мира_и_согласия.jpg",
+        "wikibase-shortdesc": "Landmark event venue and spiritual centre in Astana",
+        "wikibase_item": "Q2119741"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/5/50/%D0%94%D0%B2%D0%BE%D1%80%D0%B5%D1%86_%D0%BC%D0%B8%D1%80%D0%B0_%D0%B8_%D1%81%D0%BE%D0%B3%D0%BB%D0%B0%D1%81%D0%B8%D1%8F.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 1873,
+        "height": 1778
+      }
+    },
+    {
+      "pageid": 19970693,
+      "ns": 0,
+      "title": "Abu Dhabi Plaza",
+      "pageprops": {
+        "page_image_free": "Abu_Dhabi_plaza_Astana.jpg",
+        "wikibase-shortdesc": "Building complex in Kazakhstan",
+        "wikibase_item": "Q1073433"
+      },
+      "coordinates": [
+        {
+          "lat": 51.1221,
+          "lon": 71.4282,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/e/e4/Abu_Dhabi_plaza_Astana.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 2252,
+        "height": 4000
+      }
+    },
+    {
+      "pageid": 19970745,
+      "ns": 0,
+      "title": "Khan Shatyr Entertainment Center",
+      "pageprops": {
+        "page_image_free": "Khan_Shatyr,_Astana.jpg",
+        "wikibase-shortdesc": "Shopping centre",
+        "wikibase_item": "Q671484"
+      },
+      "coordinates": [
+        {
+          "lat": 51.13222222,
+          "lon": 71.40388889,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/c/c8/Khan_Shatyr%2C_Astana.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 2773,
+        "height": 1849
+      }
+    },
+    {
+      "pageid": 19970804,
+      "ns": 0,
+      "title": "Emerald Towers",
+      "pageprops": {
+        "page_image_free": "Astana-2021-10_-_37.jpg",
+        "wikibase-shortdesc": "Skyscraper complex in Astana, Kazakhstan",
+        "wikibase_item": "Q1073439"
+      },
+      "coordinates": [
+        {
+          "lat": 51.13055556,
+          "lon": 71.42286111,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Astana-2021-10_-_37.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 3885,
+        "height": 1660
+      }
+    },
+    {
+      "pageid": 24284325,
+      "ns": 0,
+      "title": "Nur-Astana Mosque",
+      "pageprops": {
+        "page_image_free": "Nur_Astana_Mosque.jpg",
+        "wikibase-shortdesc": "Mosque in Astana, Kazakhstan",
+        "wikibase_item": "Q1813417"
+      },
+      "coordinates": [
+        {
+          "lat": 51.12,
+          "lon": 71.43,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/4/44/Nur_Astana_Mosque.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 2048,
+        "height": 1536
+      }
+    },
+    {
+      "pageid": 27114059,
+      "ns": 0,
+      "title": "Kazakhstan Central Concert Hall",
+      "pageprops": {
+        "page_image_free": "Kazakhstan_Central_Concert_Hall.jpg",
+        "wikibase-shortdesc": "Concert hall in Astana, Kazakhstan",
+        "wikibase_item": "Q573362"
+      },
+      "coordinates": [
+        {
+          "lat": 51.12277778,
+          "lon": 71.44166667,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/7/7c/Kazakhstan_Central_Concert_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 425,
+        "height": 284
+      }
+    },
+    {
+      "pageid": 30985901,
+      "ns": 0,
+      "title": "Aqorda Residence",
+      "pageprops": {
+        "page_image_free": "Акорда_-_резиденция_президента_-_panoramio.jpg",
+        "wikibase-shortdesc": "Official workplace of the president of Kazakhstan",
+        "wikibase_item": "Q413579"
+      },
+      "coordinates": [
+        {
+          "lat": 51.12583333,
+          "lon": 71.44638889,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/7/7b/%D0%90%D0%BA%D0%BE%D1%80%D0%B4%D0%B0_-_%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D1%8F_%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%B0_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 1024,
+        "height": 768
+      }
+    },
+    {
+      "pageid": 31388841,
+      "ns": 0,
+      "title": "National Academic Library of the Republic of Kazakhstan",
+      "pageprops": {
+        "wikibase_item": "Q4314789"
+      },
+      "coordinates": [
+        {
+          "lat": 51.1271,
+          "lon": 71.4272,
+          "primary": "",
+          "globe": "earth"
+        }
+      ]
+    },
+    {
+      "pageid": 35974508,
+      "ns": 0,
+      "title": "Nurjol Boulevard",
+      "pageprops": {
+        "kartographer_frames": "1",
+        "page_image_free": "Nurjol_Boulevard,_Astana.jpg",
+        "wikibase-shortdesc": "Street in Astana, Kazakhstan",
+        "wikibase_item": "Q713955"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Nurjol_Boulevard%2C_Astana.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 2080,
+        "height": 3507
+      }
+    },
+    {
+      "pageid": 38362482,
+      "ns": 0,
+      "title": "Nazarbayev Center",
+      "pageprops": {
+        "wikibase-shortdesc": "Public institution in Astana, Kazakhstan",
+        "wikibase_item": "Q4312088"
+      },
+      "coordinates": [
+        {
+          "lat": 51.11654,
+          "lon": 71.44283,
+          "primary": "",
+          "globe": "earth"
+        }
+      ]
+    },
+    {
+      "pageid": 45670703,
+      "ns": 0,
+      "title": "National Museum of the Republic of Kazakhstan",
+      "pageprops": {
+        "page_image_free": "National_Museum_of_the_Republic_of_Kazakhstan.jpg",
+        "wikibase-shortdesc": "National museum in Astana, Kazakhstan",
+        "wikibase_item": "Q18405670"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/0/09/National_Museum_of_the_Republic_of_Kazakhstan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 3489,
+        "height": 2075
+      }
+    },
+    {
+      "pageid": 48438400,
+      "ns": 0,
+      "title": "Astana Opera",
+      "pageprops": {
+        "page_image_free": "Astana_Opera_House.jpg",
+        "wikibase-shortdesc": "Opera house in Astana, Kazakhstan",
+        "wikibase_item": "Q21371563"
+      },
+      "coordinates": [
+        {
+          "lat": 51.13555556,
+          "lon": 71.41091667,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/8/8a/Astana_Opera_House.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 4950,
+        "height": 3300
+      }
+    },
+    {
+      "pageid": 51137816,
+      "ns": 0,
+      "title": "Hazrat Sultan Mosque",
+      "pageprops": {
+        "page_image_free": "Khazret_Sultan_Mosque_2_(cropped).jpg",
+        "wikibase-shortdesc": "Mosque in Astana, Kazakhstan",
+        "wikibase_item": "Q4494668"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/5/5c/Khazret_Sultan_Mosque_2_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 2740,
+        "height": 2055
+      }
+    },
+    {
+      "pageid": 51515559,
+      "ns": 0,
+      "title": "Qaraötkel Bridge",
+      "pageprops": {
+        "page_image_free": "Astana,_by_the_River_(4054863149).jpg",
+        "wikibase-shortdesc": "Arch bridge in Astana, Kazakhstan",
+        "wikibase_item": "Q28402868"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Astana%2C_by_the_River_%284054863149%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 4416,
+        "height": 3312
+      }
+    },
+    {
+      "pageid": 55200771,
+      "ns": 0,
+      "title": "Independence Square, Astana",
+      "pageprops": {
+        "kartographer_frames": "1",
+        "page_image_free": "Kazakh_Eli.jpg",
+        "wikibase-shortdesc": "Main public square in Astana, Kazakhstan",
+        "wikibase_item": "Q48780885"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Kazakh_Eli.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 3120,
+        "height": 2316
+      }
+    },
+    {
+      "pageid": 62054606,
+      "ns": 0,
+      "title": "National Military-Patriotic Center of the Armed Forces of Kazakhstan",
+      "pageprops": {
+        "wikibase-shortdesc": "Museum of the Armed Forces of Kazakhstan",
+        "wikibase_item": "Q85787940"
+      }
+    },
+    {
+      "pageid": 62815244,
+      "ns": 0,
+      "title": "Döñgelek Square",
+      "pageprops": {
+        "page_image_free": "KazMunayGas_04.jpg",
+        "wikibase-shortdesc": "Square in Astana, Kazakhstan",
+        "wikibase_item": "Q85758095"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/0/01/KazMunayGas_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 6000,
+        "height": 4000
+      }
+    },
+    {
+      "pageid": 62820991,
+      "ns": 0,
+      "title": "Lovers' Park (Astana)",
+      "pageprops": {
+        "page_image_free": "Astana-2021-10_-_3.jpg",
+        "wikibase-shortdesc": "Urban park in Kazakhstan",
+        "wikibase_item": "Q42422250"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Astana-2021-10_-_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 3934,
+        "height": 1826
+      }
+    },
+    {
+      "pageid": 63707654,
+      "ns": 0,
+      "title": "Otan Qorgaushylar Monument",
+      "pageprops": {
+        "kartographer_frames": "1",
+        "page_image_free": "Dmitry_Medvedev_in_Kazakhstan_22_May_2008-3.jpg",
+        "wikibase-shortdesc": "City memorial in Astana, Kazakhstan",
+        "wikibase_item": "Q25481641"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/b/be/Dmitry_Medvedev_in_Kazakhstan_22_May_2008-3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 334,
+        "height": 220
+      }
+    },
+    {
+      "pageid": 63833030,
+      "ns": 0,
+      "title": "Talan Towers",
+      "pageprops": {
+        "page_image_free": "Talan_Towers_(The_Ritz-Carlton_Hotel).jpg",
+        "wikibase-shortdesc": "Building complex in Kazakhstan",
+        "wikibase_item": "Q25495527"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/3/34/Talan_Towers_%28The_Ritz-Carlton_Hotel%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 2993,
+        "height": 4489
+      }
+    },
+    {
+      "pageid": 65703042,
+      "ns": 0,
+      "title": "Presidential Park",
+      "pageprops": {
+        "kartographer_frames": "1",
+        "page_image_free": "Presidential_Park_01.jpg",
+        "wikibase-shortdesc": "Recreational area",
+        "wikibase_item": "Q104866684"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/9/95/Presidential_Park_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 6000,
+        "height": 4000
+      }
+    },
+    {
+      "pageid": 65712361,
+      "ns": 0,
+      "title": "Astana Triathlon Park",
+      "pageprops": {
+        "kartographer_frames": "1",
+        "page_image_free": "Astana_Triathlon_Park_View.jpg",
+        "wikibase-shortdesc": "Urban park in Astana, Kazakhstan",
+        "wikibase_item": "Q104866885"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/8/83/Astana_Triathlon_Park_View.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 4160,
+        "height": 3120
+      }
+    },
+    {
+      "pageid": 65714153,
+      "ns": 0,
+      "title": "Jetisu Park",
+      "pageprops": {
+        "kartographer_frames": "1",
+        "page_image_free": "Gate_of_Jetisy_park.jpg",
+        "wikibase-shortdesc": "Urban park in Astana, Kazakhstan",
+        "wikibase_item": "Q104866925"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/3/30/Gate_of_Jetisy_park.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 3264,
+        "height": 1836
+      }
+    },
+    {
+      "pageid": 65715170,
+      "ns": 0,
+      "title": "Astana Botanical Garden",
+      "pageprops": {
+        "kartographer_frames": "1",
+        "page_image_free": "Botanical_triangles.jpg",
+        "wikibase-shortdesc": "Botanical garden in Kazakhstan",
+        "wikibase_item": "Q104866948"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/1/17/Botanical_triangles.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 4608,
+        "height": 3456
+      }
+    },
+    {
+      "pageid": 68030640,
+      "ns": 0,
+      "title": "Demalys Promenade",
+      "pageprops": {
+        "wikibase-shortdesc": "Pedestrian zone in Astana, Kazakhstan",
+        "wikibase_item": "Q107451644"
+      }
+    },
+    {
+      "pageid": 71727298,
+      "ns": 0,
+      "title": "Nursultan Mosque",
+      "pageprops": {
+        "page_image_free": "Астана,_центральная_мечеть_с_угла.jpg",
+        "wikibase-shortdesc": "Mosque in Astana, Kazakhstan",
+        "wikibase_item": "Q113675887"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/3/31/%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0%2C_%D1%86%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BC%D0%B5%D1%87%D0%B5%D1%82%D1%8C_%D1%81_%D1%83%D0%B3%D0%BB%D0%B0.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 4306,
+        "height": 3226
+      }
+    },
+    {
+      "pageid": 80331903,
+      "ns": 0,
+      "title": "Mäñgılık El Triumphal Arch",
+      "pageprops": {
+        "page_image_free": "Stamps_of_Kazakhstan,_2012-32.jpg",
+        "wikibase-shortdesc": "Building in Astana, Kazakhstan",
+        "wikibase_item": "Q42422896"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/1/11/Stamps_of_Kazakhstan%2C_2012-32.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 718,
+        "height": 670
+      }
+    },
+    {
+      "ns": 0,
+      "title": "MEGA Silk Way",
+      "missing": ""
+    },
+    {
+      "ns": 0,
+      "title": "Nur Alem",
+      "missing": ""
+    },
+    {
+      "ns": 0,
+      "title": "Astana Ballet",
+      "missing": ""
+    },
+    {
+      "ns": 0,
+      "title": "Gorky Russian Drama Theatre",
+      "missing": ""
+    },
+    {
+      "ns": 0,
+      "title": "Kenesary Khan Monument",
+      "missing": ""
+    },
+    {
+      "ns": 0,
+      "title": "Keruen",
+      "missing": ""
+    },
+    {
+      "pageid": 13452070,
+      "ns": 0,
+      "title": "Astana Arena",
+      "pageprops": {
+        "page_image_free": "Astana_Arena_(inside_interior).JPG",
+        "wikibase-shortdesc": "Sports venue in Astana, Kazakhstan",
+        "wikibase_item": "Q746559"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/4/46/Astana_Arena_%28inside_interior%29.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 5184,
+        "height": 3456
+      }
+    },
+    {
+      "pageid": 19970911,
+      "ns": 0,
+      "title": "Grand Alatau",
+      "pageprops": {
+        "page_image_free": "Astana,_Kazakhstan_(8239484922).jpg",
+        "wikibase-shortdesc": "Residential building complex in Astana, Kazakhstan",
+        "wikibase_item": "Q1542507"
+      },
+      "coordinates": [
+        {
+          "lat": 51.16208333,
+          "lon": 71.41975,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Astana%2C_Kazakhstan_%288239484922%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 3240,
+        "height": 2160
+      }
+    },
+    {
+      "pageid": 34796880,
+      "ns": 0,
+      "title": "Saryarka Velodrome",
+      "pageprops": {
+        "kartographer_frames": "1",
+        "page_image_free": "Saryarka_Velodrome.JPG",
+        "wikibase-shortdesc": "Sports venue in Astana, Kazakhstan",
+        "wikibase_item": "Q4408858"
+      },
+      "coordinates": [
+        {
+          "lat": 51.10472222,
+          "lon": 71.405,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Saryarka_Velodrome.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 5064,
+        "height": 2616
+      }
+    },
+    {
+      "pageid": 39300442,
+      "ns": 0,
+      "title": "Kazakhstan Sports Palace",
+      "pageprops": {
+        "kartographer_frames": "1",
+        "page_image_free": "Kazakhstan_Sports_Palace.jpg",
+        "wikibase-shortdesc": "Sports venue in Kazakhstan",
+        "wikibase_item": "Q1186465"
+      },
+      "coordinates": [
+        {
+          "lat": 51.155725,
+          "lon": 71.46528056,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Kazakhstan_Sports_Palace.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 5004,
+        "height": 1992
+      }
+    },
+    {
+      "pageid": 39585074,
+      "ns": 0,
+      "title": "Alau Ice Palace",
+      "pageprops": {
+        "wikibase-shortdesc": "Sports venue in Kazakhstan",
+        "wikibase_item": "Q1072092"
+      },
+      "coordinates": [
+        {
+          "lat": 51.10472222,
+          "lon": 71.405,
+          "primary": "",
+          "globe": "earth"
+        }
+      ]
+    },
+    {
+      "pageid": 42194369,
+      "ns": 0,
+      "title": "Barys Arena",
+      "pageprops": {
+        "kartographer_frames": "1",
+        "page_image_free": "Barys_Arena_08.2015_(cropped).jpg",
+        "wikibase-shortdesc": "Sports venue in Astana, Kazakhstan",
+        "wikibase_item": "Q16632800"
+      },
+      "coordinates": [
+        {
+          "lat": 51.1557,
+          "lon": 71.4653,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/4/44/Barys_Arena_08.2015_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 2780,
+        "height": 1441
+      }
+    },
+    {
+      "pageid": 50278008,
+      "ns": 0,
+      "title": "Our Mother of Perpetual Help Cathedral, Astana",
+      "pageprops": {
+        "defaultsort": "Our Mother of Perpetual Help, Church",
+        "kartographer_frames": "1",
+        "page_image_free": "Roman_Catholic_Church_in_Nur-Sultan,_Kazakhstan.jpg",
+        "wikibase-shortdesc": "Church in Astana, Kazakhstan",
+        "wikibase_item": "Q16538413"
+      },
+      "coordinates": [
+        {
+          "lat": 51.15361111,
+          "lon": 71.45194444,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/5/50/Roman_Catholic_Church_in_Nur-Sultan%2C_Kazakhstan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 3024,
+        "height": 4032
+      }
+    },
+    {
+      "pageid": 51731164,
+      "ns": 0,
+      "title": "Astana-1 station",
+      "pageprops": {
+        "page_image_free": "Astana_Railway_Station_2014.jpg",
+        "wikibase-shortdesc": "Railway station in Astana, Kazakhstan",
+        "wikibase_item": "Q800403"
+      },
+      "coordinates": [
+        {
+          "lat": 51.1957,
+          "lon": 71.4091,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/e/e8/Astana_Railway_Station_2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    {
+      "pageid": 53464760,
+      "ns": 0,
+      "title": "The Museum of the First President of the Republic of Kazakhstan",
+      "pageprops": {
+        "defaultsort": "Museum of the First President of the Republic of Kazakhstan",
+        "page_image_free": "Kazakhstan_P9130181_(39371381774).jpg",
+        "wikibase_item": "Q25500354"
+      },
+      "coordinates": [
+        {
+          "lat": 51.16666667,
+          "lon": 71.41911111,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Kazakhstan_P9130181_%2839371381774%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 4608,
+        "height": 3456
+      }
+    },
+    {
+      "pageid": 54154394,
+      "ns": 0,
+      "title": "Astana-Nurly Zhol station",
+      "pageprops": {
+        "page_image_free": "Астана,_вокзал_Нурлы_Жол,_сферопанорама_(cropped).jpg",
+        "wikibase-shortdesc": "Main railway station of Astana, Kazakhstan",
+        "wikibase_item": "Q30642068"
+      },
+      "coordinates": [
+        {
+          "lat": 51.112389,
+          "lon": 71.531752,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/1/16/%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0%2C_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB_%D0%9D%D1%83%D1%80%D0%BB%D1%8B_%D0%96%D0%BE%D0%BB%2C_%D1%81%D1%84%D0%B5%D1%80%D0%BE%D0%BF%D0%B0%D0%BD%D0%BE%D1%80%D0%B0%D0%BC%D0%B0_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 4989,
+        "height": 3742
+      }
+    },
+    {
+      "pageid": 55201211,
+      "ns": 0,
+      "title": "Palace of Independence (Astana)",
+      "pageprops": {
+        "page_image_free": "Astana_Palace_of_Independence.jpg",
+        "wikibase-shortdesc": "Palace for official and public events in Astana, Kazakhstan",
+        "wikibase_item": "Q4155890"
+      },
+      "coordinates": [
+        {
+          "lat": 51.1207,
+          "lon": 71.472,
+          "primary": "",
+          "globe": "earth"
+        }
+      ],
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/6/63/Astana_Palace_of_Independence.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 3936,
+        "height": 2624
+      }
+    },
+    {
+      "pageid": 73770741,
+      "ns": 0,
+      "title": "Beit Rachel Synagogue, Astana",
+      "pageprops": {
+        "page_image_free": "Synagogue_in_Astana.JPG",
+        "wikibase-shortdesc": "Synagogue in Astana, Kazakhstan",
+        "wikibase_item": "Q42416691"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/2/23/Synagogue_in_Astana.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "width": 2976,
+        "height": 2010
+      }
+    },
+    {
+      "ns": 0,
+      "title": "Astana Circus",
+      "missing": ""
+    },
+    {
+      "ns": 0,
+      "title": "Saken Seifullin Museum",
+      "missing": ""
+    },
+    {
+      "ns": 0,
+      "title": "Atameken Kazakhstan Map",
+      "missing": ""
+    }
+  ]
+}

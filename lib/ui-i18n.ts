@@ -162,3 +162,210 @@ Object.assign(placeTranslations, {
     en:{name:"Demalys Promenade",description:"A walking spot to view the city’s architecture from public space. Entry to surrounding buildings is not included."}
   }
 });
+
+// Editorial translations for the Wikidata landmark expansion.
+Object.assign(categoryTranslations, {"Арена":{"kk":"Арена","en":"Arena"},"Мост":{"kk":"Көпір","en":"Bridge"}});
+Object.assign(placeTranslations, {
+  "independence-palace": {
+    "kk": {
+      "name": "Тәуелсіздік сарайы",
+      "description": "Қазақ елі алаңы маңындағы Тәуелсіздік сарайын қоғамдық аумақтан тамашалаңыз. Ішке кіру бағдарламаға байланысты."
+    },
+    "en": {
+      "name": "Palace of Independence",
+      "description": "View the Palace of Independence from public space near Kazakh Eli Square. Access inside depends on the programme."
+    }
+  },
+  "concert-hall": {
+    "kk": {
+      "name": "«Қазақстан» орталық концерт залы",
+      "description": "Иілген қасбеттерімен ерекшеленетін концерт ғимараты. Сыртынан тамашалаңыз; концерт афишасы мен билеттерін бөлек тексеріңіз."
+    },
+    "en": {
+      "name": "Kazakhstan Central Concert Hall",
+      "description": "A concert building with distinctive curved façades. View it from outside; check programmes and tickets separately."
+    }
+  },
+  "aqorda": {
+    "kk": {
+      "name": "Ақорда · қоғамдық аумақтан көрініс",
+      "description": "Президент резиденциясын қолжетімді қоғамдық аумақтан тамашалаңыз. Күзетілетін аумаққа кіру жоспарланбайды."
+    },
+    "en": {
+      "name": "Aqorda · public viewpoint",
+      "description": "View the presidential residence from accessible public space. Entry to the secured grounds is not included."
+    }
+  },
+  "emerald-towers": {
+    "kk": {
+      "name": "Изумрудный квартал",
+      "description": "Жоғарғы қабаттары көлбеу салынған сол жағалаудағы іскерлік мұнаралар. Кеңселерге кірмей, көшеден суретке түсіруге арналған аялдама."
+    },
+    "en": {
+      "name": "Emerald Towers",
+      "description": "Office towers on the left bank with distinctive sloping upper floors. A photo stop from the public street, without office access."
+    }
+  },
+  "talan-towers": {
+    "kk": {
+      "name": "Talan Towers",
+      "description": "Сол жағалаудағы заманауи көпфункциялы кешен. Қоғамдық тротуардан қасбеттерін көршілес ғимараттармен салыстырыңыз."
+    },
+    "en": {
+      "name": "Talan Towers",
+      "description": "A modern mixed-use complex on the left bank. Compare its façades with neighbouring buildings from the public pavement."
+    }
+  },
+  "abu-dhabi-plaza": {
+    "kk": {
+      "name": "Abu Dhabi Plaza",
+      "description": "Астана панорамасында көзге түсетін биік кешен. Қоғамдық көшеден сәулетін суретке түсіріңіз; шолу алаңы ұсынылмайды."
+    },
+    "en": {
+      "name": "Abu Dhabi Plaza",
+      "description": "A high-rise complex in Astana’s skyline. An architectural photo stop from public space; no observation deck is promised."
+    }
+  },
+  "qaraotkel-bridge": {
+    "kk": {
+      "name": "Қараөткел көпірі",
+      "description": "Есіл көрінісін тамашалауға болатын қалалық көпір. Рұқсат етілген жаяу жолдарды ғана пайдаланып, кіреберістерді тексеріңіз."
+    },
+    "en": {
+      "name": "Qaraotkel Bridge",
+      "description": "A city bridge across the Esil with river views. Use designated pedestrian paths and check the approaches before walking."
+    }
+  },
+  "military-museum": {
+    "kk": {
+      "name": "Әскери-тарихи музей · орталық ғимараты",
+      "description": "Жағалау маңындағы Ұлттық әскери-патриоттық орталық ғимараты. Бұл аялдама сыртқы көрініске арналған; экспозицияларға кіруді бөлек нақтылаңыз."
+    },
+    "en": {
+      "name": "Military History Museum · centre building",
+      "description": "The National Military-Patriotic Centre building near the river. This stop covers the exterior; confirm exhibition access separately."
+    }
+  },
+  "independence-square": {
+    "kk": {
+      "name": "Тәуелсіздік алаңы",
+      "description": "Қазақ елі монументі, музей мен сарайлар жанындағы ашық алаң. Сәулет серуенінде жел мен ұзақ арақашықтықты ескеріңіз."
+    },
+    "en": {
+      "name": "Independence Square",
+      "description": "An open square near Kazakh Eli, the museum and palaces. An architectural walk with exposed wind and long distances to consider."
+    }
+  },
+  "catholic-cathedral": {
+    "kk": {
+      "name": "Үнемі Көмек Беруші Құдай Анасының соборы",
+      "description": "Оң жағалаудағы католик соборы. Тыныштық сақтап, сәулетін қоғамдық көшеден тамашалаңыз; ішке кіруді приходтан нақтылаңыз."
+    },
+    "en": {
+      "name": "Our Mother of Perpetual Help Cathedral",
+      "description": "A Catholic cathedral on the right bank. View its architecture quietly from the public street; ask the parish about visitor access."
+    }
+  },
+  "saryarka-velodrome": {
+    "kk": {
+      "name": "«Сарыарқа» велотрегі",
+      "description": "Ерекше пішінді велотрек кешені. Сыртынан тамашалаңыз; жарыстар мен ішке кіруді бөлек тексеріңіз."
+    },
+    "en": {
+      "name": "Saryarka Velodrome",
+      "description": "A sports complex with a distinctive velodrome form. View the exterior; check competitions and indoor access separately."
+    }
+  },
+  "alau": {
+    "kk": {
+      "name": "«Алау» мұз сарайы",
+      "description": "Сол жағалаудағы мұз спорты кешені. Бұл аялдама сыртқы көрініске арналған; жаппай сырғанау, кесте мен бағалар расталмаған."
+    },
+    "en": {
+      "name": "Alau Ice Palace",
+      "description": "An ice sports complex on the left bank. This stop covers the exterior; public skating, schedules and prices are unconfirmed."
+    }
+  },
+  "astana-arena": {
+    "kk": {
+      "name": "Астана Арена",
+      "description": "Елорданың спорт ауданындағы футбол стадионы. Қоғамдық аумақтан тамашалаңыз; матчқа өзекті афиша мен билет қажет."
+    },
+    "en": {
+      "name": "Astana Arena",
+      "description": "A football stadium in the capital’s sports district. View it from public space; matches require a current listing and a ticket."
+    }
+  },
+  "barys-arena": {
+    "kk": {
+      "name": "Барыс Арена",
+      "description": "Сол жағалаудың спорт ауданындағы хоккей аренасы. Сыртқы көрініске арналған аялдама; матчқа баруды өзекті афиша бойынша жоспарлаңыз."
+    },
+    "en": {
+      "name": "Barys Arena",
+      "description": "An ice hockey arena in the left-bank sports district. An exterior stop; plan match attendance using the current programme."
+    }
+  },
+  "sports-palace": {
+    "kk": {
+      "name": "«Қазақстан» спорт сарайы",
+      "description": "Барыс Аренадан бөлек, оң жағалаудағы спорт ғимараты. Сыртынан тамашалап, кіру мен іс-шараларды алаңнан нақтылаңыз."
+    },
+    "en": {
+      "name": "Kazakhstan Sports Palace",
+      "description": "A right-bank sports building, separate from Barys Arena. View the exterior and confirm access and events with the venue."
+    }
+  },
+  "beit-rachel": {
+    "kk": {
+      "name": "«Бейт Рахель» синагогасы",
+      "description": "Оң жағалаудағы синагога. Қоғамдық көшеден сыртқы сәулетін тамашалап, ережелерін сақтаңыз және келуді алдын ала келісіңіз."
+    },
+    "en": {
+      "name": "Beit Rachel Synagogue",
+      "description": "A synagogue on the right bank. View its exterior from the public street, respect site rules and arrange any visit in advance."
+    }
+  },
+  "astana-1": {
+    "kk": {
+      "name": "Астана-1 теміржол вокзалы",
+      "description": "Қаланың солтүстік бөлігіндегі теміржол вокзалы. Вокзал алдындағы алаңнан сәулетін тамашалаңыз; платформаларға өту ұсынылмайды."
+    },
+    "en": {
+      "name": "Astana-1 Railway Station",
+      "description": "A railway station in the northern city. An architectural stop from the station square; platform access is not included."
+    }
+  },
+  "nurly-zhol-station": {
+    "kk": {
+      "name": "Нұрлы жол теміржол вокзалы",
+      "description": "Қаланың шығысындағы заманауи вокзал, орталық серуен аймақтарынан алыс. Вокзал алдындағы аумақтан тамашалаңыз."
+    },
+    "en": {
+      "name": "Nurly Zhol Railway Station",
+      "description": "A modern station building in the eastern city, far from central walking areas. View it from the station forecourt."
+    }
+  },
+  "old-presidential-museum": {
+    "kk": {
+      "name": "Бұрынғы президент резиденциясы · ескі орталық",
+      "description": "Ескі орталықтағы бұрынғы президент резиденциясы. Қасбетін тамашалаңыз; бұрынғы музейдің жұмысы расталмаған."
+    },
+    "en": {
+      "name": "Former Presidential Residence · old centre",
+      "description": "The former presidential residence in the old centre. View the façade; operation of the former museum is not confirmed."
+    }
+  },
+  "grand-alatau": {
+    "kk": {
+      "name": "Гранд Алатау · жағалаудан көрініс",
+      "description": "Оң жағалаудың өзен панорамасындағы биік тұрғын үй кешені. Қоғамдық жағалаудан тамашалаңыз; тұрғын үйлерге кіру ұсынылмайды."
+    },
+    "en": {
+      "name": "Grand Alatau · riverside view",
+      "description": "A residential high-rise complex in the right-bank river skyline. View it from the public embankment; residential access is not included."
+    }
+  }
+});
+
+Object.assign(placeTranslations, {"nur-alem":{"en":{"name":"alem.ai · Singularity Museum","description":"The Singularity Museum on the first floor of alem.ai in the Nur Alem sphere. The former Future Energy Museum is closed. Check admission and temporary closures with the organiser."},"kk":{"name":"alem.ai · Сингулярлық музейі","description":"Нұр Әлем сферасындағы alem.ai орталығының бірінші қабатындағы Сингулярлық музейі. Бұрынғы Болашақ энергиясы музейі жабылған. Кіру мен уақытша жабылуды ұйымдастырушыдан тексеріңіз."}}});

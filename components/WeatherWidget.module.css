@@ -1,0 +1,20 @@
+.widget{padding:16px 18px;border:1px solid rgba(125,145,156,.24);border-radius:20px;background:var(--surface,#fff);color:var(--text,#182a35);box-shadow:0 12px 36px rgba(10,35,50,.1);font-size:16px;line-height:1.4;box-sizing:border-box}
+.top{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
+.badge{margin-left:auto;font-size:14px;color:var(--muted,#647580);font-weight:500}
+.refresh{display:grid;place-items:center;border:0;background:transparent;color:inherit;width:30px;height:30px;padding:4px;border-radius:8px;cursor:pointer;flex-shrink:0;font-size:16px}
+.refresh:hover{background:rgba(100,130,150,.12)}
+.refresh:disabled{cursor:wait;opacity:.6}
+.refresh:focus-visible{outline:2px solid #087e8b;outline-offset:2px}
+.readings{display:flex;align-items:center;gap:12px;margin-top:8px;min-height:50px}
+.readings>strong{font-size:30px;line-height:1;white-space:nowrap;letter-spacing:-1px}
+.icon{flex-shrink:0;color:var(--accent,#167c82)}
+.details{display:flex;flex-direction:column;gap:3px;min-width:0;font-size:14px}
+.details>span:last-child{color:var(--muted,#647580)}
+.details svg{display:inline;vertical-align:-2px}
+.unavailable{font-size:16px;font-weight:600}
+.source{display:flex;gap:5px 12px;flex-wrap:wrap;margin-top:8px;font-size:14px;color:var(--muted,#647580)}
+.source a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.spin{animation:weather-spin 1s linear infinite}
+@keyframes weather-spin{to{transform:rotate(360deg)}}
+@media(max-width:600px){.widget{padding:14px}.top{gap:5px}.readings{gap:8px}.readings>strong{font-size:28px}.badge{font-size:14px}.source{gap:3px 9px}.icon{width:32px}}
+@media(prefers-reduced-motion:reduce){.spin{animation:none}}

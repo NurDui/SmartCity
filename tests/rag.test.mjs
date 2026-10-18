@@ -59,12 +59,14 @@ test('facts retain sources and unknown ratings and opening hours are not invente
  assert.equal(result.mode,'template');assert.equal(result.trace.llmUsed,false);
  for(const {poi,actions,why} of result.recommendations){assert.equal(poi.rating,null);assert.ok(poi.sourceUrl.startsWith('https://'));assert.ok(actions.length>0);assert.ok(why.includes(poi.description));}
 });
-test('current programme replaces the closed energy museum without obsolete hours',()=>{
+test('current programme replaces the closed energy museum and uses current organiser admission sources',()=>{
  const place=places.find(p=>p.id==='nur-alem');
  assert.ok(place.name.includes('Сингулярности'));
- assert.ok(place.description.includes('прекратил приём'));
- assert.equal(place.openingHours,null);
- assert.ok(place.editorialSource.includes('qazexpocongress'));
+ assert.match(place.description,/Музей энергии будущего закрыт/);
+ assert.equal(new URL(place.editorialSource).hostname,'alem.ai');
+ assert.ok(typeof place.openingHours==='string'&&place.openingHours.length>0);
+ assert.equal(new URL(place.costSourceUrl).hostname,'alem.ai');
+ assert.equal(place.costEstimateBasis,'published');
  const result=buildResponse(places,input({location:{lat:51.089,lon:71.416},weatherMode:'winter',durationMinutes:90}),winterWeather,'test');
  assert.ok(result.recommendations.some(p=>p.poi.id==='nur-alem'));
 });
@@ -96,11 +98,12 @@ test('LLM provider timeout, HTTP error and bad JSON use safe template fallback',
 test('live weather rounds coordinates and rejects stale provider context',async()=>{
  let upstream;
  const current={temperature_2m:18,apparent_temperature:17,wind_speed_10m:10,weather_code:1,time:Math.floor(Date.now()/1000)};
+ const current_units={temperature_2m:'°C',apparent_temperature:'°C',wind_speed_10m:'km/h',time:'unixtime'};
  const request=input({weatherMode:'live'});
- const good=await getWeather(request,async(url)=>{upstream=String(url);return Response.json({current});});
+ const good=await getWeather(request,async(url)=>{upstream=String(url);return Response.json({current,current_units});});
  assert.equal(good.isDemo,false);assert.equal(good.temperature,18);
  const url=new URL(upstream);assert.equal(url.searchParams.get('latitude'),'51.13');assert.equal(url.searchParams.get('longitude'),'71.43');assert.ok(!upstream.includes('51.1282'));
- const stale=await getWeather(request,async()=>Response.json({current:{...current,time:0}}));
+ const stale=await getWeather(request,async()=>Response.json({current:{...current,time:0},current_units}));
  assert.equal(stale.isDemo,true);assert.ok(stale.description.includes('недоступна'));
  const unavailable=await getWeather(request,async()=>new Response('down',{status:503}));assert.equal(unavailable.isDemo,true);
 });

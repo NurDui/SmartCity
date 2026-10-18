@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 
 const base = process.env.SMOKE_BASE_URL || 'http://127.0.0.1:5173';
 async function request(path, body) {
@@ -15,9 +16,11 @@ const { response, result: catalogue } = await request('/api/places');
 assert.equal(response.status, 200, 'POI catalogue');
 assert.ok(catalogue.places.length >= 8, 'Sourced POI dataset is available');
 assert.equal(new Set(catalogue.places.map(p => p.id)).size, catalogue.places.length, 'Unique POI identifiers');
+const editorial=new Map(JSON.parse(readFileSync(new URL('../data/seeds.json',import.meta.url),'utf8')).map(p=>[p.id,p.description]));
 for (const poi of catalogue.places) {
   assert.ok(Number.isFinite(poi.lat) && Number.isFinite(poi.lon));
   assert.match(poi.sourceUrl, /^https:\/\//, 'POI source attribution');
+  if(editorial.has(poi.id))assert.equal(poi.description,editorial.get(poi.id),'Photo metadata must not replace the description of the place');
 }
 const scenario = {
   query: 'Хочу посмотреть город рядом с EXPO',

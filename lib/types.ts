@@ -13,6 +13,10 @@ export interface POI {
   bank: "left" | "right";
   durationMinutes: number;
   image: string;
+  imageSourceUrl?: string;
+  imageAuthor?: string;
+  imageLicense?: string;
+  imageLicenseUrl?: string;
   sourceUrl: string;
   sourceName: string;
   coordinateSourceUrl?: string;
@@ -47,6 +51,30 @@ export interface WeatherContext {
   code: number;
   isDemo: boolean;
   description: string;
+  status?: "live" | "demo" | "unavailable";
+  observedAt?: string | null;
+  retrievedAt?: string;
+  source?: string;
+  sourceUrl?: string | null;
+  isDay?: boolean | null;
+  units?: { temperature: "°C"; wind: "km/h" };
+  safetyFallback?: boolean;
+}
+export interface PublicWeatherContext {
+  temperature: number | null;
+  feelsLike: number | null;
+  windKmh: number | null;
+  code: number | null;
+  isDay: boolean | null;
+  isDemo: boolean;
+  status: "live" | "demo" | "unavailable";
+  description: string;
+  observedAt: string | null;
+  retrievedAt: string;
+  source: string;
+  sourceUrl: string | null;
+  units: { temperature: "°C"; wind: "km/h" };
+  safetyFallback: boolean;
 }
 export interface Recommendation {
   poi: POI;
