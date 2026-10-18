@@ -46,7 +46,7 @@ export interface RecommendRequest {
 }
 export interface WeatherContext {
   temperature: number;
-  feelsLike: number;
+  feelsLike: number | null;
   windKmh: number;
   code: number;
   isDemo: boolean;
@@ -59,6 +59,10 @@ export interface WeatherContext {
   isDay?: boolean | null;
   units?: { temperature: "°C"; wind: "km/h" };
   safetyFallback?: boolean;
+  dataKind?: "model-current" | "forecast" | "demo";
+  modelUpdatedAt?: string | null;
+  licenseUrl?: string | null;
+  conditionSymbol?: string;
 }
 export interface PublicWeatherContext {
   temperature: number | null;
@@ -75,6 +79,10 @@ export interface PublicWeatherContext {
   sourceUrl: string | null;
   units: { temperature: "°C"; wind: "km/h" };
   safetyFallback: boolean;
+  dataKind?: "model-current" | "forecast" | "demo";
+  modelUpdatedAt?: string | null;
+  licenseUrl?: string | null;
+  conditionSymbol?: string;
 }
 export interface Recommendation {
   poi: POI;

@@ -58,7 +58,7 @@ test('cached models expire by observation age even when cache TTL has not expire
  let at=now0,calls=0;
  const service=createWeatherService({now:()=>at,fetcher:async()=>{calls++;return Response.json(payload(now0,{time:(now0-WEATHER_MAX_AGE_MS+60_000)/1000}));}});
  assert.equal((await service.get(input())).status,'live');at+=60_001;
- assert.equal((await service.get(input())).status,'unavailable');assert.equal(calls,2);
+ assert.equal((await service.get(input())).status,'unavailable');assert.equal(calls,3);
 });
 test('cancelling one subscriber preserves another, cancelling the last aborts upstream and avoids caching',async()=>{
  let upstreamSignal,release,calls=0;
@@ -82,7 +82,7 @@ test('at most four distinct cells fetch concurrently; invalid locations and canc
 test('failed cells receive a short negative cache and per-isolate rolling minute cap is fail closed',async()=>{
  let at=now0,calls=0;
  const service=createWeatherService({now:()=>at,fetcher:async()=>{calls++;return new Response('down',{status:503});}});
- await service.get(input());await service.get(input());assert.equal(calls,1);at+=30_001;await service.get(input());assert.equal(calls,2);
+ await service.get(input());await service.get(input());assert.equal(calls,2);at+=30_001;await service.get(input());assert.equal(calls,4);
  // More than 64 distinct cells exercises both cache eviction and the shared upstream cap.
  const limited=createWeatherService({now:()=>at,fetcher:async()=>{calls++;return Response.json(payload(at));}});calls=0;
  for(let i=0;i<501;i++)await limited.get(input({location:{lat:51+Math.floor(i/50)*.01,lon:71.2+(i%50)*.01}}));

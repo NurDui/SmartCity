@@ -1,4 +1,4 @@
-import { getPublicWeather, weatherLabel } from "@/lib/weather";
+import { getPublicWeather, weatherDescription } from "@/lib/weather";
 import type { Language, RecommendRequest } from "@/lib/types";
 
 const headers = { "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" };
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     if (!location || typeof location.lat !== "number" || !Number.isFinite(location.lat) || typeof location.lon !== "number" || !Number.isFinite(location.lon) || location.lat < 50.9 || location.lat > 51.35 || location.lon < 71.15 || location.lon > 71.8 || typeof mode !== "string" || !["live", "summer", "winter"].includes(mode)) throw new Error("Invalid Astana location or weather mode");
     const weather = await getPublicWeather({ location: { lat: location.lat, lon: location.lon }, weatherMode: mode as RecommendRequest["weatherMode"] }, { signal: request.signal });
     const demoLabel = language === "en" ? (mode === "winter" ? "Winter demo scenario" : "Summer demo scenario") : language === "kk" ? (mode === "winter" ? "Қысқы демо-сценарий" : "Жазғы демо-сценарий") : (mode === "winter" ? "Зимний демо-сценарий" : "Летний демо-сценарий");
-    return Response.json({ weather: { ...weather, description: weather.status === "demo" ? demoLabel : weatherLabel(weather.code, language) } }, { headers });
+    return Response.json({ weather: { ...weather, description: weather.status === "demo" ? demoLabel : weatherDescription(weather, language) } }, { headers });
   } catch (error) {
     if (error === oversized) return Response.json({ error: "Request too large" }, { status: 413, headers });
     return Response.json({ error: "Invalid weather request" }, { status: 400, headers });

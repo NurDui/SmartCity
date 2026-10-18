@@ -54,7 +54,8 @@ export function queryTerms(query: string): string[] {
 }
 
 export function requiresIndoor(weather: WeatherContext): boolean {
-  return weather.feelsLike <= -15 || weather.temperature <= -20 || weather.windKmh >= 45 || weather.temperature >= 35 || weather.code >= 95;
+  // When apparent temperature is unavailable, a stricter cold-and-wind policy avoids inventing a feels-like reading.
+  return (weather.feelsLike ?? weather.temperature) <= -15 || (weather.feelsLike === null && weather.temperature <= -10 && weather.windKmh >= 20) || weather.temperature <= -20 || weather.windKmh >= 45 || weather.temperature >= 35 || weather.code >= 95;
 }
 
 type Candidate = {poi: POI; score:number; distanceMeters:number; walkMinutes:number};
