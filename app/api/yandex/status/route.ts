@@ -1,15 +1,17 @@
 import {env} from "cloudflare:workers";
 import {resolveYandexPolicy,YANDEX_QUOTA_POLICY} from "@/lib/yandex-policy";
+import {getRuntimeConfig} from "@/lib/provider-config";
 
 /** Public readiness information only: no keys, counters, IP hashes or upstream calls. */
 export async function GET(){
  const policy=resolveYandexPolicy("geocoder",process.env,Boolean(env.DB));
+ const browserSdkEnabled=Boolean(getRuntimeConfig().yandexKey);
  return Response.json({
-  integration:"prepared-not-connected",
-  browserSdkEnabled:false,
+  integration:browserSdkEnabled?"browser-map-configured":"prepared-not-connected",
+  browserSdkEnabled,
   publicGeocoderEndpoint:false,
   serverTransportConfigured:policy.enabled,
-  blockingReason:policy.enabled?"yandex_renderer_not_connected":policy.reason,
+  blockingReason:policy.enabled?"public_geocoder_not_connected":policy.reason,
   limits:{
    countedRequestsPerRolling24Hours:YANDEX_QUOTA_POLICY.globalReservations,
    requestsPerIpPerRolling24Hours:YANDEX_QUOTA_POLICY.identityReservations,
@@ -18,6 +20,6 @@ export async function GET(){
    countedProducts:["geocoder"],
    otherProductsEnabled:false,
   },
-  mapProviderUnchanged:true,
+  mapProvider:browserSdkEnabled?"yandex":getRuntimeConfig().mapProvider,
  },{headers:{"Cache-Control":"no-store","X-Content-Type-Options":"nosniff","X-Robots-Tag":"noindex"}});
 }

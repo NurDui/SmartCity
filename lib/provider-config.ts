@@ -16,12 +16,14 @@ export function getFeedConfig(kind:FeedKind, env:Record<string,string|undefined>
 }
 export function getRuntimeConfig(env:Record<string,string|undefined>=process.env):RuntimeConfig {
   const key=env.TWOGIS_MAPGL_KEY?.trim()||null;
+  const yandexKey=env.YANDEX_MAPS_JS_API_KEY?.trim()||null;
   const configured=(kind:FeedKind)=>{try{return Boolean(getFeedConfig(kind,env));}catch{return false;}};
-  return {twoGisKey:key,mapProvider:key?"2gis":"openstreetmap",feeds:{cinema:configured("cinema"),events:configured("events"),traffic:configured("traffic")},requiresMapConsent:true};
+  return {twoGisKey:key,yandexKey,mapProvider:yandexKey?"yandex":key?"2gis":"openstreetmap",feeds:{cinema:configured("cinema"),events:configured("events"),traffic:configured("traffic")},requiresMapConsent:true};
 }
 export function integrationStates(env:Record<string,string|undefined>=process.env):IntegrationState[] {
  const c=getRuntimeConfig(env);
  return [
+  {id:"yandex",configured:Boolean(c.yandexKey),label:"Яндекс Карты · JavaScript API",kind:"browser-sdk"},
   {id:"2gis",configured:Boolean(c.twoGisKey),label:"2GIS MapGL JS",kind:"browser-sdk"},
   {id:"cinema",configured:c.feeds.cinema,label:"Сеансы: разрешенный JSON-фид",kind:"approved-feed"},
   {id:"events",configured:c.feeds.events,label:"События: разрешенный JSON-фид",kind:"approved-feed"},

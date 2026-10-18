@@ -21,7 +21,7 @@ export interface TrafficState {
   status:LiveStatus; score:number|null; source:string; updatedAt:string|null; message:string;
 }
 export interface IntegrationState {
-  id:"2gis"|"cinema"|"events"|"traffic"|"telegram"|"instagram";
+  id:"yandex"|"2gis"|"cinema"|"events"|"traffic"|"telegram"|"instagram";
   configured:boolean; label:string; kind:"browser-sdk"|"approved-feed"|"publisher-source";
 }
 export interface DiscoverResponse {
@@ -31,7 +31,8 @@ export interface DiscoverResponse {
 }
 export interface RuntimeConfig {
   twoGisKey:string|null;
-  mapProvider:"2gis"|"openstreetmap";
+  yandexKey:string|null;
+  mapProvider:"yandex"|"2gis"|"openstreetmap";
   feeds:{cinema:boolean;events:boolean;traffic:boolean};
   requiresMapConsent:true;
 }
