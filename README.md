@@ -58,6 +58,7 @@ Seruen сначала ищет и фильтрует каталог, затем 
 
 ## Документация
 
+- [Устройство Seruen и задачи владельца](docs/owner-guide.md)
 - [Архитектура](docs/architecture.md)
 - [Приватность и ограничения](docs/privacy-and-limitations.md)
 - [Сценарии проверки](docs/test-scenarios.md)

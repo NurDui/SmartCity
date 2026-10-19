@@ -8,9 +8,9 @@ import styles from "./CinemaShowtimes.module.css";
 type Props = { sessions:CinemaSession[]; locale:Locale };
 type Group = {key:string;film:CinemaSession;sessions:CinemaSession[]};
 const labels = {
- ru:{less:"Показать меньше",sourceNote:"Описание на языке источника",from:"от"},
- kk:{less:"Азырақ көрсету",sourceNote:"Сипаттама дереккөз тілінде",from:"бастап"},
- en:{less:"Show fewer",sourceNote:"Synopsis in the source language",from:"from"},
+ ru:{less:"Показать меньше",sourceNote:"Описание на языке источника",from:"от",readMore:"Читать описание",readLess:"Свернуть описание"},
+ kk:{less:"Азырақ көрсету",sourceNote:"Сипаттама дереккөз тілінде",from:"бастап",readMore:"Сипаттаманы оқу",readLess:"Сипаттаманы қысқарту"},
+ en:{less:"Show fewer",sourceNote:"Synopsis in the source language",from:"from",readMore:"Read synopsis",readLess:"Collapse synopsis"},
 };
 function groupSessions(sessions:CinemaSession[]):Group[]{
  const map=new Map<string,Group>();
@@ -26,6 +26,10 @@ function sourceLanguage(text:string):Locale|null {
 function Poster({url,title}:{url:string|null;title:string}){
  const [failed,setFailed]=useState(false);
  return <div className={styles.poster}><Film size={35} aria-hidden="true"/>{url&&!failed&&<img src={url} alt={title} loading="lazy" onError={()=>setFailed(true)}/>}</div>;
+}
+function Synopsis({text,locale}:{text:string;locale:Locale}){
+ const [expanded,setExpanded]=useState(false),id=useId(),l=labels[locale];
+ return <div className={styles.synopsisBlock}><p id={id} className={`${styles.synopsis} ${expanded?styles.fullSynopsis:""}`}>{text}</p>{text.length>180&&<button type="button" className={styles.readMore} aria-expanded={expanded} aria-controls={id} onClick={()=>setExpanded(v=>!v)}>{expanded?l.readLess:l.readMore}<ChevronDown size={15} className={expanded?styles.chevronUp:undefined}/></button>}</div>;
 }
 export default function CinemaShowtimes({sessions,locale}:Props){
  const c=t(locale),l=labels[locale],id=useId();
@@ -51,7 +55,7 @@ export default function CinemaShowtimes({sessions,locale}:Props){
    const film=group.film;const language=sourceLanguage(film.synopsis);
    return <article className={styles.card} key={group.key}>
     <Poster key={film.posterUrl??group.key} url={film.posterUrl} title={film.title}/>
-    <div className={styles.body}><span className={styles.cinema}>{film.cinemaName}</span><h3 className={styles.title}>{film.title}</h3><p className={styles.synopsis}>{film.synopsis}</p>{language&&language!==locale&&<p className={styles.sourceNote}>{l.sourceNote}</p>}
+    <div className={styles.body}><span className={styles.cinema}>{film.cinemaName}</span><h3 className={styles.title}>{film.title}</h3><Synopsis text={film.synopsis} locale={locale}/>{language&&language!==locale&&<p className={styles.sourceNote}>{l.sourceNote}</p>}
      <div className={styles.venue}><MapPin size={13} aria-hidden="true"/><span>{film.mallName??film.cinemaName}</span><span className={styles.distance} title={c.approximate}>~{distance(film.distanceMeters)}</span></div>
      <div className={styles.showtimesLabel}><Clock3 size={12} aria-hidden="true"/>{c.showtimes}</div>
      <ul className={styles.times} aria-label={`${c.showtimes}: ${film.title}, ${film.cinemaName}`}>{group.sessions.map(session=><li key={session.id}><a className={styles.time} href={session.bookingUrl} target="_blank" rel="noreferrer" aria-label={`${c.book}: ${film.title}, ${film.cinemaName}, ${time(session.startsAt)}, ${price(session)}`}><time dateTime={session.startsAt}>{time(session.startsAt)}</time><span className={session.priceKzt===null?styles.unknownPrice:undefined}>{price(session)}</span></a></li>)}</ul>
