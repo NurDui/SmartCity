@@ -1,0 +1,10 @@
+{
+ "reviewDate":"2026-10-20",
+ "scope":"Selected official sources only, not a confirmation of the whole catalogue or physical entrances",
+ "records":[
+  {"id":"nur-alem","source":"https://alem.ai/ru/","confirmed":["Музей Сингулярности","Вт–Вс 10:00–18:30, Пн технический день","Базовый вход 2500 KZT","Мәңгілік Ел B1, 51.0892,71.4161"],"unconfirmed":["Temporary closures today","Exact pedestrian entrance"]},
+  {"id":"national-museum","source":"https://visitastana.kz/ru/about-city/what-to-see/natsionalnyy-muzey-respubliki-kazakhstan/","confirmed":["Museum identity and subject","Вт–Вс 10:00–18:00, Пн выходной, последний вторник санитарный день"],"unconfirmed":["Current price","Exact pedestrian entrance"]},
+  {"id":"khan-shatyr","source":"https://visitastana.kz/ru/about-city/what-to-see/trts-khan-shatyr/","confirmed":["Shopping and entertainment centre","Пн–Вс 10:00–22:00","Publisher notice: construction at main entrance, use additional entrance"],"unconfirmed":["Notice publication date and current physical closure","Exact alternative entrance"]},
+  {"id":"mega-silk-way","source":"https://mega.kz/Tenant/MEGA-Silk-Way","status":"Could not reverify rendered facts: page returned Loading; prior source-backed hours were retained, no new current verification claimed"}
+ ]
+}

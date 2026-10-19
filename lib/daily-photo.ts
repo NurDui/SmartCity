@@ -4,7 +4,7 @@ export interface CityPhoto {
   license: string; licenseUrl: string; capturedAt: string|null;
 }
 export interface CityPhotoResponse { status:"today"|"archive"; date:string; photo:CityPhoto }
-export const ARCHIVE_PHOTO:CityPhoto={imageUrl:"/images/astana-esil.jpg",sourceUrl:"https://commons.wikimedia.org/wiki/File:Astana_Esil_view.jpg",author:"Dauren Nabijan",title:"Astana · Esil",license:"CC0",licenseUrl:"https://creativecommons.org/publicdomain/zero/1.0/",capturedAt:null};
+export const ARCHIVE_PHOTO:CityPhoto={imageUrl:"/images/astana-pixabay-garden.jpg",sourceUrl:"https://pixabay.com/photos/kazakhstan-astana-botanical-garden-5434504/",author:"milapom · Pixabay",title:"Астана · Ботанический сад · архив",license:"Pixabay Content License",licenseUrl:"https://pixabay.com/service/license-summary/",capturedAt:null};
 export function astanaDay(now:number|string=Date.now()):string {
  const parts=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Qyzylorda",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date(now));
  return ["year","month","day"].map(k=>parts.find(p=>p.type===k)?.value).join("-");

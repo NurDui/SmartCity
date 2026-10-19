@@ -21,7 +21,7 @@ export interface TrafficState {
   status:LiveStatus; score:number|null; source:string; updatedAt:string|null; message:string;
 }
 export interface IntegrationState {
-  id:"yandex"|"2gis"|"cinema"|"events"|"traffic"|"telegram"|"instagram";
+  id:"maplibre"|"yandex"|"2gis"|"cinema"|"events"|"traffic"|"telegram"|"instagram";
   configured:boolean; label:string; kind:"browser-sdk"|"approved-feed"|"publisher-source";
 }
 export interface DiscoverResponse {
@@ -30,9 +30,8 @@ export interface DiscoverResponse {
   traffic:TrafficState; integrations:IntegrationState[];
 }
 export interface RuntimeConfig {
-  twoGisKey:string|null;
-  yandexKey:string|null;
-  mapProvider:"yandex"|"2gis"|"openstreetmap";
+  cartoKey:string|null;
+  mapProvider:"maplibre";
   feeds:{cinema:boolean;events:boolean;traffic:boolean};
   requiresMapConsent:true;
 }

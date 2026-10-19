@@ -5,7 +5,7 @@ import {getRuntimeConfig} from "@/lib/provider-config";
 /** Public readiness information only: no keys, counters, IP hashes or upstream calls. */
 export async function GET(){
  const policy=resolveYandexPolicy("geocoder",process.env,Boolean(env.DB));
- const browserSdkEnabled=Boolean(getRuntimeConfig().yandexKey);
+ const browserSdkEnabled=false;
  return Response.json({
   integration:browserSdkEnabled?"browser-map-configured":"prepared-not-connected",
   browserSdkEnabled,

@@ -2,7 +2,7 @@ import type { Language, PublicWeatherContext, RecommendRequest, WeatherContext }
 
 type WeatherRequest = Pick<RecommendRequest, "location" | "weatherMode">;
 export type WeatherDiagnostic = { event: "weather_provider_failure"; provider: "open-meteo" | "met-norway"; reason: "http" | "network" | "timeout" | "invalid_payload" | "stale_model" | "quota" | "deprecated"; httpStatus?: number };
-type WeatherOptions = { fetcher?: typeof fetch; now?: () => number; signal?: AbortSignal; onDiagnostic?: (value: WeatherDiagnostic) => void };
+type WeatherOptions = { fetcher?: typeof fetch; now?: () => number; signal?: AbortSignal; onDiagnostic?: (value: WeatherDiagnostic) => void; shareInflight?:boolean };
 type WeatherReadings = { temperature_2m: number; apparent_temperature: number; wind_speed_10m: number; weather_code: number; time?: number; is_day?: number };
 export const WEATHER_MAX_AGE_MS = 60 * 60_000;
 export const WEATHER_REFRESH_MS = 10 * 60_000;
@@ -229,6 +229,14 @@ export function createWeatherService(options: Omit<WeatherOptions, "signal"> = {
       const saved = cache.get(key);
       if (saved && (saved.weather.status !== "live" || (saved.weather.observedAt && at - Date.parse(saved.weather.observedAt) <= WEATHER_MAX_AGE_MS))) return clone(saved.weather);
       let job = inflight.get(key);
+      // Workers forbid using another HTTP request's I/O/AbortController.
+      // Production subscribers wait on their own timers and read a completed JSON cache.
+      if(job&&options.shareInflight===false){
+        const deadline=performance.now()+9500;
+        while(inflight.has(key)&&performance.now()<deadline&&!signal?.aborted)await new Promise(resolve=>setTimeout(resolve,80));
+        const completed=cache.get(key);
+        return !signal?.aborted&&completed&&completed.until>now()?clone(completed.weather):unavailable(now());
+      }
       if (!job || job.controller.signal.aborted) {
         if (inflight.size >= 4) return unavailable(at);
         const controller = new AbortController();
@@ -262,10 +270,10 @@ export function createWeatherService(options: Omit<WeatherOptions, "signal"> = {
   };
 }
 
-const sharedWeather = /* @__PURE__ */ createWeatherService({onDiagnostic:value => console.warn(JSON.stringify(value))});
+const sharedWeather = /* @__PURE__ */ createWeatherService({shareInflight:false,onDiagnostic:value => console.warn(JSON.stringify(value))});
 export async function getPublicWeather(request: WeatherRequest, options: WeatherOptions = {}) {
   const service = options.fetcher || options.now ? createWeatherService(options) : sharedWeather;
-  return service.get(request, options.signal);
+  try{return await service.get(request, options.signal);}catch{return unavailable((options.now??Date.now)());}
 }
 
 /** Safety readings are internal ranking constraints, never current weather for display. */

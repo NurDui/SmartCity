@@ -369,3 +369,6 @@ Object.assign(placeTranslations, {
 });
 
 Object.assign(placeTranslations, {"nur-alem":{"en":{"name":"alem.ai · Singularity Museum","description":"The Singularity Museum on the first floor of alem.ai in the Nur Alem sphere. The former Future Energy Museum is closed. Check admission and temporary closures with the organiser."},"kk":{"name":"alem.ai · Сингулярлық музейі","description":"Нұр Әлем сферасындағы alem.ai орталығының бірінші қабатындағы Сингулярлық музейі. Бұрынғы Болашақ энергиясы музейі жабылған. Кіру мен уақытша жабылуды ұйымдастырушыдан тексеріңіз."}}});
+
+Object.assign(placeTranslations["khan-shatyr"].en!,{description:"Shopping and entertainment centre with shops, cafés and family spaces. Visit Astana reports construction at the main entrance and access through an additional entrance; check whether the notice still applies."});
+Object.assign(placeTranslations["khan-shatyr"].kk!,{description:"Дүкендері, кафелері және отбасылық кеңістіктері бар сауда-ойын-сауық орталығы. Visit Astana негізгі кіреберістегі жұмыстар және қосымша кіреберіс туралы хабарлайды; хабарламаның өзектілігін тексеріңіз."});
