@@ -32,7 +32,7 @@ export function parseVisitAstanaEvents(html:string,{date,language="ru",now=Date.
  return items.slice(0,8);
 }
 async function html(url:string,fetcher:typeof fetch){
- const response=await fetcher(url,{headers:{Accept:"text/html,text/plain","User-Agent":"SeruenAstana/1.0 (public cultural listings; https://seruen-astana.connect550439.chatgpt.site)"},signal:AbortSignal.timeout(7000),redirect:"manual"});
+ const response=await fetcher(url,{headers:{Accept:"text/html,text/plain","User-Agent":"SeruenAstana/1.0 (public cultural listings; https://seruenastana.asia)"},signal:AbortSignal.timeout(7000),redirect:"manual"});
  if(!response.ok||Number(response.headers.get("content-length"))>MAX_BYTES)throw new Error("Listing unavailable");
  const reader=response.body?.getReader();if(!reader)throw new Error("Empty listing");let size=0;const chunks:Uint8Array[]=[];
  while(true){const part=await reader.read();if(part.done)break;size+=part.value.length;if(size>MAX_BYTES){await reader.cancel();throw new Error("Listing oversized");}chunks.push(part.value);}

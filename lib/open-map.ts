@@ -43,7 +43,7 @@ async function json(response:Response,max:number):Promise<unknown>{
  while(true){const {done,value}=await reader.read();if(done)break;size+=value.length;if(size>max){await reader.cancel();throw new MapServiceError(502,"invalid_provider_response");}chunks.push(value);}
  const bytes=new Uint8Array(size);let offset=0;for(const c of chunks){bytes.set(c,offset);offset+=c.length;}return JSON.parse(new TextDecoder().decode(bytes));
 }
-const headers={"User-Agent":"SeruenAstana/2.0 (+https://seruen-astana.connect550439.chatgpt.site/)","Referer":"https://seruen-astana.connect550439.chatgpt.site/","Accept":"application/json"};
+const headers={"User-Agent":"SeruenAstana/2.0 (+https://seruenastana.asia/)","Referer":"https://seruenastana.asia/","Accept":"application/json"};
 export async function searchCity(query:unknown,language:unknown,db?:MapDatabase,fetcher:typeof fetch=fetch):Promise<SearchPlace[]>{
  if(typeof query!=="string"||query.trim().length<3||query.length>160||/[<>@\r\n]/.test(query))throw new MapServiceError(400,"invalid_query");
  const key=process.env.GEOAPIFY_API_KEY?.trim(),geoapify=Boolean(key);

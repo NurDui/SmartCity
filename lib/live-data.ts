@@ -164,7 +164,7 @@ export function todayPublicEventLinks(html:string,date:string):string[]{
  }return [...urls].slice(0,4);
 }
 async function publicText(url:string,fetcher:typeof fetch):Promise<string>{
- const r=await fetcher(url,{signal:AbortSignal.timeout(7000),redirect:"manual",headers:{Accept:"text/html,application/json","User-Agent":"SeruenCityGuide/1.0 (public event references; https://seruen-astana.connect550439.chatgpt.site)"},cache:"no-store"});if(!r.ok||Number(r.headers.get("content-length"))>MAX_BYTES)throw new Error("Public source unavailable");
+ const r=await fetcher(url,{signal:AbortSignal.timeout(7000),redirect:"manual",headers:{Accept:"text/html,application/json","User-Agent":"SeruenCityGuide/1.0 (public event references; https://seruenastana.asia)"},cache:"no-store"});if(!r.ok||Number(r.headers.get("content-length"))>MAX_BYTES)throw new Error("Public source unavailable");
  const reader=r.body?.getReader();if(!reader)throw new Error("Empty source");let size=0;const chunks:Uint8Array[]=[];
  while(true){const part=await reader.read();if(part.done)break;size+=part.value.length;if(size>MAX_BYTES){await reader.cancel();throw new Error("Public source oversized");}chunks.push(part.value);}
  const bytes=new Uint8Array(size);let offset=0;for(const part of chunks){bytes.set(part,offset);offset+=part.length;}return new TextDecoder().decode(bytes);

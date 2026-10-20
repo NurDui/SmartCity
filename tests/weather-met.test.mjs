@@ -17,7 +17,7 @@ test('verified MET forecast fallback preserves provenance, current valid hour, n
  }});
  const weather=await service.get(request);
  assert.equal(weather.status,'live');assert.equal(weather.dataKind,'forecast');assert.equal(weather.isDemo,false);assert.equal(weather.source,'MET Norway');assert.equal(weather.feelsLike,null);assert.equal(weather.temperature,9);assert.equal(weather.windKmh,10);assert.equal(weather.isDay,false);assert.equal(weather.code,2);assert.equal(weather.modelUpdatedAt,'2026-10-18T11:30:00.000Z');assert.equal(weather.observedAt,'2026-10-18T12:00:00.000Z');assert.match(weather.licenseUrl,/creativecommons.org/);
- assert.equal(calls.length,2);assert.equal(calls[1].url.hostname,'api.met.no');assert.equal(calls[1].url.searchParams.get('lat'),'51.13');assert.equal(calls[1].url.searchParams.get('lon'),'71.43');assert.ok(!String(calls[1].url).includes('51.128239'));assert.ok(calls[1].options.headers['User-Agent'].includes('seruen-astana.connect550439.chatgpt.site'));assert.equal(calls[1].options.redirect,'manual');
+ assert.equal(calls.length,2);assert.equal(calls[1].url.hostname,'api.met.no');assert.equal(calls[1].url.searchParams.get('lat'),'51.13');assert.equal(calls[1].url.searchParams.get('lon'),'71.43');assert.ok(!String(calls[1].url).includes('51.128239'));assert.ok(calls[1].options.headers['User-Agent'].includes('seruenastana.asia'));assert.equal(calls[1].options.redirect,'manual');
  assert.deepEqual(diagnostics,[{event:'weather_provider_failure',provider:'open-meteo',reason:'http',httpStatus:403}]);
 });
 test('MET respects Expires, advances the current hour from cached forecast and sends exact Last-Modified on 304 revalidation',async()=>{

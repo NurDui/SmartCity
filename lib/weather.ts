@@ -197,7 +197,7 @@ export function createWeatherService(options: Omit<WeatherOptions, "signal"> = {
     return attempt("met-norway",signal,async upstreamSignal => {
       const url = new URL("https://api.met.no/weatherapi/locationforecast/2.0/compact");
       url.search = new URLSearchParams({lat:request.location.lat.toFixed(2),lon:request.location.lon.toFixed(2)}).toString();
-      const headers: Record<string,string> = {Accept:"application/json","User-Agent":"Seruen/1.0 https://seruen-astana.connect550439.chatgpt.site"};
+      const headers: Record<string,string> = {Accept:"application/json","User-Agent":"Seruen/1.0 https://seruenastana.asia"};
       if (existing?.modified) headers["If-Modified-Since"] = existing.modified;
       const response = await fetcher(url,{signal:upstreamSignal,headers,cache:"no-store",redirect:"manual"});
       if (response.status !== 304) requireSuccess(response,"met-norway");
