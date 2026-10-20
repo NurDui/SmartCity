@@ -1,0 +1,597 @@
+{
+  "checkedAt": "2026-10-20T08:23:57.943Z",
+  "provider": "Geoapify / OpenStreetMap",
+  "creditAttempts": 12,
+  "results": [
+    {
+      "id": "ailand-oceanarium",
+      "address": "Астана, Коргалжынское шоссе, 2",
+      "status": 200,
+      "results": [
+        {
+          "lat": 51.1887392,
+          "lon": 71.4515502,
+          "formatted": "Казахстан, AS, Z11F7K1 Астана, шоссе Алаш, 7/2",
+          "housenumber": "7/2",
+          "street": "шоссе Алаш",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 4.28066408044948,
+            "confidence": 0.586625,
+            "confidence_city_level": 1,
+            "confidence_street_level": 0.9025,
+            "confidence_building_level": 0.586625,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        },
+        {
+          "lat": 51.1890828,
+          "lon": 71.4507967,
+          "formatted": "Казахстан, AS, Z11F7K1 Астана, шоссе Алаш, 1/2",
+          "housenumber": "1/2",
+          "street": "шоссе Алаш",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 4.28066408044948,
+            "confidence": 0.586625,
+            "confidence_city_level": 1,
+            "confidence_street_level": 0.9025,
+            "confidence_building_level": 0.586625,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        }
+      ]
+    },
+    {
+      "id": "kidburg-adp",
+      "address": "Астана, улица Сыганак, 60/5",
+      "status": 200,
+      "results": [
+        {
+          "lat": 51.1220505,
+          "lon": 71.4279626,
+          "formatted": "Abu Dhabi Plaza, Казахстан, 010017 Астана, улица Сыганак, 60/5",
+          "housenumber": "60/5",
+          "street": "улица Сыганак",
+          "result_type": "amenity",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 5.903819594696541,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "inner_part"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        },
+        {
+          "lat": 51.1216221,
+          "lon": 71.4277651,
+          "formatted": "Authentica Roni Napoletana, Казахстан, 010017 Астана, улица Сыганак, 60/5",
+          "housenumber": "60/5",
+          "street": "улица Сыганак",
+          "result_type": "amenity",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 5.875961649288861,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "inner_part"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        }
+      ]
+    },
+    {
+      "id": "keruen-park",
+      "address": "Астана, улица Достык, 9",
+      "status": 200,
+      "results": [
+        {
+          "lat": 51.1278085,
+          "lon": 71.425901,
+          "formatted": "Казахстан, 010088 Астана, улица Достык, 9",
+          "housenumber": "9",
+          "street": "улица Достык",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 6.7457045498638655,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        },
+        {
+          "lat": 51.1279246,
+          "lon": 71.4254505,
+          "formatted": "Лепим и варим, Казахстан, 010088 Астана, улица Достык, 9",
+          "housenumber": "9",
+          "street": "улица Достык",
+          "result_type": "amenity",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 6.7457045498638655,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "inner_part"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sky-beach",
+      "address": "Астана, проспект Туран, 37",
+      "status": 200,
+      "results": [
+        {
+          "lat": 51.1328426,
+          "lon": 71.4014752,
+          "formatted": "Казахстан, Z19Y4X2 Астана, проспект Туран, 37",
+          "housenumber": "37",
+          "street": "проспект Туран",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 5.420452329843849,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        },
+        {
+          "lat": 51.1325048,
+          "lon": 71.4038607,
+          "formatted": "Хан Шатыр, Казахстан, Z19Y4X2 Астана, проспект Туран, 37",
+          "housenumber": "37",
+          "street": "проспект Туран",
+          "result_type": "amenity",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 5.814157160422359,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "inner_part"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sadaq-aty",
+      "address": "Астана, проспект Кабанбай батыра, 49А",
+      "status": 200,
+      "results": [
+        {
+          "lat": 51.100966,
+          "lon": 71.4051717,
+          "formatted": "Казахстан, Z05P1P7 Астана, проспект Кабанбай Батыра, 49А",
+          "housenumber": "49А",
+          "street": "проспект Кабанбай Батыра",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 5.112681551947358,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        },
+        {
+          "lat": 51.1014537,
+          "lon": 71.4054358,
+          "formatted": "Small, Казахстан, Z05P1P7 Астана, проспект Кабанбай Батыра, 49А",
+          "housenumber": "49А",
+          "street": "проспект Кабанбай Батыра",
+          "result_type": "amenity",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 5.112681551947358,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "inner_part"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cbrb-astana",
+      "address": "Астана, улица Туркестан, 16/3",
+      "status": 200,
+      "results": [
+        {
+          "lat": 51.1059851,
+          "lon": 71.4245692,
+          "formatted": "Казахстан, Z05P1P7 Астана, улица Туркестан, 16/3",
+          "housenumber": "16/3",
+          "street": "улица Туркестан",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 5.323932806686188,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        }
+      ]
+    },
+    {
+      "id": "coffeeboom-respublika",
+      "address": "Астана, проспект Республики, 7",
+      "status": 200,
+      "results": [
+        {
+          "lat": 51.159665,
+          "lon": 71.428436,
+          "formatted": "Казахстан, Z10P6Y8 Астана, проспект Республики, 7",
+          "housenumber": "7",
+          "street": "проспект Республики",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 6.467719927361607,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        },
+        {
+          "lat": 51.1602277,
+          "lon": 71.4284293,
+          "formatted": "Doctor plus, Казахстан, Z10P6Y8 Астана, проспект Республики, 7",
+          "housenumber": "7",
+          "street": "проспект Республики",
+          "result_type": "amenity",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 6.467719927361607,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "inner_part"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        }
+      ]
+    },
+    {
+      "id": "qazaq-gourmet",
+      "address": "Астана, проспект Мангилик Ел, 29",
+      "status": 200,
+      "results": [
+        {
+          "lat": 51.1079415,
+          "lon": 71.4305133,
+          "formatted": "Казахстан, 010000 Астана, проспект Мангилик Ел, 29",
+          "housenumber": "29",
+          "street": "проспект Мангилик Ел",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 5.587022926109336,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        },
+        {
+          "lat": 51.1081164,
+          "lon": 71.4301872,
+          "formatted": "Qazaq Gourmet, Казахстан, 010000 Астана, проспект Мангилик Ел, 29",
+          "housenumber": "29",
+          "street": "проспект Мангилик Ел",
+          "result_type": "amenity",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 5.636568141446369,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "inner_part"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sandyq",
+      "address": "Астана, улица Сарайшык, 34/3",
+      "status": 200,
+      "results": [
+        {
+          "lat": 51.1350955,
+          "lon": 71.5131822,
+          "formatted": "Казахстан, 010009 Астана, улица Озбек Али Жаныбек, 34/3",
+          "housenumber": "34/3",
+          "street": "улица Озбек Али Жаныбек",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 4.9699906255325965,
+            "confidence": 0.8573749999999999,
+            "confidence_city_level": 1,
+            "confidence_street_level": 0.8573749999999999,
+            "confidence_building_level": 0.8573749999999999,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        },
+        {
+          "lat": 51.1344817,
+          "lon": 71.4272152,
+          "formatted": "Казахстан, 000001 Астана, улица Сарайшык, 34/3",
+          "housenumber": "34/3",
+          "street": "улица Сарайшык",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.053402059205004924,
+            "popularity": 6.047372281352486,
+            "confidence": 0.5,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 0,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        }
+      ]
+    },
+    {
+      "id": "arnau-restaurant",
+      "address": "Астана, проспект Туран, 30",
+      "status": 200,
+      "results": [
+        {
+          "lat": 51.128931,
+          "lon": 71.406271,
+          "formatted": "Казахстан, Z19Y4X2 Астана, проспект Туран, 30",
+          "housenumber": "30",
+          "street": "проспект Туран",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 6.001198686653488,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        },
+        {
+          "lat": 51.1289987,
+          "lon": 71.4065335,
+          "formatted": "Fitness Palace, Казахстан, Z19Y4X2 Астана, проспект Туран, 30",
+          "housenumber": "30",
+          "street": "проспект Туран",
+          "result_type": "amenity",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 6.001198686653488,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "inner_part"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tary-akmeshit",
+      "address": "Астана, улица Акмешит, 1",
+      "status": 200,
+      "results": [
+        {
+          "lat": 51.1215187,
+          "lon": 71.4242079,
+          "formatted": "Казахстан, 010088 Астана, улица Акмешит, 1",
+          "housenumber": "1",
+          "street": "улица Акмешит",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 5.836405349581871,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rumi-mega",
+      "address": "Астана, проспект Кабанбай батыра, 62",
+      "status": 200,
+      "results": [
+        {
+          "lat": 51.089546,
+          "lon": 71.4072823,
+          "formatted": "Казахстан, Z05P3P6 Астана, проспект Кабанбай Батыра, 62",
+          "housenumber": "62",
+          "street": "проспект Кабанбай Батыра",
+          "result_type": "building",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 5.674682179313171,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "full_match"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        },
+        {
+          "lat": 51.0886925,
+          "lon": 71.4090867,
+          "formatted": "Рамстор, Казахстан, Z05P3P6 Астана, проспект Кабанбай Батыра, 62",
+          "housenumber": "62",
+          "street": "проспект Кабанбай Батыра",
+          "result_type": "amenity",
+          "rank": {
+            "importance": 0.00006872587167158034,
+            "popularity": 5.570388352781731,
+            "confidence": 1,
+            "confidence_city_level": 1,
+            "confidence_street_level": 1,
+            "confidence_building_level": 1,
+            "match_type": "inner_part"
+          },
+          "datasource": {
+            "sourcename": "openstreetmap",
+            "attribution": "© OpenStreetMap contributors",
+            "license": "Open Database License",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        }
+      ]
+    }
+  ]
+}

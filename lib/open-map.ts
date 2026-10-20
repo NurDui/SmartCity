@@ -1,9 +1,10 @@
 import {getFeedConfig} from "./provider-config.ts";
+import {BudgetError,cleanupProviderBudget,reserveProviderBudget} from "./provider-budget.ts";
 /** Fixed server configuration only; clients can never select an upstream URL. */
 export interface MapPoint {lat:number;lon:number}
-export interface SearchPlace extends MapPoint {id:string;label:string}
+export interface SearchPlace extends MapPoint {id:string;label:string;source?:string;sourceUrl?:string}
 export interface WalkStep {type:string;modifier:string;name:string;distance:number}
-export interface WalkRoute {distance:number;duration:number;geometry:{type:"LineString";coordinates:number[][]};steps:WalkStep[];snappedMeters:number;source:string}
+export interface WalkRoute {distance:number;duration:number;geometry:{type:"LineString";coordinates:number[][]};steps:WalkStep[];snappedMeters:number;source:string;sourceUrl:string}
 export interface MapDatabase {prepare(sql:string):{bind(...values:(string|number)[]):{first<T=Record<string,unknown>>():Promise<T|null>;run():Promise<unknown>}}}
 export const SERVICE_SQL=`WITH clock(now_ms) AS (SELECT CAST((julianday('now')-2440587.5)*86400000 AS INTEGER))
 INSERT INTO service_reservations(id,scope,at)
@@ -29,7 +30,11 @@ export async function reserveService(db:MapDatabase|undefined,scope:string,limit
  catch(e){if(e instanceof MapServiceError)throw e;throw new MapServiceError(503,"shared_quota_unavailable");}
  if(performance.now()>deadline)throw new MapServiceError(429,"rate_limited");
 }
-async function cleanup(db:MapDatabase){try{await db.prepare("DELETE FROM service_reservations WHERE at<CAST((julianday('now')-2440587.5)*86400000 AS INTEGER)-172800000").bind().run();await db.prepare("DELETE FROM geocode_cache WHERE expires<CAST((julianday('now')-2440587.5)*86400000 AS INTEGER)").bind().run();}catch{/* no payload logging */}}
+async function cleanup(db:MapDatabase){try{await db.prepare("DELETE FROM service_reservations WHERE at<CAST((julianday('now')-2440587.5)*86400000 AS INTEGER)-172800000").bind().run();await db.prepare("DELETE FROM geocode_cache WHERE expires<CAST((julianday('now')-2440587.5)*86400000 AS INTEGER)").bind().run();}catch{/* no payload logging */}await cleanupProviderBudget(db);}
+async function reserveMapCredits(db:MapDatabase|undefined,scope:string,daily:number,minute:number){
+ try{await reserveProviderBudget(db,{scope,units:1,limits:[{windowMs:86400000,limit:daily},{windowMs:60000,limit:minute}],minIntervalMs:2000});}
+ catch(error){if(error instanceof BudgetError)throw new MapServiceError(error.status,error.code);throw new MapServiceError(503,"shared_quota_unavailable");}
+}
 async function json(response:Response,max:number):Promise<unknown>{
  if(!response.ok)throw new MapServiceError(response.status===429?429:502,"provider_unavailable");
  if(!response.headers.get("content-type")?.includes("json")||Number(response.headers.get("content-length"))>max)throw new MapServiceError(502,"invalid_provider_response");
@@ -41,20 +46,37 @@ async function json(response:Response,max:number):Promise<unknown>{
 const headers={"User-Agent":"SeruenAstana/2.0 (+https://seruen-astana.connect550439.chatgpt.site/)","Referer":"https://seruen-astana.connect550439.chatgpt.site/","Accept":"application/json"};
 export async function searchCity(query:unknown,language:unknown,db?:MapDatabase,fetcher:typeof fetch=fetch):Promise<SearchPlace[]>{
  if(typeof query!=="string"||query.trim().length<3||query.length>160||/[<>@\r\n]/.test(query))throw new MapServiceError(400,"invalid_query");
- if(process.env.NOMINATIM_ENABLED==="false")throw new MapServiceError(503,"provider_disabled");
+ const key=process.env.GEOAPIFY_API_KEY?.trim(),geoapify=Boolean(key);
+ if((geoapify?process.env.GEOAPIFY_ENABLED:process.env.NOMINATIM_ENABLED)==="false")throw new MapServiceError(503,"provider_disabled");
  if(!db)throw new MapServiceError(503,"shared_quota_unavailable");
  const lang=language==="kk"?"kk":language==="en"?"en":"ru",normalized=query.trim().toLowerCase().replace(/\s+/g," ");
- const hash=Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(lang+"|"+normalized)))).map(x=>x.toString(16).padStart(2,"0")).join("");
- try{const cached=await db.prepare("SELECT value FROM geocode_cache WHERE key=?1 AND expires>?2").bind(hash,Date.now()).first<{value:string}>();if(cached)return parseSearch(JSON.parse(cached.value));}catch{/* continue to guarded provider */}
- const endpoint=getFeedConfig("events",{EVENTS_FEED_URL:process.env.NOMINATIM_SEARCH_URL??"https://nominatim.openstreetmap.org/search"})!;
- const url=new URL(endpoint.url);url.search=new URLSearchParams({q:query.trim(),format:"jsonv2",countrycodes:"kz",viewbox:"71.15,51.35,71.8,50.9",bounded:"1",limit:"5","accept-language":lang}).toString();
- await reserveService(db,"nominatim-v1");
+ const source=geoapify?{source:"Geoapify / OpenStreetMap",sourceUrl:"https://www.geoapify.com/"}:{source:"Nominatim / OpenStreetMap",sourceUrl:"https://nominatim.org/"};
+ const withSource=(items:SearchPlace[])=>items.map(p=>({...p,...source}));
+ const hash=Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode((geoapify?"geoapify-v1":"nominatim-v1")+"|"+lang+"|"+normalized)))).map(x=>x.toString(16).padStart(2,"0")).join("");
+ try{const cached=await db.prepare("SELECT value FROM geocode_cache WHERE key=?1 AND expires>?2").bind(hash,Date.now()).first<{value:string}>();if(cached)return withSource(parseSearch(JSON.parse(cached.value)));}catch{/* continue to guarded provider */}
+ let url:URL;
+ if(geoapify){
+  url=new URL("https://api.geoapify.com/v1/geocode/search");
+  const cityQuery=/(?:Астана|Astana)/i.test(query)?query.trim():`${query.trim()}, Astana`;
+  url.search=new URLSearchParams({text:cityQuery,format:"json",filter:"rect:71.15,50.9,71.8,51.35|countrycode:kz",bias:"proximity:71.4306,51.1283",limit:"5",lang,apiKey:key!}).toString();
+  // Forward geocoding with at most five results costs one credit. Cache hits cost none.
+  await reserveMapCredits(db,"geoapify-credits-v1",2500,25);
+ }else{
+  const endpoint=getFeedConfig("events",{EVENTS_FEED_URL:process.env.NOMINATIM_SEARCH_URL??"https://nominatim.openstreetmap.org/search"})!;
+  url=new URL(endpoint.url);url.search=new URLSearchParams({q:query.trim(),format:"jsonv2",countrycodes:"kz",viewbox:"71.15,51.35,71.8,50.9",bounded:"1",limit:"5","accept-language":lang}).toString();
+  await reserveService(db,"nominatim-v1");
+ }
  try {
-  const raw=await json(await fetcher(url,{headers,redirect:"manual",signal:AbortSignal.timeout(6500)}),64000),items=parseSearch(raw);
+  const raw=await json(await fetcher(url,{headers,redirect:"manual",signal:AbortSignal.timeout(6500)}),64000),items=geoapify?parseGeoapifySearch(raw):parseSearch(raw);
   // Persist public result fields only, query is hashed. TTL 24h incl. negative results.
   const cacheRaw=items.map(p=>({place_id:p.id,display_name:p.label,lat:String(p.lat),lon:String(p.lon)}));
-  await db.prepare("INSERT INTO geocode_cache(key,value,expires) VALUES(?1,?2,?3) ON CONFLICT(key) DO UPDATE SET value=excluded.value,expires=excluded.expires").bind(hash,JSON.stringify(cacheRaw),Date.now()+86400000).run();return items;
+  await db.prepare("INSERT INTO geocode_cache(key,value,expires) VALUES(?1,?2,?3) ON CONFLICT(key) DO UPDATE SET value=excluded.value,expires=excluded.expires").bind(hash,JSON.stringify(cacheRaw),Date.now()+86400000).run();return withSource(items);
  }finally{await cleanup(db);}
+}
+export function parseGeoapifySearch(raw:unknown):SearchPlace[]{
+ const results=(raw as {results?:unknown[]})?.results;
+ if(!Array.isArray(results))throw new MapServiceError(502,"invalid_provider_response");
+ return parseSearch(results.slice(0,5).map((item:any)=>({place_id:item?.place_id,display_name:item?.formatted,lat:item?.lat,lon:item?.lon})));
 }
 export function parseSearch(raw:unknown):SearchPlace[]{
  if(!Array.isArray(raw))throw new MapServiceError(502,"invalid_provider_response");
@@ -66,10 +88,44 @@ export function parseRoute(raw:unknown):WalkRoute {
  for(const p of route.geometry.coordinates){if(!Array.isArray(p)||p.length!==2)throw new MapServiceError(502,"invalid_provider_response");cityPoint({lat:p[1],lon:p[0]});}
  const snap=r.waypoints?.map(p=>p.distance);if(!snap||snap.length!==2||snap.some(n=>!Number.isFinite(n)||n<0||n>500))throw new MapServiceError(502,"entrance_too_far");
  const steps=(route.legs??[]).flatMap((l:any)=>l.steps??[]).slice(0,150).map((s:any)=>({type:String(s.maneuver?.type??"continue").slice(0,40),modifier:String(s.maneuver?.modifier??"").slice(0,30),name:typeof s.name==="string"?s.name.slice(0,180):"",distance:Math.max(0,Number(s.distance)||0)}));
- return {distance:Math.round(route.distance),duration:Math.round(route.duration),geometry:route.geometry,steps,snappedMeters:Math.round(Math.max(...snap)),source:"OSRM · FOSSGIS / OpenStreetMap"};
+ return {distance:Math.round(route.distance),duration:Math.round(route.duration),geometry:route.geometry,steps,snappedMeters:Math.round(Math.max(...snap)),source:"OSRM · FOSSGIS / OpenStreetMap",sourceUrl:"https://routing.openstreetmap.de/about.html"};
+}
+function metersBetween(a:MapPoint,b:MapPoint):number {
+ const radians=(d:number)=>d*Math.PI/180,dLat=radians(b.lat-a.lat),dLon=radians(b.lon-a.lon);
+ const h=Math.sin(dLat/2)**2+Math.cos(radians(a.lat))*Math.cos(radians(b.lat))*Math.sin(dLon/2)**2;
+ return 6371000*2*Math.atan2(Math.sqrt(h),Math.sqrt(1-h));
+}
+export function parseGraphHopperRoute(raw:unknown,from:MapPoint,to:MapPoint):WalkRoute {
+ const path=(raw as {paths?:any[]})?.paths?.[0],snapped=path?.snapped_waypoints?.coordinates;
+ if(path?.points_encoded!==false||!Array.isArray(snapped)||snapped.length!==2)throw new MapServiceError(502,"invalid_provider_response");
+ const waypoints=snapped.map((p:unknown,i:number)=>{
+  if(!Array.isArray(p)||p.length!==2)throw new MapServiceError(502,"invalid_provider_response");
+  return {distance:metersBetween(i===0?from:to,cityPoint({lat:p[1],lon:p[0]}))};
+ });
+ if(!Array.isArray(path.instructions)||path.instructions.length>1500)throw new MapServiceError(502,"invalid_provider_response");
+ const steps=path.instructions.map((step:any,i:number)=>{
+  if(!Number.isInteger(step.sign)||!Number.isFinite(step.distance)||step.distance<0)throw new MapServiceError(502,"invalid_provider_response");
+  const sign=step.sign,type=sign===4?"arrive":sign===6||sign===-6?"roundabout":[-8,8,-98].includes(sign)?"uturn":i===0&&sign===0?"depart":sign===0?"continue":"turn";
+  const modifier=type==="uturn"?"uturn":sign<0?"left":[1,2,3,7].includes(sign)?"right":"straight";
+  return {maneuver:{type,modifier},name:typeof step.street_name==="string"?step.street_name:"",distance:step.distance};
+ });
+ // Reuse bounded geometry/time/snap validation; GraphHopper time is milliseconds.
+ const route=parseRoute({code:"Ok",waypoints,routes:[{distance:path.distance,duration:path.time/1000,geometry:path.points,legs:[{steps}]}]});
+ return {...route,source:"GraphHopper / OpenStreetMap",sourceUrl:"https://www.graphhopper.com/"};
 }
 export async function walkingRoute(from:unknown,to:unknown,db?:MapDatabase,fetcher:typeof fetch=fetch):Promise<WalkRoute>{
  const a=cityPoint(from),b=cityPoint(to);
+ const key=process.env.GRAPHHOPPER_API_KEY?.trim();
+ if(key){
+  if(process.env.GRAPHHOPPER_ENABLED==="false")throw new MapServiceError(503,"provider_disabled");
+  const url=new URL("https://graphhopper.com/api/1/route");
+  url.search=new URLSearchParams({key,profile:"foot",points_encoded:"false",instructions:"true",calc_points:"true",locale:"en",elevation:"false"}).toString();
+  url.searchParams.append("point",`${a.lat},${a.lon}`);url.searchParams.append("point",`${b.lat},${b.lon}`);
+  // Exactly two points; no alternatives, optimisation, custom model or flexible mode:
+  // GraphHopper bills this standard pedestrian route at one credit.
+  await reserveMapCredits(db,"graphhopper-credits-v1",400,15);
+  try{return parseGraphHopperRoute(await json(await fetcher(url,{headers,redirect:"manual",signal:AbortSignal.timeout(9000)}),1500000),a,b);}finally{if(db)await cleanup(db);}
+ }
  if(process.env.OSRM_ENABLED==="false")throw new MapServiceError(503,"provider_disabled");
  // The dedicated routed-foot server uses a pedestrian graph. OSRM's URL profile is 'driving'.
  const url=`https://routing.openstreetmap.de/routed-foot/route/v1/driving/${a.lon},${a.lat};${b.lon},${b.lat}?overview=full&geometries=geojson&steps=true&alternatives=false`;

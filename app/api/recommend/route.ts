@@ -5,7 +5,7 @@ import { generateSelection } from "@/lib/llm";
 import { languageOf, t } from "@/lib/recommendation-i18n";
 import type { Language } from "@/lib/types";
 import {env} from "cloudflare:workers";
-import {reserveService} from "@/lib/open-map";
+import {reserveProviderBudget,cleanupProviderBudget} from "@/lib/provider-budget";
 import {llmConfig} from "@/lib/llm-config";
 
 export async function POST(request: Request) {
@@ -13,6 +13,8 @@ export async function POST(request: Request) {
   let language:Language="ru";
   let validated=false;
   try {
+    const origin=request.headers.get("origin");
+    if(origin&&origin!==new URL(request.url).origin)return Response.json({error:"Cross-origin request rejected."},{status:403,headers});
     const text = await request.text();
     if (text.length > 12000) return Response.json({error:"Слишком большой запрос."},{status:413,headers});
     let raw: unknown;
@@ -22,9 +24,13 @@ export async function POST(request: Request) {
     validated=true;
     const weather = await getWeather(input);
     let selected=null;
-    // Shared hard ceiling: at most 100 attempted generations per rolling day.
-    // A quota/database/provider failure keeps the grounded template available.
-    if(llmConfig())try{await reserveService(env.DB,"llm-generation-v1",100);selected=await generateSelection(places,input,weather);}catch{/* no sensitive request logging */}
+    // Groq free GPT-OSS20B: 30 RPM / 1000 RPD / 8000 TPM / 200k TPD.
+    // Reserve whole input byte upper-bound + full output cap, across all visitors.
+    // Failed/rejected generations remain spent; no automatic provider retries.
+    if(llmConfig())try{selected=await generateSelection(places,input,weather,{db:env.DB,authorize:async units=>{
+      await reserveProviderBudget(env.DB,{scope:"llm-requests-v2",units:1,limits:[{windowMs:60_000,limit:20},{windowMs:86_400_000,limit:800}]});
+      await reserveProviderBudget(env.DB,{scope:"llm-tokens-v2",units,limits:[{windowMs:60_000,limit:6000},{windowMs:86_400_000,limit:160000}]});
+    }});}catch{/* no sensitive request logging */}finally{if(env.DB)await cleanupProviderBudget(env.DB);}
     const result = buildResponse(places,input,weather,t(language,"collection",{source:collection.source,count:collection.count}),selected?.recommendations.map((item) => item.id));
     if (selected) {
       for (const recommendation of result.recommendations) {

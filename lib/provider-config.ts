@@ -17,7 +17,7 @@ export function getFeedConfig(kind:FeedKind, env:Record<string,string|undefined>
 export function getRuntimeConfig(env:Record<string,string|undefined>=process.env):RuntimeConfig {
   const cartoKey=env.CARTO_BASEMAPS_KEY?.trim()||null;
   const configured=(kind:FeedKind)=>{try{return Boolean(getFeedConfig(kind,env));}catch{return false;}};
-  return {cartoKey,mapProvider:"maplibre",feeds:{cinema:configured("cinema"),events:configured("events"),traffic:configured("traffic")},requiresMapConsent:true};
+  return {cartoKey,mapProvider:"maplibre",geocodingProvider:env.GEOAPIFY_API_KEY?.trim()?"geoapify":"nominatim",routingProvider:env.GRAPHHOPPER_API_KEY?.trim()?"graphhopper":"fossgis",feeds:{cinema:configured("cinema"),events:configured("events"),traffic:configured("traffic")},requiresMapConsent:false};
 }
 export function integrationStates(env:Record<string,string|undefined>=process.env):IntegrationState[] {
  const c=getRuntimeConfig(env);

@@ -8,10 +8,13 @@ export interface CinemaSession {
 }
 export interface CityEvent {
   id:string; title:string; description:string; imageUrl:string|null;
-  startsAt:string; endsAt?:string; venue:string; address:string; lat:number; lon:number;
-  distanceMeters:number; priceKzt:number|null; sourceUrl:string; bookingUrl?:string;
+  startsAt:string; endsAt?:string; venue:string; address:string; lat:number|null; lon:number|null;
+  distanceMeters:number|null; priceKzt:number|null; sourceUrl:string; bookingUrl?:string;
   category:string; updatedAt:string; priceIsFrom?:boolean;
   coordinateSourceUrl?:string;
+  /** A published date interval, not a known session or opening time. */
+  datePrecision?:"day";
+  sourceDateRange?:string;
 }
 export interface LiveSection<T> {
   status:LiveStatus; source:string; updatedAt:string|null; items:T[]; message:string;
@@ -32,8 +35,10 @@ export interface DiscoverResponse {
 export interface RuntimeConfig {
   cartoKey:string|null;
   mapProvider:"maplibre";
+  geocodingProvider?:"geoapify"|"nominatim";
+  routingProvider?:"graphhopper"|"fossgis";
   feeds:{cinema:boolean;events:boolean;traffic:boolean};
-  requiresMapConsent:true;
+  requiresMapConsent:boolean;
 }
 export interface NormalizedFeed<T=unknown> {
   date:string; timezone:"Asia/Qyzylorda"; source:string; updatedAt:string; items:T[];

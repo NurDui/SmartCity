@@ -1,0 +1,14 @@
+[
+  {"id":"ailand-oceanarium","name":"Ailand · океанариум","address":"Астана, Коргалжынское шоссе, 2"},
+  {"id":"kidburg-adp","name":"KidBurg · Abu Dhabi Plaza","address":"Астана, улица Сыганак, 60/5"},
+  {"id":"keruen-park","name":"Keruen Park · Керуен","address":"Астана, улица Достык, 9"},
+  {"id":"sky-beach","name":"Sky Beach Club · Хан Шатыр","address":"Астана, проспект Туран, 37"},
+  {"id":"sadaq-aty","name":"Sadaq Aty · стрельба из лука","address":"Астана, проспект Кабанбай батыра, 49А"},
+  {"id":"cbrb-astana","name":"CoffeeBoom Roasters & Bakery","address":"Астана, улица Туркестан, 16/3"},
+  {"id":"coffeeboom-respublika","name":"Coffee Boom · Республики","address":"Астана, проспект Республики, 7"},
+  {"id":"qazaq-gourmet","name":"Qazaq Gourmet","address":"Астана, проспект Мангилик Ел, 29"},
+  {"id":"sandyq","name":"Sandyq","address":"Астана, улица Сарайшык, 34/3"},
+  {"id":"arnau-restaurant","name":"Arnau","address":"Астана, проспект Туран, 30"},
+  {"id":"tary-akmeshit","name":"Tary · Акмешит","address":"Астана, улица Акмешит, 1"},
+  {"id":"rumi-mega","name":"Rumi · MEGA Silk Way","address":"Астана, проспект Кабанбай батыра, 62"}
+]

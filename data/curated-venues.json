@@ -1,0 +1,380 @@
+[
+  {
+    "id": "ailand-oceanarium",
+    "name": "Ailand · океанариум",
+    "category": "Развлечения",
+    "tags": [
+      "family",
+      "culture",
+      "океанариум",
+      "дети",
+      "необычное"
+    ],
+    "durationMinutes": 60,
+    "description": "Подводный мир и прогулка через прозрачный аквариумный тоннель. Подойдёт для познавательного отдыха с детьми в помещении; билеты и доступность экспозиций уточните перед визитом.",
+    "sourceUrl": "https://visitastana.kz/ru/about-city/what-to-see/okeanarium-ailand/",
+    "sourceName": "Visit Astana · сведения о площадке; Visit Astana · точка комплекса, не вход",
+    "openingHours": "Ежедневно 09:00–22:00; касса океанариума до 21:30 · по Visit Astana, уточните перед визитом",
+    "lat": 51.147723762074,
+    "lon": 71.417308950275,
+    "coordinateSourceUrl": "https://visitastana.kz/ru/about-city/what-to-see/okeanarium-ailand/",
+    "indoor": true,
+    "bank": "left",
+    "address": "Астана, Коргалжынское шоссе, 2",
+    "image": "",
+    "rating": null,
+    "estimatedCostKzt": null,
+    "collectedAt": "2026-10-20T08:23:57.943Z",
+    "coordinateAccuracy": "sourced",
+    "links": {
+      "twoGis": "https://2gis.kz/astana/firm/70000001018081165"
+    }
+  },
+  {
+    "id": "kidburg-adp",
+    "name": "KidBurg · Abu Dhabi Plaza",
+    "category": "Развлечения",
+    "tags": [
+      "family",
+      "дети",
+      "профессии",
+      "игровой центр",
+      "необычное"
+    ],
+    "durationMinutes": 90,
+    "description": "Детский город профессий с игровыми заданиями и мастер-классами. Перед посещением уточните подходящие возрастные программы, сопровождение взрослых и стоимость билетов.",
+    "sourceUrl": "https://visitastana.kz/ru/about-city/what-to-see/kidburg/",
+    "sourceName": "Visit Astana · сведения о площадке; Geoapify / © OpenStreetMap contributors · ODbL, здание, не вход",
+    "openingHours": "Ежедневно 10:00–22:00 · по Visit Astana, уточните перед визитом",
+    "lat": 51.1220505,
+    "lon": 71.4279626,
+    "indoor": true,
+    "bank": "left",
+    "address": "Астана, улица Сыганак, 60/5",
+    "image": "",
+    "rating": null,
+    "estimatedCostKzt": null,
+    "collectedAt": "2026-10-20T08:23:57.943Z",
+    "coordinateAccuracy": "sourced",
+    "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=51.1220505&mlon=71.4279626#map=18/51.1220505/71.4279626",
+    "links": {
+      "twoGis": "https://2gis.kz/astana/firm/70000001040005032"
+    }
+  },
+  {
+    "id": "keruen-park",
+    "name": "Keruen Park · Керуен",
+    "category": "Развлечения",
+    "tags": [
+      "family",
+      "дети",
+      "игровой центр",
+      "активный отдых"
+    ],
+    "durationMinutes": 60,
+    "description": "Детский игровой парк в торговом центре «Керуен». Можно запланировать совместный активный отдых; ограничения по возрасту, росту и доступные аттракционы проверьте у парка.",
+    "sourceUrl": "https://www.keruen.kz/razvlecheniya/detyam/keruen_park",
+    "sourceName": "Керуен · официальный сайт; Geoapify / © OpenStreetMap contributors · ODbL, здание, не вход",
+    "openingHours": null,
+    "lat": 51.1278085,
+    "lon": 71.425901,
+    "indoor": true,
+    "bank": "left",
+    "address": "Астана, улица Достык, 9",
+    "image": "",
+    "rating": null,
+    "estimatedCostKzt": null,
+    "collectedAt": "2026-10-20T08:23:57.943Z",
+    "coordinateAccuracy": "sourced",
+    "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=51.1278085&mlon=71.425901#map=18/51.1278085/71.425901",
+    "links": {
+      "twoGis": "https://2gis.kz/astana/search/Keruen%20Park%20%C2%B7%20%D0%9A%D0%B5%D1%80%D1%83%D0%B5%D0%BD%20%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%94%D0%BE%D1%81%D1%82%D1%8B%D0%BA%2C%209"
+    }
+  },
+  {
+    "id": "sky-beach",
+    "name": "Sky Beach Club · Хан Шатыр",
+    "category": "Развлечения",
+    "tags": [
+      "family",
+      "бассейн",
+      "крытый пляж",
+      "необычное",
+      "отдых"
+    ],
+    "durationMinutes": 120,
+    "description": "Крытый пляжный клуб с бассейнами на пятом этаже «Хан Шатыра». Для визита подготовьте купальные принадлежности и заранее уточните тариф, ограничения и доступность бассейнов.",
+    "sourceUrl": "https://site.khanshatyr.com/en/entertainment/sky-beach-club",
+    "sourceName": "Хан Шатыр · официальный сайт; Geoapify / © OpenStreetMap contributors · ODbL, здание, не вход",
+    "openingHours": "10:00–21:00 · по странице Sky Beach Club, уточните перед визитом",
+    "lat": 51.1328426,
+    "lon": 71.4014752,
+    "indoor": true,
+    "bank": "left",
+    "address": "Астана, проспект Туран, 37",
+    "image": "",
+    "rating": null,
+    "estimatedCostKzt": null,
+    "collectedAt": "2026-10-20T08:23:57.943Z",
+    "coordinateAccuracy": "sourced",
+    "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=51.1328426&mlon=71.4014752#map=18/51.1328426/71.4014752",
+    "links": {
+      "twoGis": "https://2gis.kz/astana/search/Sky%20Beach%20Club%20%C2%B7%20%D0%A5%D0%B0%D0%BD%20%D0%A8%D0%B0%D1%82%D1%8B%D1%80%20%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%A2%D1%83%D1%80%D0%B0%D0%BD%2C%2037"
+    }
+  },
+  {
+    "id": "sadaq-aty",
+    "name": "Sadaq Aty · стрельба из лука",
+    "category": "Спорт",
+    "tags": [
+      "culture",
+      "необычное",
+      "стрельба из лука",
+      "садақ",
+      "archery",
+      "активный отдых"
+    ],
+    "durationMinutes": 60,
+    "description": "Клуб традиционной стрельбы из лука на Кабанбай батыра. Запишитесь на занятие с инструктором; возможность первого визита, возрастные ограничения и стоимость согласуйте с клубом.",
+    "sourceUrl": "https://wtafederation.org/members/kazakhstan",
+    "sourceName": "WTAF · сведения федерации; Geoapify / © OpenStreetMap contributors · ODbL, здание, не вход",
+    "openingHours": null,
+    "lat": 51.100966,
+    "lon": 71.4051717,
+    "indoor": true,
+    "bank": "left",
+    "address": "Астана, проспект Кабанбай батыра, 49А",
+    "image": "",
+    "rating": null,
+    "estimatedCostKzt": null,
+    "collectedAt": "2026-10-20T08:23:57.943Z",
+    "coordinateAccuracy": "sourced",
+    "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=51.100966&mlon=71.4051717#map=18/51.100966/71.4051717",
+    "links": {
+      "twoGis": "https://2gis.kz/astana/search/Sadaq%20Aty%20%C2%B7%20%D1%81%D1%82%D1%80%D0%B5%D0%BB%D1%8C%D0%B1%D0%B0%20%D0%B8%D0%B7%20%D0%BB%D1%83%D0%BA%D0%B0%20%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD%D0%B1%D0%B0%D0%B9%20%D0%B1%D0%B0%D1%82%D1%8B%D1%80%D0%B0%2C%2049%D0%90"
+    }
+  },
+  {
+    "id": "cbrb-astana",
+    "name": "CoffeeBoom Roasters & Bakery",
+    "category": "Кофейня",
+    "tags": [
+      "coffee",
+      "food",
+      "culture",
+      "кофе",
+      "выпечка",
+      "обжарка",
+      "необычное"
+    ],
+    "durationMinutes": 45,
+    "description": "Кофейня с собственной обжаркой, кухней и интерьерными инсталляциями о степной культуре. Можно совместить перерыв на кофе с осмотром пространства; работу ростера в момент визита уточните на месте.",
+    "sourceUrl": "https://coffeeboom.kz/ru/formats/cbrb/cbrb-astana/",
+    "sourceName": "Coffee Boom · официальный сайт; Geoapify / © OpenStreetMap contributors · ODbL, здание, не вход",
+    "openingHours": "Ежедневно 08:00–00:00 · по Coffee Boom, уточните перед визитом",
+    "lat": 51.1059851,
+    "lon": 71.4245692,
+    "indoor": true,
+    "bank": "left",
+    "address": "Астана, улица Туркестан, 16/3",
+    "image": "",
+    "rating": null,
+    "estimatedCostKzt": null,
+    "collectedAt": "2026-10-20T08:23:57.943Z",
+    "coordinateAccuracy": "sourced",
+    "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=51.1059851&mlon=71.4245692#map=18/51.1059851/71.4245692",
+    "links": {
+      "twoGis": "https://2gis.kz/astana/search/CoffeeBoom%20Roasters%20%26%20Bakery%20%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%A2%D1%83%D1%80%D0%BA%D0%B5%D1%81%D1%82%D0%B0%D0%BD%2C%2016%2F3"
+    }
+  },
+  {
+    "id": "coffeeboom-respublika",
+    "name": "Coffee Boom · Республики",
+    "category": "Кофейня",
+    "tags": [
+      "coffee",
+      "food",
+      "кофе",
+      "правый берег",
+      "еда",
+      "встреча"
+    ],
+    "durationMinutes": 35,
+    "description": "Кофейня сети Coffee Boom на проспекте Республики. Подходит для тёплой остановки в старом центре, встречи или перекуса; актуальное меню и свободные столы уточните у заведения.",
+    "sourceUrl": "https://www.coffeeboom.kz/coffeehouse",
+    "sourceName": "Coffee Boom · официальный каталог филиалов; Geoapify / © OpenStreetMap contributors · ODbL, здание, не вход",
+    "openingHours": "08:00–00:00 · по каталогу Coffee Boom, уточните перед визитом",
+    "lat": 51.159665,
+    "lon": 71.428436,
+    "indoor": true,
+    "bank": "right",
+    "address": "Астана, проспект Республики, 7",
+    "image": "",
+    "rating": null,
+    "estimatedCostKzt": null,
+    "collectedAt": "2026-10-20T08:23:57.943Z",
+    "coordinateAccuracy": "sourced",
+    "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=51.159665&mlon=71.428436#map=18/51.159665/71.428436",
+    "links": {
+      "twoGis": "https://2gis.kz/astana/search/Coffee%20Boom%20%C2%B7%20%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B8%20%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B8%2C%207"
+    }
+  },
+  {
+    "id": "qazaq-gourmet",
+    "name": "Qazaq Gourmet",
+    "category": "Ресторан",
+    "tags": [
+      "food",
+      "culture",
+      "казахская кухня",
+      "ресторан",
+      "гастрономия"
+    ],
+    "durationMinutes": 90,
+    "description": "Ресторан авторской казахской кухни на Мәңгілік Ел. Для дегустационного сета нужны отдельная бронь и больше времени; ресторан не рекомендует этот формат детям младше семи лет. Состав заказа и итоговую цену уточните заранее.",
+    "sourceUrl": "https://qazaqgourmet.kz/",
+    "sourceName": "Qazaq Gourmet · официальный сайт; Geoapify / © OpenStreetMap contributors · ODbL, здание, не вход",
+    "openingHours": null,
+    "lat": 51.1079415,
+    "lon": 71.4305133,
+    "indoor": true,
+    "bank": "left",
+    "address": "Астана, проспект Мангилик Ел, 29",
+    "image": "",
+    "rating": null,
+    "estimatedCostKzt": null,
+    "collectedAt": "2026-10-20T08:23:57.943Z",
+    "coordinateAccuracy": "sourced",
+    "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=51.1079415&mlon=71.4305133#map=18/51.1079415/71.4305133",
+    "links": {
+      "twoGis": "https://2gis.kz/astana/firm/70000001025895405"
+    }
+  },
+  {
+    "id": "sandyq",
+    "name": "Sandyq",
+    "category": "Ресторан",
+    "tags": [
+      "food",
+      "culture",
+      "казахская кухня",
+      "ресторан",
+      "интерьер",
+      "необычное"
+    ],
+    "durationMinutes": 75,
+    "description": "Ресторан с казахской кухней и интерьером, посвящённым традициям. Подойдёт для неспешного ужина после прогулки; бронирование, текущие часы и стоимость заказа нужно уточнить у ресторана.",
+    "sourceUrl": "https://visitastana.kz/public/file/gastro-guide.pdf",
+    "sourceName": "Visit Astana · гастрономический гид; Visit Astana · точка заведения, не вход",
+    "openingHours": null,
+    "lat": 51.132548,
+    "lon": 71.433385,
+    "coordinateSourceUrl": "https://visitastana.kz/ru/about-city/where-to-eat/sandyq-/",
+    "indoor": true,
+    "bank": "left",
+    "address": "Астана, улица Сарайшык, 34/3",
+    "image": "",
+    "rating": null,
+    "estimatedCostKzt": null,
+    "collectedAt": "2026-10-20T08:23:57.943Z",
+    "coordinateAccuracy": "sourced",
+    "links": {
+      "twoGis": "https://2gis.kz/astana/search/Sandyq%20%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%A1%D0%B0%D1%80%D0%B0%D0%B9%D1%88%D1%8B%D0%BA%2C%2034%2F3"
+    }
+  },
+  {
+    "id": "arnau-restaurant",
+    "name": "Arnau",
+    "category": "Ресторан",
+    "tags": [
+      "food",
+      "culture",
+      "казахская кухня",
+      "ресторан",
+      "ужин"
+    ],
+    "durationMinutes": 75,
+    "description": "Ресторан казахской кухни в здании Fitness Palace на Туран. Вариант для обеда или ужина с национальными блюдами; столик и музыкальную программу на нужную дату уточните заранее.",
+    "sourceUrl": "https://visitastana.kz/ru/about-city/where-to-eat/restoran-arnau/",
+    "sourceName": "Visit Astana · сведения о ресторане; Geoapify / © OpenStreetMap contributors · ODbL, здание, не вход",
+    "openingHours": null,
+    "lat": 51.128931,
+    "lon": 71.406271,
+    "indoor": true,
+    "bank": "left",
+    "address": "Астана, проспект Туран, 30",
+    "image": "",
+    "rating": null,
+    "estimatedCostKzt": null,
+    "collectedAt": "2026-10-20T08:23:57.943Z",
+    "coordinateAccuracy": "sourced",
+    "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=51.128931&mlon=71.406271#map=18/51.128931/71.406271",
+    "links": {
+      "twoGis": "https://2gis.kz/astana/search/Arnau%20%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%A2%D1%83%D1%80%D0%B0%D0%BD%2C%2030"
+    }
+  },
+  {
+    "id": "tary-akmeshit",
+    "name": "Tary · Акмешит",
+    "category": "Кофейня",
+    "tags": [
+      "coffee",
+      "food",
+      "кофе",
+      "чай",
+      "десерты",
+      "встреча"
+    ],
+    "durationMinutes": 40,
+    "description": "Кафе на улице Акмешит с чаем, кофе, десертами и горячими блюдами. Можно сделать паузу между городскими прогулками; актуальное меню, часы и стоимость заказа проверьте у заведения.",
+    "sourceUrl": "https://visitastana.kz/ru/about-city/where-to-eat/tary/",
+    "sourceName": "Visit Astana · сведения о кафе; Geoapify / © OpenStreetMap contributors · ODbL, здание, не вход",
+    "openingHours": null,
+    "lat": 51.1215187,
+    "lon": 71.4242079,
+    "indoor": true,
+    "bank": "left",
+    "address": "Астана, улица Акмешит, 1",
+    "image": "",
+    "rating": null,
+    "estimatedCostKzt": null,
+    "collectedAt": "2026-10-20T08:23:57.943Z",
+    "coordinateAccuracy": "sourced",
+    "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=51.1215187&mlon=71.4242079#map=18/51.1215187/71.4242079",
+    "links": {
+      "twoGis": "https://2gis.kz/astana/search/Tary%20%C2%B7%20%D0%90%D0%BA%D0%BC%D0%B5%D1%88%D0%B8%D1%82%20%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%90%D0%BA%D0%BC%D0%B5%D1%88%D0%B8%D1%82%2C%201"
+    }
+  },
+  {
+    "id": "rumi-mega",
+    "name": "Rumi · MEGA Silk Way",
+    "category": "Ресторан",
+    "tags": [
+      "food",
+      "family",
+      "ресторан",
+      "плов",
+      "восточная кухня",
+      "еда"
+    ],
+    "durationMinutes": 60,
+    "description": "Ресторан восточной кухни на первом этаже MEGA Silk Way. Подойдёт для обеда после прогулки в районе EXPO; меню, цены и возможность разместить вашу компанию уточните перед визитом.",
+    "sourceUrl": "https://rumifr.kz/",
+    "sourceName": "Rumi · официальный сайт сети; Geoapify / © OpenStreetMap contributors · ODbL, здание, не вход",
+    "openingHours": null,
+    "lat": 51.089546,
+    "lon": 71.4072823,
+    "indoor": true,
+    "bank": "left",
+    "address": "Астана, проспект Кабанбай батыра, 62",
+    "image": "",
+    "rating": null,
+    "estimatedCostKzt": null,
+    "collectedAt": "2026-10-20T08:23:57.943Z",
+    "coordinateAccuracy": "sourced",
+    "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=51.089546&mlon=71.4072823#map=18/51.089546/71.4072823",
+    "links": {
+      "twoGis": "https://2gis.kz/astana/search/Rumi%20%C2%B7%20MEGA%20Silk%20Way%20%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD%D0%B1%D0%B0%D0%B9%20%D0%B1%D0%B0%D1%82%D1%8B%D1%80%D0%B0%2C%2062"
+    }
+  }
+]

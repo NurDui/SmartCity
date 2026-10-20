@@ -2,6 +2,7 @@ import seeds from "@/data/seeds.json";
 import collected from "@/data/collected-pois.json";
 import collectionReport from "@/data/collection-report.json";
 import photoManifest from "@/data/poi-photos.json";
+import curatedVenues from "@/data/curated-venues.json";
 import type { POI } from "./types";
 
 const snapshot = new Map((collected as POI[]).map((poi) => [poi.id, poi]));
@@ -39,5 +40,9 @@ for (const fact of collected as POI[]) {
     const exterior = ["wiki-31388841","wiki-62815244","wiki-63707654","wiki-68030640"].includes(fact.id);
     places.push({...fact,...photos[fact.id],estimatedCostKzt:exterior?0:null,...(exterior?{budgetScope:"exterior-only" as const,costEstimateBasis:"editorial-exterior" as const,costSourceUrl:fact.sourceUrl}:{})});
   }
+}
+// Small, independently reviewed venue collection. 2GIS remains an outbound reference.
+for (const venue of curatedVenues as POI[]) {
+  if (!places.some(poi => poi.id === venue.id)) places.push({...venue,...photos[venue.id]});
 }
 export const collection = collectionReport;

@@ -1,6 +1,9 @@
 import type { CityEvent, CinemaSession, DiscoverResponse, LiveLanguage, LiveSection, TrafficState } from "./live-types.ts";
 import { getFeedConfig, integrationStates, type FeedKind } from "./provider-config.ts";
 import { fetchPublicCinema } from "./public-cinema.ts";
+import {fetchVisitAstanaEvents} from "./visit-events.ts";
+import {cachedPublicDiscovery,type PublicSection} from "./discovery-cache.ts";
+import type {MapDatabase} from "./open-map.ts";
 
 export const CITY_TIMEZONE="Asia/Qyzylorda" as const;
 export const FRESHNESS_MS={cinema:30*60_000,events:6*60*60_000,traffic:5*60_000} as const;
@@ -9,9 +12,7 @@ const MAX_BYTES=2_000_000;
 type AnyRecord=Record<string,unknown>;
 class StaleFeedError extends Error {}
 const cache=new Map<string,{body:unknown;expires:number}>();
-const inflight=new Map<string,Promise<unknown>>();
 const publicCache=new Map<string,{result:LiveSection<CinemaSession>|LiveSection<CityEvent>;expires:number}>();
-const publicInflight=new Map<string,Promise<LiveSection<CinemaSession>|LiveSection<CityEvent>>>();
 export function parseDiscoveryInput(value:unknown):{lat:number;lon:number;language:LiveLanguage}{
  const p=record(value);const {lat,lon}=p,language=p.language??"ru";
  if(typeof lat!=="number"||typeof lon!=="number"||!Number.isFinite(lat)||!Number.isFinite(lon)||lat<50.9||lat>51.35||lon<71.15||lon>71.8)throw new Error("Выберите корректную точку в Астане.");
@@ -70,7 +71,7 @@ export function normalizeEvents(raw:unknown,origin:{lat:number;lon:number},now=D
   const p=record(value);const id=text(p.id,160);if(ids.has(id))throw new Error("Duplicate event ID");ids.add(id);
   const place=coords(p),times=startsAndEnds(p);
   return {id,title:text(p.title,180),description:text(p.description,2200),imageUrl:optionalImage(p.imageUrl),...times,venue:text(p.venue,180),address:text(p.address,240),...place,distanceMeters:directDistance(origin,place),priceKzt:price(p.priceKzt),sourceUrl:safeExternalUrl(p.sourceUrl),...p.bookingUrl?{bookingUrl:safeExternalUrl(p.bookingUrl)}:{},category:text(p.category,80),updatedAt:fresh(p.updatedAt,"events",now),...p.priceIsFrom===true?{priceIsFrom:true}:{},...p.coordinateSourceUrl?{coordinateSourceUrl:safeExternalUrl(p.coordinateSourceUrl)}:{}};
- }).filter((p:CityEvent)=>cityDate(p.startsAt)===cityDate(now)&&(Date.parse(p.startsAt)>=now||Boolean(p.endsAt&&Date.parse(p.endsAt)>now))).sort((a:CityEvent,b:CityEvent)=>a.distanceMeters-b.distanceMeters||Date.parse(a.startsAt)-Date.parse(b.startsAt)).slice(0,30);
+ }).filter((p:CityEvent)=>cityDate(p.startsAt)===cityDate(now)&&(Date.parse(p.startsAt)>=now||Boolean(p.endsAt&&Date.parse(p.endsAt)>now))).sort((a:CityEvent,b:CityEvent)=>(a.distanceMeters??Infinity)-(b.distanceMeters??Infinity)||Date.parse(a.startsAt)-Date.parse(b.startsAt)).slice(0,30);
  return {status:"live",source:text(body.source,120),updatedAt:timestamp(body.updatedAt),items,message:items.length?"События из разрешенного фида. Доступ и программу уточняйте у организатора.":"Свежий фид не содержит актуальных событий на сегодня."};
 }
 export function normalizeTraffic(raw:unknown,now=Date.now()):TrafficState {
@@ -82,7 +83,6 @@ async function fetchFeed(kind:FeedKind,env:Record<string,string|undefined>,fetch
  const config=getFeedConfig(kind,env);if(!config)return null;
  // Cache and upstream request do not include the user's location, query, or language.
  const key=`${kind}:${config.url}:${config.token||""}`;const hit=cache.get(key);if(hit&&hit.expires>now)return hit.body;
- const pending=inflight.get(key);if(pending)return pending;
  const request=(async()=>{
   const response=await fetcher(config.url,{headers:{Accept:"application/json",...config.token?{Authorization:`Bearer ${config.token}`}:{ }},signal:AbortSignal.timeout(6000),redirect:"manual",cache:"no-store"});
   if(!response.ok||Number(response.headers.get("content-length"))>MAX_BYTES)throw new Error("Provider unavailable or oversized");
@@ -92,44 +92,51 @@ async function fetchFeed(kind:FeedKind,env:Record<string,string|undefined>,fetch
   const buffer=new Uint8Array(size);let offset=0;for(const chunk of chunks){buffer.set(chunk,offset);offset+=chunk.length;}
   const body=JSON.parse(new TextDecoder().decode(buffer));
   cache.set(key,{body,expires:now+CACHE_MS[kind]});return body;
- })();inflight.set(key,request);
- try{return await request;}finally{inflight.delete(key);}
+ })();
+ return request;
 }
 function unavailable<T>(kind:FeedKind,status:"unconfigured"|"error"|"stale"):LiveSection<T> {
  return {status,source:kind==="cinema"?"Сеансы кино":kind==="events"?"Городские события":"Дорожная ситуация",updatedAt:null,items:[],message:status==="unconfigured"?"Разрешенный источник не подключен. Текущие данные не подставляются из примеров.":status==="stale"?"Источник вернул устаревшую дату или время обновления. Данные скрыты.":"Источник временно недоступен или не прошел проверку формата. Данные скрыты."};
 }
-export async function discover(origin:{lat:number;lon:number},options?:{now?:number;language?:LiveLanguage;env?:Record<string,string|undefined>;fetcher?:typeof fetch;publicFallback?:boolean}):Promise<DiscoverResponse> {
+export function freshPublicItems(result:PublicSection,kind:"cinema"|"events",origin:{lat:number;lon:number},now:number):PublicSection{
+ const today=cityDate(now);
+ const items=result.items.filter(p=>{
+  if("datePrecision" in p&&p.datePrecision==="day")return cityDate(p.startsAt)<=today&&Boolean(p.endsAt&&cityDate(p.endsAt)>=today);
+  return cityDate(p.startsAt)===today&&(Date.parse(p.startsAt)>=now||Boolean(kind==="events"&&p.endsAt&&Date.parse(p.endsAt)>now));
+ }).map(p=>({...p,distanceMeters:p.lat===null||p.lon===null?null:directDistance(origin,{lat:p.lat,lon:p.lon})})).sort((a,b)=>(a.distanceMeters??Infinity)-(b.distanceMeters??Infinity));
+ return {...result,items} as PublicSection;
+}
+export async function discover(origin:{lat:number;lon:number},options?:{now?:number;language?:LiveLanguage;env?:Record<string,string|undefined>;fetcher?:typeof fetch;publicFallback?:boolean;db?:MapDatabase;requireSharedCache?:boolean}):Promise<DiscoverResponse> {
  const now=options?.now??Date.now(),env=options?.env??process.env,fetcher=options?.fetcher??fetch;
  const section=async(kind:"cinema"|"events")=>{try{const raw=await fetchFeed(kind,env,fetcher,now);
   if(raw===null){
    if(options?.publicFallback===false)return unavailable(kind,"unconfigured");
-   const key=`${kind}:${cityDate(now)}:${options?.language||"ru"}`,hit=publicCache.get(key);
-   let result:LiveSection<CinemaSession>|LiveSection<CityEvent>;
-   if(hit&&hit.expires>now)result=hit.result;
-   else{
-    let pending=publicInflight.get(key);
-    if(!pending){pending=kind==="cinema"?fetchPublicCinema({date:cityDate(now),language:options?.language,location:{lat:51.1282,lon:71.4307}},{fetcher,now}):fetchPublicEvents({date:cityDate(now),language:options?.language,location:{lat:51.1282,lon:71.4307}},{fetcher,now});publicInflight.set(key,pending);}
-    try{result=await pending;publicCache.set(key,{result,expires:now+(result.status==="live"?5*60_000:30_000)});}finally{publicInflight.delete(key);}
-   }
+   const key=`discovery-v2:${kind}:${cityDate(now)}:${options?.language||"ru"}`,hit=publicCache.get(key);
+   const collect=():Promise<PublicSection>=>kind==="cinema"?fetchPublicCinema({date:cityDate(now),language:options?.language,location:{lat:51.1282,lon:71.4307}},{fetcher,now}):fetchCombinedPublicEvents({date:cityDate(now),language:options?.language,location:{lat:51.1282,lon:71.4307}},{fetcher,now});
+   let result:PublicSection;
+   if(options?.db)result=await cachedPublicDiscovery(options.db,key,now,collect);
+   else if(options?.requireSharedCache)throw new Error("Shared discovery cache unavailable");
+   else if(hit&&hit.expires>now)result=hit.result;
+   else{result=await collect();publicCache.set(key,{result,expires:now+(result.status==="live"?15*60_000:60_000)});for(const [k,v]of publicCache)if(v.expires<now)publicCache.delete(k);}
    // Recompute distance per request. Cache never stores device coordinates.
-   return {...result,items:result.items.map(p=>({...p,distanceMeters:directDistance(origin,p)})).sort((a,b)=>a.distanceMeters-b.distanceMeters)};
+   return freshPublicItems(result,kind,origin,now);
   }
   return kind==="cinema"?normalizeCinema(raw,origin,now):normalizeEvents(raw,origin,now);}catch(e){return unavailable(kind,e instanceof StaleFeedError?"stale":"error");}};
- const traffic=async():Promise<TrafficState>=>{try{const raw=await fetchFeed("traffic",env,fetcher,now);if(raw!==null)return normalizeTraffic(raw,now);return {status:"unconfigured",score:null,source:"Дорожная ситуация",updatedAt:null,message:"Источник баллов пробок не подключен. При ключе 2GIS слой и балл доступны после загрузки карты."};}catch(e){return {status:e instanceof StaleFeedError?"stale":"error",score:null,source:"Дорожная ситуация",updatedAt:null,message:"Свежий балл провайдера недоступен. Он не рассчитывается из цвета дорог."};}};
+ const traffic=async():Promise<TrafficState>=>{try{const raw=await fetchFeed("traffic",env,fetcher,now);if(raw!==null)return normalizeTraffic(raw,now);return {status:"unconfigured",score:null,source:"Дорожная ситуация",updatedAt:null,message:"Источник баллов пробок не подключен. Карта и пешие маршруты не вычисляют текущие пробки."};}catch(e){return {status:e instanceof StaleFeedError?"stale":"error",score:null,source:"Дорожная ситуация",updatedAt:null,message:"Свежий балл провайдера недоступен. Он не рассчитывается из цвета дорог."};}};
  const [cinema,events,trafficState]=await Promise.all([section("cinema"),section("events"),traffic()]);
- const integrations=integrationStates(env).map(p=>p.id==="events"&&events.status==="live"&&!env.EVENTS_FEED_URL?{...p,configured:true,label:"Astana.kz · публичная афиша",kind:"publisher-source" as const}:p.id==="cinema"&&cinema.status==="live"&&!env.CINEMA_FEED_URL?{...p,configured:true,label:"Киноафиша · публичная афиша",kind:"publisher-source" as const}:p);
+ const integrations=integrationStates(env).map(p=>p.id==="events"&&events.status==="live"&&!env.EVENTS_FEED_URL?{...p,configured:true,label:"Astana.kz + Visit Astana · публичные афиши",kind:"publisher-source" as const}:p.id==="cinema"&&cinema.status==="live"&&!env.CINEMA_FEED_URL?{...p,configured:true,label:"Киноафиша · публичная афиша",kind:"publisher-source" as const}:p);
  return localizeDiscovery({date:cityDate(now),timezone:CITY_TIMEZONE,generatedAt:new Date(now).toISOString(),cinema:cinema as LiveSection<CinemaSession>,events:events as LiveSection<CityEvent>,traffic:trafficState,integrations},options?.language??"ru",{cinema:!env.CINEMA_FEED_URL,events:!env.EVENTS_FEED_URL});
 }
-export function resetLiveCache():void{cache.clear();inflight.clear();publicCache.clear();publicInflight.clear();}
+export function resetLiveCache():void{cache.clear();publicCache.clear();}
 
 export function localizeDiscovery(value:DiscoverResponse,language:LiveLanguage,publicSources:{cinema:boolean;events:boolean}):DiscoverResponse{
  if(language==="ru")return value;
- const labels=language==="kk"?{cinema:"Кино сеанстары",events:"Қала оқиғалары",traffic:"Жол қозғалысы",pubCinema:"Киноафиша · ашық афиша (агрегатор)",pubEvents:"Astana.kz · ашық қалалық афиша"}:{cinema:"Movie showtimes",events:"City events",traffic:"Road traffic",pubCinema:"Kinoafisha · public listings (aggregator)",pubEvents:"Astana.kz · municipal event listings"};
+ const labels=language==="kk"?{cinema:"Кино сеанстары",events:"Қала оқиғалары",traffic:"Жол қозғалысы",pubCinema:"Киноафиша · ашық афиша (агрегатор)",pubEvents:"Astana.kz + Visit Astana · қалалық афиша"}:{cinema:"Movie showtimes",events:"City events",traffic:"Road traffic",pubCinema:"Kinoafisha · public listings (aggregator)",pubEvents:"Astana.kz + Visit Astana · public city listings"};
  const unavailableMessage=(status:string)=>language==="kk"?(status==="stale"?"Дереккөз күні немесе жаңарту уақыты ескірген. Деректер жасырылды.":status==="unconfigured"?"Расталған дереккөз немесе бүгінгі деректер жоқ. Мысалдармен алмастырылмайды.":"Дереккөз уақытша қолжетімсіз немесе пішімі тексеруден өтпеді. Ойдан дерек қосылмайды."):(status==="stale"?"The source date or update time is stale. Its data is hidden.":status==="unconfigured"?"No approved source or confirmed listings for today are available. Examples are never substituted.":"The source is temporarily unavailable or failed validation. No data is invented.");
  const cinemaMessage=value.cinema.status!=="live"?unavailableMessage(value.cinema.status):publicSources.cinema?(language==="kk"?"Сеанстар Киноафишаның ашық беттерінен алынды, бұл кинотеатр API-ы емес. Баға «бастап» көрсетілген, билетті өту кезінде тексеріңіз. Жариялаушының жаңарту уақыты белгісіз, біздің тексеру уақыты берілген. Таңдау алты фильммен шектелген.":"Showtimes come from public Kinoafisha pages, an aggregator rather than a cinema API. Prices are minimums; check availability when booking. The publisher's update time is unknown, so our retrieval time is shown. Coverage is limited to six films."):(language==="kk"?"Бүгінгі сеанстар рұқсат етілген фидтен алынды. Баға мен билеттер сатып алу кезінде өзгеруі мүмкін.":"Today's showtimes come from the approved feed. Prices and availability may change at checkout.");
- const eventsMessage=value.events.status!=="live"?unavailableMessage(value.events.status):publicSources.events?(language==="kk"?"Қалалық афишаның ашық беттері қазір тексерілді. Жариялаушының жаңарту уақыты белгісіз. Ең төменгі баға берілген, кіруді ұйымдастырушыдан тексеріңіз. Алаң координаттары Википедиядан алынды, бұл кіреберіс нүктесі емес.":"Municipal public pages were retrieved now. The publisher's update time is unknown. Minimum prices are shown; confirm admission with the organizer. Venue coordinates come from Wikipedia and do not identify an entrance."):(language==="kk"?"Оқиғалар рұқсат етілген фидтен алынды. Кіру мен бағдарламаны ұйымдастырушыдан нақтылаңыз.":"Events come from the approved feed. Confirm admission and the programme with the organizer.");
+ const eventsMessage=value.events.status!=="live"?unavailableMessage(value.events.status):publicSources.events?value.events.message:(language==="kk"?"Оқиғалар рұқсат етілген фидтен алынды. Кіру мен бағдарламаны ұйымдастырушыдан нақтылаңыз.":"Events come from the approved feed. Confirm admission and the programme with the organizer.");
  const trafficMessage=value.traffic.status==="live"?(language==="kk"?"Астана бойынша провайдер балы, шкала 1–10. Бұл жаяу бағыттың бағасы емес.":"Provider-issued traffic score for Astana on a 1–10 scale. It does not rate a walking route."):value.traffic.status==="unconfigured"?(language==="kk"?"Кептеліс балының дереккөзі қосылмаған. MapLibre кептеліс балын есептемейді.":"No traffic-score feed is connected. MapLibre does not calculate traffic scores."):(language==="kk"?"Провайдердің жаңа балы қолжетімсіз. Ол жолдардың түсінен есептелмейді.":"A fresh provider score is unavailable. It is never inferred from road colours.");
- const source=(s:string,kind:"cinema"|"events"|"traffic")=>s.startsWith("Киноафиша")?labels.pubCinema:s.startsWith("Astana.kz")?labels.pubEvents:s==="Сеансы кино"||s==="Городские события"||s==="Дорожная ситуация"?labels[kind]:s;
+ const source=(s:string,kind:"cinema"|"events"|"traffic")=>s.startsWith("Киноафиша")?labels.pubCinema:(s.startsWith("Astana.kz")||s.startsWith("Visit Astana"))?labels.pubEvents:s==="Сеансы кино"||s==="Городские события"||s==="Дорожная ситуация"?labels[kind]:s;
  const integrationLabels=language==="kk"?{maplibre:"MapLibre · OpenStreetMap",yandex:"Yandex Maps · JavaScript API","2gis":"2GIS MapGL JS",cinema:publicSources.cinema&&value.cinema.status==="live"?labels.pubCinema:"Кино: рұқсат етілген JSON-фид",events:publicSources.events&&value.events.status==="live"?labels.pubEvents:"Оқиғалар: рұқсат етілген JSON-фид",traffic:"Кептеліс: провайдер фиді, шкала 10",telegram:"Telegram: арна иесі жарияланымдарды оқиғалар фидіне қосады",instagram:"Instagram: кәсіби аккаунт иесі медианы қосады"}:{maplibre:"MapLibre · OpenStreetMap",yandex:"Yandex Maps · JavaScript API","2gis":"2GIS MapGL JS",cinema:publicSources.cinema&&value.cinema.status==="live"?labels.pubCinema:"Cinema: approved JSON feed",events:publicSources.events&&value.events.status==="live"?labels.pubEvents:"Events: approved JSON feed",traffic:"Traffic: provider feed, scale of 10",telegram:"Telegram: the channel owner supplies approved posts to the event feed",instagram:"Instagram: the professional account owner supplies approved media"};
  return {...value,cinema:{...value.cinema,source:source(value.cinema.source,"cinema"),message:cinemaMessage},events:{...value.events,source:source(value.events.source,"events"),message:eventsMessage},traffic:{...value.traffic,source:source(value.traffic.source,"traffic"),message:trafficMessage},integrations:value.integrations.map(p=>({...p,label:integrationLabels[p.id]}))};
 }
@@ -154,11 +161,23 @@ export function todayPublicEventLinks(html:string,date:string):string[]{
  const urls=new Set<string>();for(const m of html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi)){
   if(!/^\/ru\/events\/[a-f0-9-]{36}$/.test(m[1]))continue;const dateTime=m[2].match(/<time\b[^>]*dateTime="([^"]+)"/i)?.[1];
   if(dateTime&&Number.isFinite(Date.parse(dateTime))&&cityDate(dateTime)===date)urls.add(`https://astana.kz${m[1]}`);
- }return [...urls].slice(0,8);
+ }return [...urls].slice(0,4);
 }
 async function publicText(url:string,fetcher:typeof fetch):Promise<string>{
- const r=await fetcher(url,{signal:AbortSignal.timeout(7000),redirect:"manual",headers:{Accept:"text/html,application/json","User-Agent":"SeruenCityGuide/1.0 (public event references)"},cache:"no-store"});if(!r.ok)throw new Error("Public source unavailable");const value=await r.text();if(value.length>2_000_000)throw new Error("Public source oversized");return value;
+ const r=await fetcher(url,{signal:AbortSignal.timeout(7000),redirect:"manual",headers:{Accept:"text/html,application/json","User-Agent":"SeruenCityGuide/1.0 (public event references; https://seruen-astana.connect550439.chatgpt.site)"},cache:"no-store"});if(!r.ok||Number(r.headers.get("content-length"))>MAX_BYTES)throw new Error("Public source unavailable");
+ const reader=r.body?.getReader();if(!reader)throw new Error("Empty source");let size=0;const chunks:Uint8Array[]=[];
+ while(true){const part=await reader.read();if(part.done)break;size+=part.value.length;if(size>MAX_BYTES){await reader.cancel();throw new Error("Public source oversized");}chunks.push(part.value);}
+ const bytes=new Uint8Array(size);let offset=0;for(const part of chunks){bytes.set(part,offset);offset+=part.length;}return new TextDecoder().decode(bytes);
 }
+/** Exact known venues only. Coordinates identify a building, not a verified entrance. */
+const EVENT_VENUES=[
+ {names:/^(?:Астана Арена|Astana Arena)$/i,lat:51.1082,lon:71.4026,source:"https://www.wikidata.org/wiki/Q746559"},
+ {names:/^(?:Барыс Арена|Барыс аренасы|Barys Arena)$/i,lat:51.10921388888889,lon:71.39482222222222,source:"https://www.wikidata.org/wiki/Q16632800"},
+ {names:/^(?:Астана Опера|Астана опера|Astana Opera)(?:\s*[\-–·,].*)?$/i,lat:51.135555555555555,lon:71.41091666666667,source:"https://en.wikipedia.org/?curid=48438400"},
+ {names:/^(?:Астана Балет|Astana Ballet)$/i,lat:51.09825,lon:71.41939,source:"https://www.wikidata.org/wiki/Q122526919"},
+ {names:/^(?:Национальный музей РК|Национальный музей Республики Казахстан|Қазақстан Республикасының Ұлттық музейі|National Museum of the Republic of Kazakhstan)$/i,lat:51.1178,lon:71.4701,source:"https://www.wikidata.org/wiki/Q18405670"},
+ {names:/^(?:Дворец мира и согласия|Бейбітшілік және келісім сарайы|Palace of Peace and Reconciliation)$/i,lat:51.123055555556,lon:71.463611111111,source:"https://www.wikidata.org/wiki/Q2119741"}
+];
 export async function fetchPublicEvents(request:{date:string;language?:LiveLanguage;location:{lat:number;lon:number}},options?:{fetcher?:typeof fetch;now?:number}):Promise<LiveSection<CityEvent>> {
  const now=options?.now??Date.now(),fetcher=options?.fetcher??fetch,lang=request.language??"ru",retrievedAt=new Date(now).toISOString();
  const source="Astana.kz · публичная городская афиша";
@@ -178,20 +197,26 @@ export async function fetchPublicEvents(request:{date:string;language?:LiveLangu
      if(Date.parse(startsAt)<now&&(!endsAt||Date.parse(endsAt)<=now))continue;
      const firstPlace=Array.isArray(show.places)?record(show.places[0]):null;
      const venue=firstPlace?localized(firstPlace.name,lang):"";
-     // Exact title whitelist avoids geocoding a similarly named institution or portal footer.
-     const wikiTitle=/^(?:Астана Арена|Astana Arena)$/i.test(venue)?"Астана Арена":null;
-     if(!wikiTitle)continue;
-     const geoUrl=new URL("https://ru.wikipedia.org/w/api.php");geoUrl.search=new URLSearchParams({action:"query",format:"json",prop:"coordinates",titles:wikiTitle}).toString();
-     const geo=JSON.parse(await publicText(geoUrl.href,fetcher)) as {query?:{pages?:Record<string,{title?:string;coordinates?:{lat:number;lon:number}[]}>}};
-     const venuePage=Object.values(geo.query?.pages||{}).find(p=>p.title===wikiTitle);const point=venuePage?.coordinates?.[0];if(!point)continue;const position=coords(point as unknown as AnyRecord);
+     // Exact aliases from independently sourced venue records; no per-visitor geocoding.
+     const point=EVENT_VENUES.find(p=>p.names.test(venue));if(!point)continue;
+     const position={lat:point.lat,lon:point.lon};
      const title=localized(event.name,lang)||localized(show.eventName,lang);if(!title)continue;
      const descriptionText=stripHtml(localized(event.description,lang));const description=descriptionText.match(/^.{1,400}?[.!?](?:\s|$)/)?.[0]?.trim()||descriptionText.slice(0,220)||title;
      const cover=typeof event.coverHorizontalFileId==="string"&&/^[a-f0-9-]{36}$/.test(event.coverHorizontalFileId)?`https://astana.kz/_media/event/Files/Download/${event.coverHorizontalFileId}`:null;
      const rawPrice=typeof show.priceFrom==="number"?show.priceFrom:event.priceFrom;
-     items.push({id:`astana:${text(show.id,160)}`,title:title.slice(0,180),description,imageUrl:cover,startsAt,...endsAt?{endsAt}:{},venue,address:`${venue}, ${lang==="en"?"Astana":"Астана"}`,...position,distanceMeters:directDistance(request.location,position),priceKzt:price(rawPrice),priceIsFrom:true,sourceUrl:url,bookingUrl:url,category:localized(event.genre,lang)||(lang==="en"?"Event":lang==="kk"?"Оқиға":"Событие"),updatedAt:retrievedAt,coordinateSourceUrl:`https://ru.wikipedia.org/wiki/${encodeURIComponent(wikiTitle.replace(/ /g,"_"))}`});
+     items.push({id:`astana:${text(show.id,160)}`,title:title.slice(0,180),description,imageUrl:cover,startsAt,...endsAt?{endsAt}:{},venue,address:`${venue}, ${lang==="en"?"Astana":"Астана"}`,...position,distanceMeters:directDistance(request.location,position),priceKzt:price(rawPrice),priceIsFrom:true,sourceUrl:url,bookingUrl:url,category:localized(event.genre,lang)||(lang==="en"?"Event":lang==="kk"?"Оқиға":"Событие"),updatedAt:retrievedAt,coordinateSourceUrl:point.source});
     }
    }
   }
   return {status:"live",source,updatedAt:retrievedAt,retrievedAt,sourceUpdatedAt:null,items:[...new Map(items.map(p=>[p.id,p])).values()].slice(0,20),message:"Публичные страницы получены сейчас. Время обновления издателем неизвестно. Цена указана от минимальной, наличие уточняйте у организатора. Координаты площадки из Википедии, не точка входа."};
  }catch(e){return {status:e instanceof StaleFeedError?"stale":"error",source,updatedAt:null,retrievedAt:null,sourceUpdatedAt:null,items:[],message:"Публичная афиша не подтвердила события на сегодня. Данные не выдуманы и не заменены прошлой датой."};}
+}
+export async function fetchCombinedPublicEvents(request:{date:string;language?:LiveLanguage;location:{lat:number;lon:number}},options?:{fetcher?:typeof fetch;now?:number}):Promise<LiveSection<CityEvent>>{
+ const now=options?.now??Date.now();
+ if(request.date!==cityDate(now))return {status:"stale",source:"Astana.kz + Visit Astana",updatedAt:null,items:[],message:"Requested date is not today."};
+ const [municipal,tourism]=await Promise.all([fetchPublicEvents(request,options),fetchVisitAstanaEvents(request,options)]);
+ const live=[municipal,tourism].filter(s=>s.status==="live");
+ if(!live.length)return municipal;
+ const language=request.language??"ru",message=language==="kk"?"Ашық қалалық афишалар тексерілді. Нақты сеанс уақыты мен жарияланған күндер аралығы бөлек көрсетіледі. Уақыт пен мекенжай болмаған кезде олар ойдан қосылмайды; ұйымдастырушыдан тексеріңіз. Қамту шектеулі.":language==="en"?"Public municipal listings were checked. Exact sessions and published date intervals are shown separately. Missing hours, venues and prices are not inferred; confirm with the organiser. Coverage is limited.":"Проверены публичные городские афиши. Точные сеансы и опубликованные периоды показаны отдельно. Неизвестные часы, площадки и цены не додумываются — уточните у организатора. Охват ограничен.";
+ return {status:"live",source:live.map(s=>s.source.split(" · ")[0]).join(" + "),updatedAt:new Date(now).toISOString(),retrievedAt:new Date(now).toISOString(),sourceUpdatedAt:null,items:[...new Map(live.flatMap(s=>s.items).map(p=>[p.id,p])).values()].slice(0,20),message};
 }

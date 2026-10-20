@@ -1,9 +1,10 @@
 import {discover,parseDiscoveryInput} from "@/lib/live-data";
+import {env} from "cloudflare:workers";
 const headers={"Cache-Control":"no-store","X-Content-Type-Options":"nosniff"};
 async function respond(value:unknown){
  let input:ReturnType<typeof parseDiscoveryInput>;
  try{input=parseDiscoveryInput(value);}catch(error){return Response.json({error:error instanceof Error?error.message:"Некорректный запрос."},{status:400,headers});}
- try{return Response.json(await discover({lat:input.lat,lon:input.lon},{language:input.language}),{headers});}
+ try{return Response.json(await discover({lat:input.lat,lon:input.lon},{language:input.language,db:env.DB,requireSharedCache:true}),{headers});}
  catch{return Response.json({error:"Не удалось получить актуальные городские данные."},{status:503,headers});}
 }
 /** The application uses POST so exact location is not embedded in an access-log URL. */
