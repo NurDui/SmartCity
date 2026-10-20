@@ -201,6 +201,9 @@ textarea::placeholder { color:var(--muted);opacity:.85; }
 .provider-dot { width:9px;height:9px;border-radius:3px; }
 .site-footer { max-width:1500px;display:flex;justify-content:space-between;align-items:center;gap:25px;border-top:1px solid var(--border);padding:26px 4.6% 34px;margin:auto;font-size:14px;color:var(--muted); }
 .footer-brand { font-family:Georgia,serif;font-size:29px;font-weight:700;letter-spacing:-1px;color:var(--ink); }
+.site-footer .footer-identity { display:grid;gap:6px;min-width:0; }
+.footer-team { margin:0;font-size:16px;line-height:1.6;font-weight:600;color:var(--ink);overflow-wrap:anywhere; }
+.footer-tagline { margin:0;font-size:14px;line-height:1.6; }
 .site-footer>div { display:flex;align-items:center;gap:22px; }
 .site-footer button { font-size:14px;background:transparent;color:var(--muted); }
 .site-footer>div>span { font-size:14px;letter-spacing:1.5px; }
